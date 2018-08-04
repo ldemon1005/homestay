@@ -1,0 +1,311 @@
+.form-item{
+	padding: 15px;
+	width: 100%;
+}
+.form-item label{
+	font-family: 'Muli';
+	font-weight: 600;
+	display: block;
+}
+.form-item input[type='text'],.form-item select{
+	width: 50%;
+	border: 1px solid #999;
+	padding: 0 15px;
+	height: 40px;
+	margin-bottom: 5px;
+	font-family: Muli;
+}
+.form-item input::placeholder{
+	color: #999;
+	font-family: Muli;
+}
+.tip-text{
+	font-size: 14px;
+	font-style: italic;
+	font-family: Muli;
+	color: #999;
+}
+.form-item input[type='checkbox']{
+	width: 20px;
+	height: 20px;
+	border: 1px solid #999;
+	background:#FFF;
+	margin-right: 5px;
+}
+.form-item .rule{
+	width: 100%;
+	height: 130px;
+	padding: 0 15px;
+}
+.form-item .description{
+	width: 100%;
+	height: 204px;
+	padding: 0 15px;
+}
+.form-item button,.form-item-2 button{
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	width: 120px;
+	border: none;
+	background: #C2D44E;
+	color: #FFF;
+	font-family: Muli;
+	font-size: 14px;
+	text-align: center;
+}
+.form-item>a{
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	width: 120px;
+	border: 1px solid #999;
+	color: #999;
+	font-family: Muli;
+	font-size: 14px;
+	text-align: center;
+}
+.form-container{
+	display: flex;
+	flex-wrap: wrap;
+}
+.form-item-2{
+	flex: 0 0 50%;
+	padding: 15px;
+}
+.form-item-2 label{
+	font-family: 'Muli';
+	font-weight: 600;
+	display: block;
+}
+.form-item-2 input[type='text'],.form-item-2 input[type='password'], .form-item-2 select{
+	width: 100%;
+	border: 1px solid #999;
+	padding: 0 15px;
+	height: 40px;
+	margin-bottom: 5px;
+	color: #000;
+}
+.form-item-2 textarea{
+	width: 100%;
+	border: 1px solid #999;
+	padding: 0 15px;
+	margin-bottom: 5px;
+	color: #000;
+	min-height: 180px;
+}
+.form-item-2-btn{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.form-item-2>a{
+	display: inline-block;
+	color: unset;
+	text-decoration: none;
+	height: 40px;
+	line-height: 40px;
+	width: 120px;
+	border: 1px solid #999;
+	background: #FFF;
+	color: #999;
+	font-family: Muli;
+	font-size: 14px;
+	text-align: center;
+}
+.form-item-2 a:hover{
+	background: #999;
+	color: #FFF;
+}
+
+.form-item-2 .save-btn{
+	float: right;
+	margin-right: 30px;
+	cursor: pointer;
+}
+.form-item .add-room-btn{
+	display: block;
+	background :#FFF;
+	color: #9fb702;
+	border:1px solid #C2D44E;
+	font-size: 24px;
+	font-weight: 700;
+	width: 300px;
+	height: 50px;
+	margin: auto;
+	cursor: pointer;
+	outline: none;
+}
+.form-item .add-room-btn .fa-plus{
+	font-size: 24px;
+}
+
+/*book-box*/
+.book-box{
+	height: 100%;
+	border: 1px solid #ccc;
+}
+.book-box-header{
+	background: #DEDEDE;
+	font-family: Muli;
+	font-weight: 600;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+.book-box-body{
+	padding: 20px;
+}
+.book-homestay{
+	display: flex;
+}
+.book-image{
+	height: 110px;
+	width: 110px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.book-homestay-info{
+	padding: 5px 20px;
+	flex: 1;
+}
+.book-homestay-name{
+	font-family: Muli;
+	color: black;
+	font-size: 16px;
+}
+.book-homestay-address{
+	font-family: Muli;
+	color: #999;
+	font-size: 16px;
+}
+.book-info{
+	padding: 30px 0;
+}
+.book-info-row{
+	display: flex;
+	font-size: 14px;
+	font-weight: 600;
+	font-family: Muli;
+	margin-bottom: 12px;
+}
+.book-info-row-last{
+	display: flex;
+}
+.book-info-left{
+	flex: 1;
+	text-align: left;
+}
+.book-info-right{
+	flex: 1;
+	text-align: right;
+}
+.book-info-row-last .book-info-left{
+	flex: 1;
+	text-transform: uppercase;
+	font-family: Muli;
+	text-align: left;
+}
+.book-info-row-last .book-info-right{
+	flex: 1;
+	font-family: Muli;
+	font-weight: bold;
+	text-align: right;
+}
+
+.right-bottom{
+	position: absolute;
+	bottom: 0;
+	right: 15px;
+}
+
+.navigation{
+	justify-content: center;
+}
+
+.navigation li{
+	font-family: Muli;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 0 37px;
+	color: #999;
+}
+.navigation li.active{
+	color: #C2D44E;
+}
+
+/*complete*/
+.complete-container{
+	width: 100%;
+	height: 350px;
+	box-shadow: 0 0 9px #999;
+	position: relative;
+}
+.complete-center{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+.complete-center img{
+	margin-bottom: 15px;
+}
+.complete-center p{
+	font-family: Muli;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+
+/*nav-tab*/
+.nav-tabs{
+	border: none;
+	background: #A9BD2C;
+	color: #FFF!important;
+	display: flex;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+	background: #C2D44E;
+	border:none;
+	border-radius: unset;
+	color: #FFF!important;
+}
+.nav-tabs .nav-link{
+	border: none;
+	border-radius: unset;
+}
+.nav-tabs .nav-item{
+	color: #FFF;
+	margin-bottom: 0;
+	font-size: 14px;
+	height: 44px;
+	line-height: 44px;
+	padding: 0;
+	flex: 1;
+	text-align: center;
+	font-family: Muli;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+	border: none;
+	border-radius: unset;
+}
+
+.bank-container{
+	border: 1px dotted #999999;
+	padding: 25px;
+	display: grid;
+	grid: 100px/auto auto auto auto;
+}
+.bank-item{
+	flex: 0 0 33.33%;
+	height: 60px;
+	width: 134px;
+	margin-bottom: 44px;
+}
+.bank-image{
+	border: 1px dotted #999999;
+	height: 60px;
+	width: 100px;
+}
