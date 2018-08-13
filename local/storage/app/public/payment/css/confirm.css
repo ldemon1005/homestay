@@ -1,0 +1,21 @@
+.confirm-box{
+	border: 1px solid #ccc;
+	position: relative;
+	padding: 20px;
+	font-weight: 600;
+}
+
+.confirm-box-main{
+	padding: 30px;
+}
+
+.confirm-box-header{
+	font-weight: bold;
+	margin: 20px 0;
+}
+
+.confirm-box-body{
+	border: 1px solid #ccc;
+	position: relative;
+	padding: 20px;
+}
