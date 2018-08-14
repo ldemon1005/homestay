@@ -20,8 +20,11 @@ body{
 .white, a.white{
 	color: #FFF;
 }
-.black a.black{
+.black, a.black{
 	color: #000;
+}
+.red, a.red{
+	color: #D11D1D;
 }
 .normalize,a.normalize{
 	color: unset;
@@ -52,6 +55,9 @@ body{
 }
 .uppercase{
 	text-transform: uppercase;
+}
+.line-through{
+	text-decoration: line-through;
 }
 .center{
 	text-align: center;

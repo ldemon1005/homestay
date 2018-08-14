@@ -86,9 +86,9 @@
 				</div>
 			</div>
 
-			<div class="col-12 col-md-6 col-lg-6 offset-lg-1">
+			<div class="col-12 col-md-8 col-lg-8">
 				<div class="tab-content" id="myTabContent">
-					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+					<div class="tab-pane fade show active ml-5" id="home" role="tabpanel" aria-labelledby="home-tab">
 						<h2 class="bold fs-24 black">Tài khoản của bạn</h2>
 
 						<form id="form-account" method="post" action="{{ asset('user/updateProfile') }}">
@@ -124,7 +124,7 @@
 						</form>
 					</div>
 
-					<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+					<div class="tab-pane fade ml-5" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 						<h2 class="bold fs-24 black">Đổi mật khẩu</h2>
 						@if (session('error'))
 						<div class="alert alert-danger">
@@ -163,9 +163,44 @@
 					<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 						<h2 class="bold fs-24 black">Quản lý đặt phòng</h2>
 
+						<div id="book-table">
+							<table>
+								<thead>
+									<tr>
+										<td>Mã đặt phòng</td>
+										<td>Homestay</td>
+										<td>Thời gian</td>
+										<td>Chi phí</td>
+										<td>Tình trạng</td>
+										<td>Chi tiết</td>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td>X46WVB</td>
+										<td>Old Quarter View House - 3 Bedroom - Easternstay</td>
+										<td>25-07-2018 -- 28-07-2018</td>
+										<td>252 USD</td>
+										<td>Incomplete</td>
+										<td><a onclick="return seeDetailModal(1);">Xem</a></td>
+									</tr>
+
+									<tr>
+										<td>REQQIC</td>
+										<td>ATHENA BOUTIQUE VILLA</td>
+										<td>23-07-2018 -- 26-07-2018</td>
+										<td>515 USD</td>
+										<td>Incomplete</td>
+										<td><a onclick="return seeDetailModal(2);">Xem</a></td>
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
 					</div>
 
-					<div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
+					<div class="tab-pane fade ml-5" id="list" role="tabpanel" aria-labelledby="list-tab">
 						<h2 class="bold fs-24 black">Thông báo</h2>
 					</div>
 				</div>
@@ -174,4 +209,14 @@
 		</div>
 	</div>
 </section>
+
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				{{--ajax see detail modal here--}}
+			</div>
+		</div>
+	</div>
+</div>
 @stop

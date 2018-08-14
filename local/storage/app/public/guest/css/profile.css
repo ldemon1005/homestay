@@ -59,6 +59,7 @@ a.signout i{
 }
 
 #form-account{
+	position: relative;
 	padding-bottom: 150px;
 }
 .nav-tabs{
@@ -103,4 +104,62 @@ a.signout i{
 
 .form-item-2 .save-btn{
 	margin-right: 0;
+}
+
+/*book*/
+#book-table{
+	margin-top: 50px;
+}
+
+#book-table table{
+	border-collapse: collapse;
+	border: 1px solid #cccccc;
+}
+
+#book-table table thead{
+	color: #FFF;
+	font-weight: 600;
+	background-color: #C2D44E;
+}
+
+#book-table table tbody tr{
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#book-table table td{
+	padding: 10px 5px;
+	font-size: 12px;
+	text-align: center;
+	border: 1px solid #cccccc;
+}
+#book-table table td a{
+	cursor: pointer;
+}
+#detailModal{
+
+}
+
+#detailModal table{
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 20px;
+}
+#detailModal table td{
+	padding: 5px;
+}
+#detailModal table tbody tr td:first-child{
+	color: #666;
+	font-weight: 600;
+	font-size: 13px;
+}
+#detailModal table tbody td{
+	 border: 1px solid #ccc;
+}
+#detailModal table thead{
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#detailModal table td img{
+	max-width: 100%;
 }

@@ -38,6 +38,7 @@ Route::group(['namespace' => 'Pub'], function() {
 
 		Route::get('/','UserController@getBlank');
 		Route::get('profile','UserController@getProfile');
+		Route::get('seeDetailModal','UserController@seeDetailModal');
 		Route::get('notification','UserController@getNotification');
 		Route::get('book','UserController@getBook');
 
