@@ -329,27 +329,32 @@
 				</div>
 
 				<h6 class="fs-18 bold">Phòng còn trống</h6>
-				<form class="row" id="bedroom-check" method="get">
+				<form class="row" id="bedroom-check" method="post" action="{{route('add_order')}}">
 					{{csrf_field()}}
 					<input type="" name="homestay_id" style="display: none;" value="{{$homestay->homestay_id}}">
 					<div class="col-12 col-md-6 col-lg-5">
 						<div class="my-form">
 							<label class="fs-14 bold">Ngày nhận phòng</label>
-							<div class="calendar"><input autocomplete="off" onchange="check()" data-provide="datepicker" type="text" name="start" placeholder="Ngày đến"></div>
+							<div class="calendar"><input autocomplete="off" onchange="check()"
+														 data-provide="datepicker" type="text" name="book[start]"
+														 placeholder="Ngày đến"></div>
 						</div>
 					</div>
 
 					<div class="col-12 col-md-6 col-lg-5">
 						<div class="my-form">
 							<label class="fs-14 bold">Ngày trả phòng</label>
-							<div class="calendar"><input autocomplete="off" onchange="check()" data-provide="datepicker" type="text" name="end" placeholder="Ngày đi"></div>
+							<div class="calendar">
+								<input autocomplete="off" onchange="check()" data-provide="datepicker" type="text"
+									   name="book[end]" placeholder="Ngày đi">
+							</div>
 						</div>
 					</div>
 
 					<div class="col-12 col-md-6 col-lg-2">
 						<div class="my-form">
 							<label class="fs-14 bold">Chọn số người</label>
-							<select class="select-box" name="slot" onchange="check()">
+							<select class="select-box" name="book[slot]" onchange="check()">
 								@for($i=1;$i<=20;$i++)
 								<option value="{{$i}}">{{$i}}</option>
 								@endfor
@@ -375,7 +380,8 @@
 							<a class="avail">Còn phòng</a>
 							<a class="not-avail">Hết phòng</a>
 						</div>
-						<a href="" class="book-btn hs-btn-90-30 hs-btn-green">Đặt phòng</a>
+
+						<a style="cursor: pointer" onclick="add_order('{{$bedroom->bedroom_id}}','{{$bedroom->bedroom_price}}')" class="book-btn hs-btn-90-30 hs-btn-green">Đặt phòng</a>
 					</div>
 					<a class="see-detail" data-toggle="collapse" href="#collapseExample{{$bedroom->bedroom_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">Xem lịch và chi tiết đặt phòng</a>
 					<div class="collapse" id="collapseExample{{$bedroom->bedroom_id}}">

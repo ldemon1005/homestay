@@ -15,7 +15,14 @@ Route::get('test',function(){return view('public.payment.ck-confirm');});
 Route::group(['namespace' => 'Pub'], function() {
 	Route::get('/','HomeController@getIndex');
 	Route::get('search-result','HomeController@getSearch');
-	Route::get('detail/{id}','HomeController@getDetail');
+	Route::get('detail/{id}','HomeController@getDetail')->name('detail_homestay');
+	Route::post('add_order','BookController@add_order')->name('add_order');
+	Route::get('payment_order','BookController@payment_order')->name('payment_order');
+
+
+
+
+
 	Route::get('register','HomeController@getRegister');
 	Route::get('location-api','HomeController@getLocationApi');
 	Route::get('search','SearchController@getSearch');
