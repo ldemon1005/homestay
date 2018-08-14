@@ -2,8 +2,12 @@
 	<section id="header-top">
 		<div class="container header-top">
 			<a href="{{ asset('/') }}" class="logo"></a>
-			<figure class="magnifying-glass">
-				<a href=""><img src=" {{ asset('local/storage/app/public/header-footer/image/vn.png') }} "></a>
+			<figure class="language">
+				<a><img src=" {{ asset('local/storage/app/public/header-footer/image/vn.png') }} "></a>
+				<ul>
+					<li><a href=""><img src="{{ asset('local/storage/app/public/header-footer/image/vn.png') }}"> Tiếng Việt</a></li>
+					<li><a href=""><img src="{{ asset('local/storage/app/public/header-footer/image/en.png') }}"> Tiếng Anh</a></li>
+				</ul>
 			</figure>
 			<ul class="login-register">
 				@if( Auth::check() )

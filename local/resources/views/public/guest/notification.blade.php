@@ -1,4 +1,4 @@
-@extends('public.user-master')
+@extends('public.grand-master')
 @section('main')
 notification
 @stop

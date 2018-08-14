@@ -2,10 +2,13 @@
 <html>
 <head>
 	<title></title>
+	<link rel="icon" href="">
+
 	<base href="{{ asset('local/storage/app/public') }}/">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="google-signin-client_id" content="758738020038-ke08tcku4c5rugooldj91ajm5esss6a6.apps.googleusercontent.com">
+
 	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="base/css/reset.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
