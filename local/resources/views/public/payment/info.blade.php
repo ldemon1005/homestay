@@ -2,13 +2,11 @@
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="payment/css/payment.css">
-@stop
-
-@section('javascript')
-
+<link rel="stylesheet" type="text/css" href="payment/css/book-info.css">
 @stop
 
 @section('main')
+
 @include('public.payment.navigation')
 
 <section class="hs-section mb-50">

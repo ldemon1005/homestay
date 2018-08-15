@@ -182,7 +182,7 @@
 										<td>Old Quarter View House - 3 Bedroom - Easternstay</td>
 										<td>25-07-2018 -- 28-07-2018</td>
 										<td>252 USD</td>
-										<td>Incomplete</td>
+										<td><span class="text-warning">Incompleted</span></td>
 										<td><a onclick="return seeDetailModal(1);">Xem</a></td>
 									</tr>
 
@@ -191,8 +191,26 @@
 										<td>ATHENA BOUTIQUE VILLA</td>
 										<td>23-07-2018 -- 26-07-2018</td>
 										<td>515 USD</td>
-										<td>Incomplete</td>
+										<td><span class="text-danger">Cancelled</span></td>
 										<td><a onclick="return seeDetailModal(2);">Xem</a></td>
+									</tr>
+
+									<tr>
+										<td>REQQIC</td>
+										<td>ATHENA BOUTIQUE VILLA</td>
+										<td>23-07-2018 -- 26-07-2018</td>
+										<td>515 USD</td>
+										<td><span class="text-success">Success</span></td>
+										<td><a onclick="return seeDetailModal(3);">Xem</a></td>
+									</tr>
+
+									<tr>
+										<td>REQQIC</td>
+										<td>ATHENA BOUTIQUE VILLA</td>
+										<td>23-07-2018 -- 26-07-2018</td>
+										<td>515 USD</td>
+										<td><span class="text-primary">Done</span></td>
+										<td><a onclick="return seeDetailModal(3);">Xem</a></td>
 									</tr>
 								</tbody>
 

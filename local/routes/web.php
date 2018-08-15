@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('test',function(){return view('public.payment.ck-confirm');});
+Route::get('test',function(){return view('public.payment.payment');});
 
 Route::group(['namespace' => 'Pub'], function() {
 	Route::get('/','HomeController@getIndex');
