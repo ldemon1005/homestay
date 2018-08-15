@@ -20,3 +20,11 @@ $(document).ready(function(){
 		autoplayHoverPause:true
 	});
 });
+
+function add_order(id,price) {
+	var html_id = "<input class='d-none' name=\"book[id_room]\" value=\""+id+"\">";
+	var html_price = "<input class='d-none' name=\"book[price]\" value=\""+price+"\">";
+    $('#bedroom-check').append(html_id);
+    $('#bedroom-check').append(html_price);
+	$('#bedroom-check').submit();
+}
