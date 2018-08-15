@@ -101,7 +101,18 @@ a.signout i{
 	width: 30px;
 	font-weight: 900;
 }
-
+.nav .nav-item .has-noti{
+	display: inline-block;
+	height: 16px;
+	line-height: 16px;
+	width: 16px;
+	background: red;
+	border-radius: 50%;
+	font-size: 10px;
+	text-align: center;
+	transform: translateY(-8px);
+	color:#FFF;
+}
 .form-item-2 .save-btn{
 	margin-right: 0;
 }
@@ -162,4 +173,27 @@ a.signout i{
 }
 #detailModal table td img{
 	max-width: 100%;
+}
+
+/*notification*/
+#noti-cont{
+	margin-top: 50px;
+}
+.noti-list{
+
+}
+.noti-list a{
+	display: block;
+	border-bottom: 1px solid #dddfe2;
+	padding: 6px 30px 5px 12px;
+	cursor: pointer;
+}
+.noti-list a:hover{
+	background-image: linear-gradient(rgba(29, 33, 41, .04), rgba(29, 33, 41, .04));
+}
+.noti-list a.unread{
+	background-color: #edf2fa;
+}
+.noti-list a p{
+	margin-bottom: 5px;
 }

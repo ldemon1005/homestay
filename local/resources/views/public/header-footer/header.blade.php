@@ -15,11 +15,12 @@
 					<div class="avatar" style="background-image: url({{ asset('local/storage/app/image/user-3/'.Auth::user()->avatar) }})">
 						<span class="has-noti">12</span>
 					</div>
-					Sơn <i class="fas fa-angle-down"></i></a>
+					{{Auth::user()->name}} <i class="fas fa-angle-down"></i></a>
 					<ul class="dropdown-user">
-						<li><a href="{{ asset('user/profile') }}">Tài khoản của bạn</a></li>
-						<li><a href="{{ asset('user/profile') }}">Thay đổi mật khẩu</a></li>
-						<li><a href="{{ asset('user/profile') }}">Quản lý đặt phòng</a></li>
+						<li><a data-target="#account" href="{{ asset('user/profile#account') }}">Tài khoản của bạn</a></li>
+						<li><a data-target="#password" href="{{ asset('user/profile#password') }}">Thay đổi mật khẩu</a></li>
+						<li><a data-target="#manage" href="{{ asset('user/profile#manage') }}">Quản lý đặt phòng</a></li>
+						<li><a data-target="#noti" href="{{ asset('user/profile#noti') }}">Thông báo</a></li>
 						<li><a href="{{ asset('user/logout') }}">Đăng xuất</a></li>
 					</ul>
 				</li>
