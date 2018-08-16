@@ -261,7 +261,7 @@
 @stop
 
 @section('main')
-<section class="section-1" style="background-image: url(http://localhost/host-homestay/local/storage/app/image/{{$homestay->homestay_image}})">
+<section class="section-1" style="background-image: url({{env('HOST_URL')}}/local/storage/app/image/{{$homestay->homestay_image}})">
 	<div class="container">
 		<div class="row">
 			<h1 class="fs-24 bold white center uppercase h1-sec1">{{$homestay->homestay_name}}</h1>
@@ -277,7 +277,7 @@
 					<div class="owl-carousel owl-carousel-1 owl-theme">
 						@php $i =  0; @endphp
 						@foreach($homestay->homestayimage as $homestayimage)
-						<div class="slide-item-1"><img onclick="lightbox({{$i}})" src="http://localhost/host-homestay/local/storage/app/image/resized-{{$homestayimage->homestay_image_img}}"></div>
+						<div class="slide-item-1"><img onclick="lightbox({{$i}})" src="{{env('HOST_URL')}}/local/storage/app/image/resized-{{$homestayimage->homestay_image_img}}"></div>
 						@php $i++; @endphp
 						@endforeach
 					</div>
@@ -293,7 +293,7 @@
 			<ul>
 				@foreach($homestay->homestayimage as $homestayimage)
 				<li>
-					<a class="ns-img" href="http://localhost/host-homestay/local/storage/app/image/{{$homestayimage->homestay_image_img}}"></a>
+					<a class="ns-img" href="{{env('HOST_URL')}}/local/storage/app/image/{{$homestayimage->homestay_image_img}}"></a>
 					{{-- <div class="caption">
 						<h3>Dummy Caption 1</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus accumsan purus.</p>
@@ -365,7 +365,7 @@
 				
 				@foreach($homestay->bedroom as $bedroom)
 				<div class="room-item room_{{$bedroom->bedroom_id}}">
-					<a class="room-image" onclick="lightbox2()" style="background-image: url(http://localhost/host-homestay/local/storage/app/image/{{$bedroom->bedroomimage->first()->bedroom_image_img ?? ''}});"></a>
+					<a class="room-image" onclick="lightbox2()" style="background-image: url({{env('HOST_URL')}}/local/storage/app/image/{{$bedroom->bedroomimage->first()->bedroom_image_img ?? ''}});"></a>
 					<div class="room-content">
 						<h5>{{$bedroom->bedroom_name}}</h5>
 						<ul class="room-service">
@@ -406,7 +406,7 @@
 				<div class="host-info">
 					<h4 class="fs-16 uppercase center bold mt-2">thông tin của host</h4>
 					<hr>
-					<img class="host-avatar" src="http://localhost/host-homestay/local/storage/app/image/user/{{$homestay->user->avatar}}">
+					<img class="host-avatar" src="{{env('HOST_URL')}}/local/storage/app/image/user/{{$homestay->user->avatar}}">
 					<p class="fs-16 bold">{{$homestay->user->name}}</p>
 					<div class="host-description">
 						<p>“ {{$homestay->user->description}} ” </p>

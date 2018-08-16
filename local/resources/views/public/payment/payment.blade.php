@@ -10,6 +10,9 @@
 @stop
 
 @section('main')
+
+	@include('public.payment.navigation')
+
 <section class="hs-section mb-50">
 	<div class="container">
 		<div class="row mb-4">

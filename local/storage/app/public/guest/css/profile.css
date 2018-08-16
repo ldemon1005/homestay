@@ -59,6 +59,7 @@ a.signout i{
 }
 
 #form-account{
+	position: relative;
 	padding-bottom: 150px;
 }
 .nav-tabs{
@@ -100,7 +101,99 @@ a.signout i{
 	width: 30px;
 	font-weight: 900;
 }
-
+.nav .nav-item .has-noti{
+	display: inline-block;
+	height: 16px;
+	line-height: 16px;
+	width: 16px;
+	background: red;
+	border-radius: 50%;
+	font-size: 10px;
+	text-align: center;
+	transform: translateY(-8px);
+	color:#FFF;
+}
 .form-item-2 .save-btn{
 	margin-right: 0;
+}
+
+/*book*/
+#book-table{
+	margin-top: 50px;
+}
+
+#book-table table{
+	border-collapse: collapse;
+	border: 1px solid #cccccc;
+}
+
+#book-table table thead{
+	color: #FFF;
+	font-weight: 600;
+	background-color: #C2D44E;
+}
+
+#book-table table tbody tr{
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#book-table table td{
+	padding: 10px 5px;
+	font-size: 12px;
+	text-align: center;
+	border: 1px solid #cccccc;
+}
+#book-table table td a{
+	cursor: pointer;
+}
+#detailModal{
+
+}
+
+#detailModal table{
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 20px;
+}
+#detailModal table td{
+	padding: 5px;
+}
+#detailModal table tbody tr td:first-child{
+	color: #666;
+	font-weight: 600;
+	font-size: 13px;
+}
+#detailModal table tbody td{
+	 border: 1px solid #ccc;
+}
+#detailModal table thead{
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#detailModal table td img{
+	max-width: 100%;
+}
+
+/*notification*/
+#noti-cont{
+	margin-top: 50px;
+}
+.noti-list{
+
+}
+.noti-list a{
+	display: block;
+	border-bottom: 1px solid #dddfe2;
+	padding: 6px 30px 5px 12px;
+	cursor: pointer;
+}
+.noti-list a:hover{
+	background-image: linear-gradient(rgba(29, 33, 41, .04), rgba(29, 33, 41, .04));
+}
+.noti-list a.unread{
+	background-color: #edf2fa;
+}
+.noti-list a p{
+	margin-bottom: 5px;
 }

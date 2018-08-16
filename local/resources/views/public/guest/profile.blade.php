@@ -1,4 +1,4 @@
-@extends('public.user-master')
+@extends('public.grand-master')
 
 @section('css')
 
@@ -24,25 +24,24 @@
 					url: "{{ asset('user/ajaxAvatar') }}", 
 					type: "POST",
 					data: new FormData(this),
-					contentType: false,       // The content type used when sending data to the server.
-					cache: false,             // To unable request pages to be cached
-					processData:false        // To send DOMDocument or non processed data file it is set to false
+					contentType: false,
+					cache: false,
+					processData:false
 				}).done(function(e){
 					$('.ava').attr('style','background-image:url( {{ asset('local/storage/app/image/user-3/') }}/'+ e.avatar +' )');
 					$('.avatar').attr('style','background-image:url( {{ asset('local/storage/app/image/user-3/') }}/'+ e.avatar +' )');
 				});
 	        });
 
-		// keep tab on reload
-		$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-			localStorage.setItem('activeTab', $(e.target).attr('href'));
-		});
-		var activeTab = localStorage.getItem('activeTab');
-		if(activeTab){
-			$('#myTab a[href="' + activeTab + '"]').tab('show');
-		}
+		// // keep tab on reload
+		// $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+		// 	localStorage.setItem('activeTab', $(e.target).attr('href'));
+		// });
+		// var activeTab = localStorage.getItem('activeTab');
+		// if(activeTab){
+		// 	$('#myTab a[href="' + activeTab + '"]').tab('show');
+		// }
 
-		
 	});
 </script>
 @stop
@@ -60,7 +59,6 @@
 					<form style="display: none;" id="ava-form" enctype="multipart/form-data" method="post" action="{{ asset('profile/ava') }}">
 						{{csrf_field()}}
 						<input id="ava-input" style="display: none;" type="file" name="image">
-						}
 					</form>
 
 					<div class="info">
@@ -70,25 +68,26 @@
 
 					<ul class="nav nav-tabs" id="myTab" role="tablist">
 						<li class="nav-item">
-							<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"><i class="fas fa-user"></i> Tài khoản của bạn</a>
+							<a class="nav-link active" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account"><i class="fas fa-user"></i> Tài khoản của bạn</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"><i class="fas fa-key"></i> Thay đổi mật khẩu</a>
+							<a class="nav-link" id="password-tab" data-toggle="tab" href="#password" role="tab" aria-controls="password"><i class="fas fa-key"></i> Thay đổi mật khẩu</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"><i class="fas fa-cog"></i> Quản lý đặt phòng</a>
+							<a class="nav-link" id="manage-tab" data-toggle="tab" href="#manage" role="tab" aria-controls="manage"><i class="fas fa-cog"></i> Quản lý đặt phòng</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="contact-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list"><i class="fas fa-bell"></i> Thông báo</a>
+							<a class="nav-link" id="noti-tab" data-toggle="tab" href="#noti" role="tab" aria-controls="noti"><i class="fas fa-bell"></i> Thông báo <span class="has-noti">12</span></a>
 						</li>
 					</ul>
+
 					<a href="{{ asset('user/logout') }}" class="signout">Đăng xuất <i class="fas fa-sign-out-alt"></i></a>
 				</div>
 			</div>
 
-			<div class="col-12 col-md-6 col-lg-6 offset-lg-1">
+			<div class="col-12 col-md-8 col-lg-8">
 				<div class="tab-content" id="myTabContent">
-					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+					<div class="tab-pane fade show active ml-5" id="account" role="tabpanel" aria-labelledby="account-tab">
 						<h2 class="bold fs-24 black">Tài khoản của bạn</h2>
 
 						<form id="form-account" method="post" action="{{ asset('user/updateProfile') }}">
@@ -124,7 +123,7 @@
 						</form>
 					</div>
 
-					<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+					<div class="tab-pane fade ml-5" id="password" role="tabpanel" aria-labelledby="password-tab">
 						<h2 class="bold fs-24 black">Đổi mật khẩu</h2>
 						@if (session('error'))
 						<div class="alert alert-danger">
@@ -160,18 +159,109 @@
 						</form>
 					</div>
 
-					<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+					<div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
 						<h2 class="bold fs-24 black">Quản lý đặt phòng</h2>
 
+						<div id="book-table">
+							<table>
+								<thead>
+									<tr>
+										<td>Mã đặt phòng</td>
+										<td>Homestay</td>
+										<td>Thời gian</td>
+										<td>Chi phí</td>
+										<td>Tình trạng</td>
+										<td>Chi tiết</td>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td>X46WVB</td>
+										<td>Old Quarter View House - 3 Bedroom - Easternstay</td>
+										<td>25-07-2018 -- 28-07-2018</td>
+										<td>252 USD</td>
+										<td><span class="text-warning">Incompleted</span></td>
+										<td><a onclick="return seeDetailModal(1);">Xem</a></td>
+									</tr>
+
+									<tr>
+										<td>REQQIC</td>
+										<td>ATHENA BOUTIQUE VILLA</td>
+										<td>23-07-2018 -- 26-07-2018</td>
+										<td>515 USD</td>
+										<td><span class="text-danger">Cancelled</span></td>
+										<td><a onclick="return seeDetailModal(2);">Xem</a></td>
+									</tr>
+
+									<tr>
+										<td>REQQIC</td>
+										<td>ATHENA BOUTIQUE VILLA</td>
+										<td>23-07-2018 -- 26-07-2018</td>
+										<td>515 USD</td>
+										<td><span class="text-success">Success</span></td>
+										<td><a onclick="return seeDetailModal(3);">Xem</a></td>
+									</tr>
+
+									<tr>
+										<td>REQQIC</td>
+										<td>ATHENA BOUTIQUE VILLA</td>
+										<td>23-07-2018 -- 26-07-2018</td>
+										<td>515 USD</td>
+										<td><span class="text-primary">Done</span></td>
+										<td><a onclick="return seeDetailModal(3);">Xem</a></td>
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
 					</div>
 
-					<div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
+					<div class="tab-pane fade ml-5" id="noti" role="tabpanel" aria-labelledby="noti-tab">
 						<h2 class="bold fs-24 black">Thông báo</h2>
+
+						<div id="noti-cont">
+							<div class="noti-list">
+								<a class="unread">
+									<p><b>Trần Hương Giang</b> đã đặt phòng <b>Luxury</b> của bạn</p>
+									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> 1 phút trước</p>
+								</a>
+
+								<a>
+									<p><b>Trần Hương Giang</b> đã đặt phòng <b>Luxury</b> của bạn</p>
+									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> 1 phút trước</p>
+								</a>
+
+								<a>
+									<p><b>Bạn</b> đã đặt phòng <b>Luxury</b> của <b>Garden Homestay</b></p>
+									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> 1 phút trước</p>
+								</a>
+
+								<a>
+									<p><b>Bạn</b> đã đặt phòng <b>Luxury</b> của <b>Garden Homestay</b></p>
+									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> Hôm qua lúc 10:37</p>
+								</a>
+
+								<a>
+									<p><b>Bạn</b> đã đặt phòng <b>Luxury</b> của <b>Garden Homestay</b></p>
+									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> 13 Tháng 8 lúc 10:37</p>
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
-				
 			</div>
 		</div>
 	</div>
 </section>
+
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				{{--ajax see detail modal here--}}
+			</div>
+		</div>
+	</div>
+</div>
 @stop

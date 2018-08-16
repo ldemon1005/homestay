@@ -9,11 +9,32 @@
 	height: 122px;
 	position: relative;
 }
-.magnifying-glass{
+.language{
 	position: absolute;
 	top: 50%;
 	left: 15px;
 	transform: translateY(-50%);
+}
+.language>a>img{
+	cursor: pointer;
+}
+.language>ul{
+	background: #FFF;
+	margin-top: 5px;
+	position: absolute;
+	padding: 5px 15px;
+	box-shadow: 0 1px 3px #999;
+	display: none;
+}
+.language>ul>li{
+	white-space: nowrap;
+	line-height: 2;
+	font-size: 14px;
+	font-weight: 600;
+}
+.language>ul>li>a{
+	color: unset;
+	text-decoration: none;
 }
 .logo{
 	background:url(../image/logo-ngang-green.png) no-repeat center;
@@ -162,6 +183,20 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+}
+.avatar .has-noti{
+	display: block;
+	position: absolute;
+	height: 16px;
+	line-height: 16px;
+	width: 16px;
+	background: red;
+	top: -3px;
+	right: -3px;
+	font-size: 8px;
+	border-radius: 50%;
+	color: #FFF;
+	text-align: center;
 }
 .dropdown-user{
 	position: absolute;

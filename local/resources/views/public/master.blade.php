@@ -23,8 +23,8 @@
 						</ul>
 					</div>
 				</li>
-				<li><a href="/blog">BLOG</a></li>
-				<li><a href="http://localhost:8888">TRỞ THÀNH MỘT HOST</a></li>
+				<li><a href="{{env('BLOG_URL')}}">BLOG</a></li>
+				<li><a href="{{env('HOST_URL')}}">TRỞ THÀNH MỘT HOST</a></li>
 			</ul>
 		</div>
 	</div>

@@ -37,6 +37,11 @@ class UserController extends Controller
 		return view('public.guest.profile');
 	}
 
+	public function seeDetailModal(Request $request)
+    {
+        return view('public.guest.see-detail-modal');
+    }
+
 	public function getBook(){
 		return view('public.guest.book');
 	}

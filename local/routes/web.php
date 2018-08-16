@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('test',function(){return view('public.payment.ck-confirm');});
+Route::get('test',function(){return view('public.payment.info');});
 
 Route::group(['namespace' => 'Pub'], function() {
 	Route::get('/','HomeController@getIndex');
@@ -45,6 +45,7 @@ Route::group(['namespace' => 'Pub'], function() {
 
 		Route::get('/','UserController@getBlank');
 		Route::get('profile','UserController@getProfile');
+		Route::get('seeDetailModal','UserController@seeDetailModal');
 		Route::get('notification','UserController@getNotification');
 		Route::get('book','UserController@getBook');
 
