@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class CheckLoggedOut
 {
@@ -16,6 +18,8 @@ class CheckLoggedOut
      */
     public function handle($request, Closure $next)
     {
+        Session::put('url',URL::previous());
+
         if( Auth::guest() ){
             return redirect('login');
         }

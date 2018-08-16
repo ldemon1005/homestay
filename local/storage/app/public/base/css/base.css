@@ -200,3 +200,9 @@ body{
 	flex: 1;
 	transform: translateY(8px);
 }
+
+.error{
+	color: red;
+	font-size: 12px;
+	font-style: italic;
+}

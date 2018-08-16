@@ -381,7 +381,7 @@
 							<a class="not-avail">Hết phòng</a>
 						</div>
 
-						<a style="cursor: pointer" onclick="add_order('{{$bedroom->bedroom_id}}','{{$bedroom->bedroom_price}}')" class="book-btn hs-btn-90-30 hs-btn-green">Đặt phòng</a>
+						<a style="cursor: pointer" onclick="add_order('{{$bedroom->bedroom_id}}','{{$bedroom->bedroom_price}}','{{$homestay->homestay_id}}')" class="book-btn hs-btn-90-30 hs-btn-green">Đặt phòng</a>
 					</div>
 					<a class="see-detail" data-toggle="collapse" href="#collapseExample{{$bedroom->bedroom_id}}" role="button" aria-expanded="false" aria-controls="collapseExample">Xem lịch và chi tiết đặt phòng</a>
 					<div class="collapse" id="collapseExample{{$bedroom->bedroom_id}}">
@@ -401,7 +401,6 @@
 				</div>
 				@endforeach
 			</div>
-
 			<div class="col-12 col-md-4 col-lg-4">
 				<div class="host-info">
 					<h4 class="fs-16 uppercase center bold mt-2">thông tin của host</h4>
