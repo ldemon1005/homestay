@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Payment;
 
+use App\Jobs\SendMail;
 use App\Models\Book;
 use App\Models\HomeStay;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
@@ -24,7 +27,7 @@ class PaymentController extends Controller
 
         $order = Cache::store('redis')->get($key);
 
-        $order['code'] = 'CTOGO'.$user->id.substr(time(),5,8);
+        $order['code'] = 'CTOGO-'.$user->id.substr(time(),5,8);
 
         $order['info'] = $request->all();
 
@@ -59,20 +62,17 @@ class PaymentController extends Controller
             'book_bedroom_id' => $order['id_room'],
             'book_user_id' => $user->id,
             'homestay_id' => $order['homestay_id'],
-            'time_del' => time() + 3600*2
+            'time_del' => time() + 3600*2,
+            'code' => $order['code']
         ];
 
-        Book::create($book);
+        $book_1 = Book::create($book);
 
-        $data = [
-            'name' => 'ldemon',
-            'content' => 'chào bạn'
-        ];
-        Mail::send('mail_book',$data, function($message){
-            $message->to($this->email, 'chào con gà')->subject('chào con gà');
-        });
+        $job = (new SendMail($order))->delay(Carbon::now()->addMinutes(1));
+        $this->dispatch($job);
 
         $data = $this->get_homestay();
+        $data['book'] = $book_1;
         return view('public.payment.ck-confirm',$data);
     }
 
@@ -99,5 +99,17 @@ class PaymentController extends Controller
         ];
 
         return $data;
+    }
+
+    function update_status($id,$status){
+        $book = DB::table('books')->where('book_id',$id)->update(['book_status'=>$status]);
+
+        if($book && $status == 2){
+            return redirect()->route('complete')->with('warning','Hết thời gian thanh toán');
+        }
+    }
+
+    function complete(){
+        return view('public.payment.complete');
     }
 }

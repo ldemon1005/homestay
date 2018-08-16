@@ -7,8 +7,8 @@
 			<div class="book-image" style="background-image: url(https://scontent.fhan5-1.fna.fbcdn.net/v/t1.0-0/p526x296/36342061_10214793221356628_5207655401247473664_n.jpg?_nc_cat=0&oh=2f9378d7f2308b2d7cb641c594304ef5&oe=5B9FD331);"></div>
 			<div class="book-homestay-info">
 				<div class="book-homestay-code">Mã đặt chỗ: {{$order['code']}}</div>
-				<div class="book-homestay-name">Garden homestay garden homestay garden homestay</div>
-				<div class="book-homestay-address"><i class="fas fa-map-marker-alt"></i> Nguyễn khuyến, P5, TP.Đà Lạt</div>
+				<div class="book-homestay-name">{{$homestay->homestay_name}}</div>
+				<div class="book-homestay-address"><i class="fas fa-map-marker-alt"></i> {{$homestay->homestay_location}}</div>
 			</div>
 		</div>
 		<div class="book-info">

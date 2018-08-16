@@ -17,6 +17,18 @@
 					<img src="{{ asset('local/storage/app/public/payment/image/checked.png') }}">
 					<p>Cảm ơn bạn đã đặt homestay này tại Ctogo. Bộ phận chăm sóc khách hàng sẽ gọi điện lại xác nhận cho bạn khi thanh toán thành công</p>
 				</div>
+
+				@if (session('warning'))
+					<div class="alert alert-warning">
+						<p>{{ session('warning') }}</p>
+					</div>
+				@endif
+
+				@if (session('status'))
+					<div class="alert alert-success">
+						<p>{{ session('status') }}</p>
+					</div>
+				@endif
 			</div>
 		</div>
 	</div>

@@ -59,19 +59,19 @@
 							<div class="col-12 col-md-6 col-lg-6">
 								<div class="form-item-2">
 									<label>Tên người liên hệ: <span class="text-danger">*</span></label>
-									<input type="text" name="fullname" value="" placeholder="Họ và tên">
+									<input type="text" name="fullname" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" placeholder="Họ và tên">
 								</div>
 							</div>
 							<div class="col-12 col-md-6 col-lg-6">
 								<div class="form-item-2">
 									<label>Email:<span class="text-danger">*</span></label>
-									<input type="text" name="email" value="" placeholder="email@example.com">
+									<input type="text" name="email" value="{{\Illuminate\Support\Facades\Auth::user()->email}}" placeholder="email@example.com">
 								</div>
 							</div>
 							<div class="col-12 col-md-6 col-lg-6">
 								<div class="form-item-2">
 									<label>Số di động:<span class="text-danger">*</span></label>
-									<input type="text" name="phone" value="" placeholder="+84123456789">
+									<input type="text" name="phone" value="{{\Illuminate\Support\Facades\Auth::user()->phone}}" placeholder="+84123456789">
 								</div>
 							</div>
 							<div class="col-12 col-md-6 col-lg-6">
