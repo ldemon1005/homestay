@@ -188,3 +188,14 @@ function convertAlias($cs){
     $csLatin= str_replace($vietnamese,$latin,$cs);
     return $csLatin;
 }
+
+function getStatusBookStr($status){
+    $str = '';
+    switch ($status){
+        case 1 : $str = 'Đợi thanh toán';break;
+        case 2 : $str = 'Quá thời gian thanh toán';break;
+        case 3 : $str = 'Hoàn thành';break;
+        case 4 : $str = 'Hủy';break;
+    }
+    return $str;
+}

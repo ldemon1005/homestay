@@ -12,7 +12,7 @@ class Book extends Model
     protected $guarded = [];
 
     public function bedroom(){
-    	return $this->belongsTo('App\Models\BedRoom','book_bedroom_id');
+    	return $this->belongsTo('App\Models\BedRoom','book_bedroom_id')->get();
     }
     public function user(){
     	return $this->belongsTo('App\Models\User','book_user_id');

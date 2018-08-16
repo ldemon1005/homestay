@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Pub;
 
+use App\Models\BedRoom;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -10,6 +12,7 @@ use App\Http\Requests\CreateUserRequest;
 use Auth;
 use File;
 use Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -34,12 +37,44 @@ class UserController extends Controller
 
 	//
 	public function getProfile(){
-		return view('public.guest.profile');
+	    $list_book = DB::table('books')->paginate(15);
+
+	    foreach ($list_book as $book){
+	        $book->homestay = DB::table('homestay')->where('homestay_id',$book->homestay_id)->first();
+            $book->book_from = date('d/m/Y',strtotime(str_replace('/','-',$book->book_from)));
+            $book->book_to = date('d/m/Y',strtotime(str_replace('/','-',$book->book_to)));
+        }
+
+	    $data = [
+	        'list_book' => $list_book
+        ];
+
+		return view('public.guest.profile',$data);
 	}
 
 	public function seeDetailModal(Request $request)
     {
-        return view('public.guest.see-detail-modal');
+
+        $id = $request->get('id');
+
+        $book = DB::table('books')->where('book_id',$id)->first();
+
+        if($book){
+            $book->book_from = date('d/m/Y H:m',strtotime(str_replace('/','-',$book->book_from)));
+            $book->book_to = date('d/m/Y H:m',strtotime(str_replace('/','-',$book->book_to)));
+            $homestay = DB::table('homestay')->where('homestay_id',$book->homestay_id)->first();
+            if ($homestay){
+                $homestay->user = DB::table('users')->where('id',$homestay->homestay_user_id)->first();
+            }
+            $bedroom = DB::table('bedrooms')->where('bedroom_id',$book->book_bedroom_id)->first();
+        }
+
+        $data = [
+            'homestay' => $homestay,
+            'bedroom' => $bedroom,
+            'book' => $book
+        ];
+        return view('public.guest.see-detail-modal',$data);
     }
 
 	public function getBook(){

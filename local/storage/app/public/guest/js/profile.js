@@ -1,7 +1,7 @@
 function seeDetailModal(id)
 {
     $.ajax({
-        url : "/user/seeDetailModal",
+        url : "/user/seeDetailModal?id="+id,
         type : "get",
         success : function (result){
             $('#detailModal .modal-body').html(result);

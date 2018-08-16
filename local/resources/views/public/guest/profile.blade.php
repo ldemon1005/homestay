@@ -176,44 +176,25 @@
 								</thead>
 
 								<tbody>
+								@foreach($list_book as $book)
 									<tr>
-										<td>X46WVB</td>
-										<td>Old Quarter View House - 3 Bedroom - Easternstay</td>
-										<td>25-07-2018 -- 28-07-2018</td>
-										<td>252 USD</td>
-										<td><span class="text-warning">Incompleted</span></td>
-										<td><a onclick="return seeDetailModal(1);">Xem</a></td>
+										<td>{{$book->code}}</td>
+										@if($book->homestay)
+											<td>{{ $book->homestay->homestay_name }}</td>
+										@else
+											<td>Homestay đã dừng hoạt động</td>
+										@endif
+										<td>{{$book->book_from}} -- {{$book->book_to}}</td>
+										<td>{{number_format($book->price)}} vnd</td>
+										<td><span class="text-warning">{{getStatusBookStr($book->book_status)}}</span></td>
+										<td><a onclick="return seeDetailModal({{$book->book_id}});">Xem</a></td>
 									</tr>
-
-									<tr>
-										<td>REQQIC</td>
-										<td>ATHENA BOUTIQUE VILLA</td>
-										<td>23-07-2018 -- 26-07-2018</td>
-										<td>515 USD</td>
-										<td><span class="text-danger">Cancelled</span></td>
-										<td><a onclick="return seeDetailModal(2);">Xem</a></td>
-									</tr>
-
-									<tr>
-										<td>REQQIC</td>
-										<td>ATHENA BOUTIQUE VILLA</td>
-										<td>23-07-2018 -- 26-07-2018</td>
-										<td>515 USD</td>
-										<td><span class="text-success">Success</span></td>
-										<td><a onclick="return seeDetailModal(3);">Xem</a></td>
-									</tr>
-
-									<tr>
-										<td>REQQIC</td>
-										<td>ATHENA BOUTIQUE VILLA</td>
-										<td>23-07-2018 -- 26-07-2018</td>
-										<td>515 USD</td>
-										<td><span class="text-primary">Done</span></td>
-										<td><a onclick="return seeDetailModal(3);">Xem</a></td>
-									</tr>
+								@endforeach
 								</tbody>
-
 							</table>
+							<div class="float-right" style="margin:20px 0">
+								{{$list_book->links()}}
+							</div>
 						</div>
 					</div>
 

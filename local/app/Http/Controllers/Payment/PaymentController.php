@@ -54,6 +54,7 @@ class PaymentController extends Controller
 
         Cache::store('redis')->put($key, $order, Book::TIME_ORDER);
 
+        $data = $this->get_homestay();
         $book = [
             'book_status' => 0,
             'book_from' => date('Y/m/d',strtotime(str_replace('/','-',$order['start'])."00:00")),
@@ -63,7 +64,8 @@ class PaymentController extends Controller
             'book_user_id' => $user->id,
             'homestay_id' => $order['homestay_id'],
             'time_del' => time() + 3600*2,
-            'code' => $order['code']
+            'code' => $order['code'],
+            'price' => $data['total_money']
         ];
 
         $book_1 = Book::create($book);
@@ -71,7 +73,7 @@ class PaymentController extends Controller
         $job = (new SendMail($order))->delay(Carbon::now()->addMinutes(1));
         $this->dispatch($job);
 
-        $data = $this->get_homestay();
+
         $data['book'] = $book_1;
         return view('public.payment.ck-confirm',$data);
     }
