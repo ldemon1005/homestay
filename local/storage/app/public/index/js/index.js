@@ -19,10 +19,6 @@ $(document).ready(function(){
 		autoplayHoverPause:true
 	});
 
-	$('.owl-carousel-5 .slide-item').hover(function(){
-		$(this).find('.hs-btn').toggleClass('hs-btn-green');
-	});
-
 	$('.input-daterange').datepicker({
 		format: "dd/mm/yyyy",
 		todayHighlight: true
@@ -40,7 +36,5 @@ $(document).ready(function(){
 		autoplaySpeed: 6000
 	})
 
-	owl_partner.trigger('play.owl.autoplay')
-
-
+	owl_partner.trigger('play.owl.autoplay');
 });

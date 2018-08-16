@@ -21,13 +21,14 @@
 	        $('#ava-form').on('submit',function(e){
 	        	e.preventDefault();
 	        	$.ajax({
-					url: "{{ asset('user/ajaxAvatar') }}", 
+					url: "{{ asset('user/ajaxAvatar') }}",
 					type: "POST",
 					data: new FormData(this),
 					contentType: false,
 					cache: false,
 					processData:false
 				}).done(function(e){
+				    console.log(e);
 					$('.ava').attr('style','background-image:url( {{ asset('local/storage/app/image/user-3/') }}/'+ e.avatar +' )');
 					$('.avatar').attr('style','background-image:url( {{ asset('local/storage/app/image/user-3/') }}/'+ e.avatar +' )');
 				});
@@ -56,7 +57,7 @@
 						<img src="{{ asset('local/storage/app/image/ava-subtitute.png') }}">
 					</div>
 
-					<form style="display: none;" id="ava-form" enctype="multipart/form-data" method="post" action="{{ asset('profile/ava') }}">
+					<form style="display: none;" id="ava-form" enctype="multipart/form-data" method="post">
 						{{csrf_field()}}
 						<input id="ava-input" style="display: none;" type="file" name="image">
 					</form>

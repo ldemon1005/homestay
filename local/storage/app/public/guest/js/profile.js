@@ -22,4 +22,5 @@ $('.nav-tabs a').click(function (e) {
 $('.dropdown-user a').click(function () {
     var hash = $(this).attr('data-target');
     $('ul.nav a[href="' + hash + '"]').tab('show');
+    $('.dropdown-user').hide(); //header
 });

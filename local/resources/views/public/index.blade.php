@@ -27,6 +27,10 @@
             autoplayTimeout:2000,
             autoplayHoverPause:true
         });
+
+        $('.owl-carousel-5 .slide-item').hover(function(){
+            $(this).find('.hs-btn').toggleClass('hs-btn-green');
+        });
     });
 </script>
 <script type="text/javascript" src="index/js/index.js"></script>
