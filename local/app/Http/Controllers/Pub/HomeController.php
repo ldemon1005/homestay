@@ -14,42 +14,56 @@ use App\Models\Blog;
 
 class HomeController extends Controller
 {
-    public function getIndex(){
+    public function getIndex()
+    {
         $data['hot_homestay'] = HomeStay::where('homestay_active',1)->orderBy('homestay_id','desc')->take(9)->get();
         $data['blogs'] = DB::table('articel')->orderBy('id','desc')->take(9)->get();
         $data['comments'] = Comment::with('user')->with('homestay')->take(9)->get();
     	return view('public.index',$data);
     }
 
-    public function getSearch(){
+    public function getBlogs()
+    {
+        $blogs = json_decode(file_get_contents(env('BLOG_URL').'/api/blogs'), true);
+        return view('public.get-blog',compact('blogs'));
+    }
+
+    public function getSearch()
+    {
     	return view('public.search-result');
     }
 
-    public function getDetail($id){
+    public function getDetail($id)
+    {
         $data['homestay'] = HomeStay::findOrFail($id);
         $data['nearby_homestay'] = HomeStay::where('homestay_active',1)->orderBy('homestay_id','desc')->take(9)->get();
         $data['comments'] = $data['homestay']->comment();
         return view('public.detail',$data);
     }
 
-    public function getRegister(){
+    public function getRegister()
+    {
         return view('public.register');
     }
 
-    public function getHostSignUp(){
+    public function getHostSignUp()
+    {
         return view('public.host-signup');
     }
 
-    public function getSignUp(){
+    public function getSignUp()
+    {
         return view('public.signup');
     }
 
-    public function getUpload(){
+    public function getUpload()
+    {
         return view('upload');
     }
 
     //đẩy data từ file excel lên database. Xài 1 lần
-    public function postUpload(Request $request){
+    public function postUpload(Request $request)
+    {
         $path = $request->file('file')->getRealPath();
         $data = Excel::load($path, function($reader) {
 
@@ -77,7 +91,8 @@ class HomeController extends Controller
         }    
     }
 
-    public function getLocationApi(){
+    public function getLocationApi()
+    {
         $data = Location::orderBy('id','desc')->get();
         return response()->json($data);
     }

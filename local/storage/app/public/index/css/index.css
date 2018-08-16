@@ -298,7 +298,9 @@
 	bottom: 10px;
 }	
 /*SECTION 5*/
-
+.section-5 .slide-item{
+	height: 360px;
+}
 /*SECTION 6*/
 .section-6{
 	margin: 50px auto 100px;

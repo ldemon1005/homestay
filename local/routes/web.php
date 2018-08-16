@@ -17,10 +17,10 @@ Route::get('test4',function(){return view('public.payment.payment');});
 
 Route::group(['namespace' => 'Pub'], function() {
 	Route::get('/','HomeController@getIndex');
+	Route::get('ajax-blog','HomeController@getBlogs');
+
 	Route::get('search-result','HomeController@getSearch');
 	Route::get('detail/{id}','HomeController@getDetail')->name('detail_homestay');
-
-
 
 	Route::get('register','HomeController@getRegister');
 	Route::get('location-api','HomeController@getLocationApi');

@@ -11,6 +11,24 @@
 <script type="text/javascript" src="base/js/bootstrap-datepicker.min.js"></script>
 <script src="base/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9yWMAqS_gR49H1kcehbFpYq8V936OnBc&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
+    $.ajax({
+        method: "get",
+        url: "{{asset('ajax-blog')}}",
+    }).done(function( data ) {
+        $('.owl-carousel-5').html(data);
+
+        var owl = $('.owl-carousel-5');
+        owl.owlCarousel({
+            items:3,
+            loop:true,
+            margin:10,
+            autoplay:true,
+            autoplayTimeout:2000,
+            autoplayHoverPause:true
+        });
+    });
+</script>
 <script type="text/javascript" src="index/js/index.js"></script>
 <script>
 	function initAutocomplete() {
@@ -182,14 +200,7 @@
 
 		<div class="row">
 			<div class="owl-carousel owl-carousel-5">
-				@foreach($blogs as $blog)
-				<div class="slide-item">
-					<a href="http://localhost/blog/articel_detail/{{$blog->slug}}--{{$blog->id}}" class="slide-image" style="background-image: url(http://localhost/blog/local/resources/{{$blog->avatar}});"></a>
-					<p class="hs-small-text mt-2"><i class="fas fa-calendar-alt"></i> {{date('d/m/Y H:m',$blog->datecreate)}} </p>
-					<a href="http://localhost/blog/articel_detail/{{$blog->slug}}--{{$blog->id}}" class="normalize semi-bold">{{$blog->title}}</a>
-					<a href="http://localhost/blog/articel_detail/{{$blog->slug}}--{{$blog->id}}" class="hs-btn hs-btn-110-38 corner-left-bot">XEM</a>
-				</div>
-				@endforeach
+				{{--ajax blog here--}}
 			</div>
 		</div>
 	</div>
