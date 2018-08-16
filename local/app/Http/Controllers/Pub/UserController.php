@@ -96,7 +96,7 @@ class UserController extends Controller
 	}
 
 	public function postAjaxAvatar(CreateUserRequest $request){
-		$user = User::find(Auth::id());
+		$user = User::find( Auth::id() );
 		if( $request->image != null){
 			if( File::exists('local/storage/app/image/user-3/'.$user->avatar) ){
 				File::delete('local/storage/app/image/user-3/'.$user->avatar);

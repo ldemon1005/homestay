@@ -9,16 +9,6 @@ $(document).ready(function(){
 		autoplayHoverPause:true
 	});
 
-	var owl = $('.owl-carousel-5');
-	owl.owlCarousel({
-		items:3,
-		loop:true,
-		margin:10,
-		autoplay:true,
-		autoplayTimeout:2000,
-		autoplayHoverPause:true
-	});
-
 	var owl = $('.owl-carousel-4');
 	owl.owlCarousel({
 		items:6,
@@ -27,10 +17,6 @@ $(document).ready(function(){
 		autoplay:true,
 		autoplayTimeout:2000,
 		autoplayHoverPause:true
-	});
-
-	$('.owl-carousel-5 .slide-item').hover(function(){
-		$(this).find('.hs-btn').toggleClass('hs-btn-green');
 	});
 
 	$('.input-daterange').datepicker({
