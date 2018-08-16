@@ -1,17 +1,19 @@
 APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=
+APP_KEY=base64:/X0D4sqSiS2/er3NYjCf4upSnZeJMY8mqCyH/KbKHSk=
 APP_DEBUG=true
 APP_URL=http://localhost
+BLOG_URL=http://localhost:7799
+HOST_URL=http://localhost:7788
 
 LOG_CHANNEL=stack
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=homestead
-DB_USERNAME=homestead
-DB_PASSWORD=secret
+DB_DATABASE=homestay
+DB_USERNAME=root
+DB_PASSWORD=
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
