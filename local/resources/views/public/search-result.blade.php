@@ -41,7 +41,7 @@ async defer></script>
 	<div class="container">
 		<div class="row">
 			<div class="form-container">
-				<h6 class="center white mt-4 fs-24">Homestay tại Hà Nội</h6>
+				<h6 class="center white mt-4 fs-24">Homestay tại {{ Request::get('location') ?? 'Việt Nam' }}</h6>
 				<div class="search-form">
 					<form id="main-form" method="get" action=" {{ asset('search') }} ">
 						<div class="first-row">

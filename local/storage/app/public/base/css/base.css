@@ -9,6 +9,7 @@ body{
 	background: #FFF;
 	width: 100%;
 	margin:auto;
+	overflow: hidden;
 }
 #main{
 	width: 100%;
