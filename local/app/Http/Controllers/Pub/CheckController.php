@@ -15,7 +15,6 @@ class CheckController extends Controller
 		$bedrooms = BedRoom::where('bedroom_homestay_id',$homestay_id)->get();
 		
 		$arr = [];
-
 		foreach($bedrooms as $bedroom){
 			$a = Book::where('book_bedroom_id',$bedroom->bedroom_id)
 					    ->where(function ($query) use ($request){
