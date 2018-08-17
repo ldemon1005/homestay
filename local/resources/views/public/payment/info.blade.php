@@ -59,19 +59,19 @@
 							<div class="col-12 col-md-6 col-lg-6">
 								<div class="form-item-2">
 									<label>Tên người liên hệ: <span class="text-danger">*</span></label>
-									<input type="text" name="fullname" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" placeholder="Họ và tên">
+									<input type="text" name="fullname" value="{{Auth::user()->name}}" placeholder="Họ và tên">
 								</div>
 							</div>
 							<div class="col-12 col-md-6 col-lg-6">
 								<div class="form-item-2">
 									<label>Email:<span class="text-danger">*</span></label>
-									<input type="text" name="email" value="{{\Illuminate\Support\Facades\Auth::user()->email}}" placeholder="email@example.com">
+									<input type="text" name="email" value="{{Auth::user()->email}}" placeholder="email@example.com">
 								</div>
 							</div>
 							<div class="col-12 col-md-6 col-lg-6">
 								<div class="form-item-2">
 									<label>Số di động:<span class="text-danger">*</span></label>
-									<input type="text" name="phone" value="{{\Illuminate\Support\Facades\Auth::user()->phone}}" placeholder="+84123456789">
+									<input type="text" name="phone" value="{{Auth::user()->phone}}" placeholder="+84123456789">
 								</div>
 							</div>
 							<div class="col-12 col-md-6 col-lg-6">
@@ -90,50 +90,7 @@
 			</div>
 
 			<div class="col-12 col-md-4 col-lg-4">
-				<div class="book-box">
-					<div class="book-box-header">
-						Thông tin homestay
-					</div>
-					<div class="book-box-body">
-						<div class="book-homestay">
-							<div class="book-image" style="background-image: url(https://scontent.fhan5-1.fna.fbcdn.net/v/t1.0-0/p526x296/36342061_10214793221356628_5207655401247473664_n.jpg?_nc_cat=0&oh=2f9378d7f2308b2d7cb641c594304ef5&oe=5B9FD331);"></div>
-							<div class="book-homestay-info">
-								<div class="book-homestay-name">{{$homestay->homestay_name}}</div>
-								<div class="book-homestay-address"><i class="fas fa-map-marker-alt"></i> {{$homestay->homestay_location}}</div>
-							</div>
-						</div>
-						<div class="book-info">
-							<div class="book-info-row">
-								<span class="book-info-left">Số đêm nghỉ</span>
-								<span class="book-info-right">{{$number_night}} đêm</span>
-							</div>
-
-							<div class="book-info-row">
-								<span class="book-info-left">Ngày đến</span>
-								<span class="book-info-right">{{$order['start']}}</span>
-							</div>
-
-							<div class="book-info-row">
-								<span class="book-info-left">Ngày đi</span>
-								<span class="book-info-right">{{$order['end']}}</span>
-							</div>
-
-							<div class="book-info-row">
-								<span class="book-info-left">Số người</span>
-								<span class="book-info-right">{{$order['slot']}}</span>
-							</div>
-							<hr>
-							<div class="book-info-row">
-								<span class="book-info-left">{{number_format($order['price'])}}đ x 1 đêm</span>
-							</div>
-							<hr>
-							<div class="book-info-row-last">
-								<span class="book-info-left">TỔNG</span>
-								<span class="book-info-right">{{number_format($total_money)}}</span>
-							</div>
-						</div>
-					</div>
-				</div>
+				@include('public.payment.book-info')
 			</div>
 		</div>
 	</div>
