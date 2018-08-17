@@ -34,17 +34,19 @@
 				});
 	        });
 
-		// // keep tab on reload
-		// $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-		// 	localStorage.setItem('activeTab', $(e.target).attr('href'));
-		// });
-		// var activeTab = localStorage.getItem('activeTab');
-		// if(activeTab){
-		// 	$('#myTab a[href="' + activeTab + '"]').tab('show');
-		// }
+		// keep tab on reload
+		$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+			localStorage.setItem('activeTab', $(e.target).attr('href'));
+		});
+		var activeTab = localStorage.getItem('activeTab');
+		if(activeTab){
+			$('#myTab a[href="' + activeTab + '"]').tab('show');
+		}
 
 	});
+
 </script>
+
 @stop
 
 @section('main')
@@ -170,6 +172,7 @@
 										<td>Mã đặt phòng</td>
 										<td>Homestay</td>
 										<td>Thời gian</td>
+										<td>Chờ thanh toán</td>
 										<td>Chi phí</td>
 										<td>Tình trạng</td>
 										<td>Chi tiết</td>
@@ -186,9 +189,22 @@
 											<td>Homestay đã dừng hoạt động</td>
 										@endif
 										<td>{{$book->book_from}} -- {{$book->book_to}}</td>
+										@if($book->book_status != 3)
+											<td>{{$book->del_time['h']}}:{{$book->del_time['m']}}:{{$book->del_time['s']}}</td>
+										@else
+											<td>0</td>
+										@endif
+
 										<td>{{number_format($book->price)}} vnd</td>
 										<td><span class="text-warning">{{getStatusBookStr($book->book_status)}}</span></td>
-										<td><a onclick="return seeDetailModal({{$book->book_id}});">Xem</a></td>
+										<td>
+											<div>
+												<a onclick="return seeDetailModal({{$book->book_id}});"><i class="fa fa-eye text-primary"></i></a>
+												<span>&nbsp;&nbsp;</span>
+												<a onclick="return seeDetailModal({{$book->book_id}});"><i class="fa fa-trash text-danger"></i></a>
+											</div>
+
+										</td>
 									</tr>
 								@endforeach
 								</tbody>
