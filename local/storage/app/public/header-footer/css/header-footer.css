@@ -273,3 +273,24 @@ a.nav-payment{
 .nav-payment.active{
 	color: #C2D44E;
 }
+
+@media (max-width: 767px) {
+	.container.header-top{
+		height: 65px;
+	}
+	.logo{
+		height: 35px;
+		width: 85px;
+		left: 15px;
+		transform: translate(0, -50%);
+	}
+	.language{
+		display: none;
+	}
+	.login-register{
+		display: none;
+	}
+	#header-bottom, .row.header-bottom{
+		display: none;
+	}
+}
