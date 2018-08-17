@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     const TIME_ORDER = 120;
+    const STATUS_1 = 1; // trong thời gian thanh toán
+    const STATUS_2 = 2; // hết thời gian thanh toán
+    const STATUS_3 = 3; // hoàn thành
+    const STATUS_4 = 4; // hủy
+
+
     protected $table = 'books';
     protected $primaryKey = 'book_id';
     protected $guarded = [];

@@ -23,4 +23,24 @@ class Controller extends BaseController
         }
         return $ip;
     }
+
+    function get_time_h_m_s($time_input){
+        $time = $time_input - time();
+        if($time <= 0){
+            return [
+                'h' => 0,
+                'm' => 0,
+                's' => 0,
+            ];
+        }
+        $h = floor($time / 3600);
+        $m = floor(($time - $h*3600)/60);
+        $s = floor($time - $h*3600 - $m*60);
+
+        return [
+            'h' => $h,
+            'm' => $m,
+            's' => $s,
+        ];
+    }
 }

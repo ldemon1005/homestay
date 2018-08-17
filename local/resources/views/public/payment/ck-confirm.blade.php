@@ -9,9 +9,9 @@
 <script type="text/javascript" src="payment/js/confirm.js"></script>
 <script language="javascript">
 
-    var h = 0; // Giờ
-    var m = 0; // Phút
-	var s = 15; // giây
+    var h = {{$time_del['h']}}; // Giờ
+    var m = {{$time_del['m']}}; // Phút
+	var s = {{$time_del['s']}}; // giây
 
     var timeout = null; // Timeout
 
@@ -39,6 +39,25 @@
             s--;
             start();
         }, 1000);
+
+        setTimeout(function () {
+			check_status({{$book->book_id}})
+        },60000)
+    }
+
+	function check_status(id) {
+        $.ajax({
+            url: '/check_status_book/'+id,
+            method: 'get',
+            dataType: 'json',
+        }).fail(function (ui, status) {
+        }).done(function (data, status) {
+      		if(data.status == 3){
+      		    window.location = "{{asset('complete?status=3')}}";
+			}else  if(data.status == 4){
+                window.location = "{{asset('complete?status=3')}}";
+			}
+        });
     }
 </script>
 @stop
@@ -65,7 +84,7 @@
 							</div>
 
 							<div class="confirm-box-body">
-								<p class="bold">Hôm nay {{date('d/m/Y H:m',time())}} PM</p>
+								<p class="bold">Hôm nay {{date('d/m/Y H:m',time())}}</p>
 								<p class="fs-14">Thời gian còn lại <span id="h"></span> tiếng &nbsp; <span id="m"></span> phút &nbsp; <span id="s"></span>giây</p>
 							</div>
 						</div>
@@ -97,7 +116,7 @@
 			</div>
 
 			<div class="col-12 col-md-4 col-lg-4">
-				@include('public.payment.book-info')
+				@include('public.payment.book-info_payment')
 			</div>
 		</div>
 	</div>

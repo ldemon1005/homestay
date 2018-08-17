@@ -14,6 +14,10 @@ class OrderController extends Controller
     {
         $data_order = $request->get('book');
 
+        $data_order['start'] = $request->get('start');
+        $data_order['end'] = $request->get('end');
+        $data_order['slot'] = $request->get('slot');
+
         $user = Auth::user();
 
         $key = 'ordering:' . $user->id;
