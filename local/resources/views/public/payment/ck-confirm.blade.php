@@ -42,8 +42,8 @@
 
         setTimeout(function () {
 			check_status({{$book->book_id}})
-        },60000)
-    }
+        },10000)
+    };
 
 	function check_status(id) {
         $.ajax({
@@ -55,7 +55,7 @@
       		if(data.status == 3){
       		    window.location = "{{asset('complete?status=3')}}";
 			}else  if(data.status == 4){
-                window.location = "{{asset('complete?status=3')}}";
+                window.location = "{{asset('complete?status=4')}}";
 			}
         });
     }
@@ -101,7 +101,7 @@
 								<p class="fs-14">Chủ tài khoản: Đoàn Công Chung</p>
 								<p class="fs-14">Nội dung thanh toán: Thanh toán đặt chỗ #111111</p>
 								<hr>
-								<p class="fs-14">Số tiền cần thanh toán: <span class="bold">200.000đ</span></p>
+								<p class="fs-14">Số tiền cần thanh toán: <span class="bold">{{number_format($book->price)}}đ</span></p>
 								<p class="italic fs-12"><i class="fas fa-exclamation-circle" style="color: #EFD176;"></i> Lưu ý: Bạn cần thanh toán chính xác số tiền đặt phòng của mình</p>
 							</div>
 						</div>

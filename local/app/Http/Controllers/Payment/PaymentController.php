@@ -19,6 +19,10 @@ class PaymentController extends Controller
     public function info_payment(){
         $data = $this->get_homestay();
 
+        if($data == null) {
+            return redirect('user/profile#manage');
+        }
+
         return view('public.payment.info',$data);
     }
     public function action_info_payment(Request $request){
@@ -26,6 +30,10 @@ class PaymentController extends Controller
         $key = 'ordering:'.$user->id;
 
         $order = Cache::store('redis')->get($key);
+
+        if(!$order){
+            return redirect('user/profile#manage');
+        }
 
         $order['code'] = 'CTOGO-'.$user->id.substr(time(),5,8);
 
@@ -37,7 +45,12 @@ class PaymentController extends Controller
     }
 
     function payment_method(){
+
         $data = $this->get_homestay();
+
+        if($data == null) {
+            return redirect('user/profile#manage');
+        }
 
         return view('public.payment.payment',$data);
     }
@@ -48,15 +61,21 @@ class PaymentController extends Controller
 
         $order = Cache::store('redis')->get($key);
 
-        if(isset($order['book_id']))
+        if(!$order){
+            return redirect('user/profile#manage');
+        }
 
         $this->email = $order['info']['email'];
 
         $order['payment_method'] = $request->all();
 
         $data = $this->get_homestay();
+
+        if($data == null) {
+            return redirect('user/profile#manage');
+        }
+
         $book = [
-            'book_status' => 0,
             'book_from' => date('Y/m/d',strtotime(str_replace('/','-',$order['start'])."00:00")),
             'book_to' => date('Y/m/d',strtotime(str_replace('/','-',$order['start'])."00:00")),
             'book_slot' => $order['slot'],
@@ -114,6 +133,11 @@ class PaymentController extends Controller
 
         $order = Cache::store('redis')->get($key);
 
+        if(!$order){
+            $data = null;
+            return $data;
+        }
+
         $start = strtotime(str_replace('/','-',$order['start'])."00:00");
         $end = strtotime(str_replace('/','-',$order['end'])."23:59");
 
@@ -143,6 +167,7 @@ class PaymentController extends Controller
 
     function complete(Request $request){
         $status = $request->get('status');
+
         if($status == 3){
             return view('public.payment.complete')->with('success','Đơn hàng đã được thanh toán thành công');
         }else if ($status == 4){
@@ -154,7 +179,7 @@ class PaymentController extends Controller
     function check_status_book($id){
         $book = DB::table('books')->where('book_id',$id)->first();
         return json_encode([
-            'status' => $book->status
+            'status' => $book->book_status
         ]);
     }
 }

@@ -44,7 +44,7 @@ Route::group(['namespace' => 'Pub'], function() {
 		Route::get('logout','LoginController@getLogout');
 
 		Route::get('/','UserController@getBlank');
-		Route::get('profile','UserController@getProfile');
+		Route::get('profile','UserController@getProfile')->name('getProfile');
 		Route::get('seeDetailModal','UserController@seeDetailModal');
 		Route::get('notification','UserController@getNotification');
 		Route::get('book','UserController@getBook');
@@ -66,5 +66,4 @@ Route::group(['namespace' => 'Payment','middleware' => 'CheckLoggedOut'],functio
     Route::get('/complete','PaymentController@complete')->name('complete');
     Route::get('/check_status_book/{id}','PaymentController@check_status_book')->name('check_status_book');
     Route::get('/ck_confirm/{id}','PaymentController@ck_confirm')->name('ck_confirm');
-
 });

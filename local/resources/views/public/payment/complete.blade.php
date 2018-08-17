@@ -24,9 +24,14 @@
 					</div>
 				@endif
 
-				@if (session('status'))
+				@if (isset($success))
 					<div class="alert alert-success">
-						<p>{{ session('status') }}</p>
+						<p>{{ $success }}</p>
+					</div>
+				@endif
+				@if (isset($danger))
+					<div class="alert alert-danger">
+						<p>{{ $danger }}</p>
 					</div>
 				@endif
 			</div>
