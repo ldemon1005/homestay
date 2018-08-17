@@ -20,12 +20,27 @@
 
         var owl = $('.owl-carousel-5');
         owl.owlCarousel({
-            items:3,
             loop:true,
             margin:10,
             autoplay:true,
             autoplayTimeout:2000,
-            autoplayHoverPause:true
+            autoplayHoverPause:true,
+			responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:false
+                },
+                600:{
+                    items:2,
+                    nav:false
+                },
+                1000:{
+                    items:3,
+                    nav:false,
+                    loop:false
+                }
+            }
         });
 
         $('.owl-carousel-5 .slide-item').hover(function(){

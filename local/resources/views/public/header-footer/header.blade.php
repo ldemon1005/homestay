@@ -9,6 +9,9 @@
 					<li><a href=""><img src="{{ asset('local/storage/app/public/header-footer/image/en.png') }}"> Tiếng Anh</a></li>
 				</ul>
 			</figure>
+
+			<div class="menu-button"><a><span></span><span></span><span></span><span></span></a></div>
+
 			<ul class="login-register">
 				@if( Auth::check() )
 				<li><a class="user-tab">
