@@ -6,7 +6,6 @@
 		<div class="book-homestay">
 			<div class="book-image" style="background-image: url({{env('HOST_URL').'/local/storage/app/image/'.$homestay->homestay_image}});"></div>
 			<div class="book-homestay-info">
-				<div class="book-homestay-code">Mã đặt chỗ: {{$order['code']}}</div>
 				<div class="book-homestay-name">{{$homestay->homestay_name}}</div>
 				<div class="book-homestay-address"><i class="fas fa-map-marker-alt"></i> {{$homestay->homestay_location}}</div>
 			</div>
