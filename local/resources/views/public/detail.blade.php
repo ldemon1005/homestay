@@ -336,7 +336,7 @@
 						<div class="my-form">
 							<label class="fs-14 bold">Ngày nhận phòng</label>
 							<div class="calendar"><input autocomplete="off" onchange="check()"
-														 data-provide="datepicker" type="text" name="book[start]"
+														 data-provide="datepicker" type="text" name="start"
 														 placeholder="Ngày đến"></div>
 						</div>
 					</div>
@@ -346,7 +346,7 @@
 							<label class="fs-14 bold">Ngày trả phòng</label>
 							<div class="calendar">
 								<input autocomplete="off" onchange="check()" data-provide="datepicker" type="text"
-									   name="book[end]" placeholder="Ngày đi">
+									   name="end" placeholder="Ngày đi">
 							</div>
 						</div>
 					</div>
@@ -354,7 +354,7 @@
 					<div class="col-12 col-md-6 col-lg-2">
 						<div class="my-form">
 							<label class="fs-14 bold">Chọn số người</label>
-							<select class="select-box" name="book[slot]" onchange="check()">
+							<select class="select-box" name="slot" onchange="check()">
 								@for($i=1;$i<=20;$i++)
 								<option value="{{$i}}">{{$i}}</option>
 								@endfor

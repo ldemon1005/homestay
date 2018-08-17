@@ -1,4 +1,5 @@
-<form class="book-box book-box-body pb-200" action="{{route('action_payment_method')}}" method="get">
+<form class="book-box book-box-body pb-200" action="{{route('action_payment_method')}}" method="post">
+	{{ csrf_field() }}
 	<h6 class="fs-16 bold">Chuyển khoản</h6>
 	<p class="semi-bold fs-14">Bạn có thể chuyển khoản tại quầy giao dịch, qua Internet Banking hoặc ATM</p>
 	<p class="semi-bold fs-14">Lưu ý: Phí chuyển khoản sẽ do bạn trả</p>

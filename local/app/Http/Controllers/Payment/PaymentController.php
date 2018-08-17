@@ -48,11 +48,11 @@ class PaymentController extends Controller
 
         $order = Cache::store('redis')->get($key);
 
+        if(isset($order['book_id']))
+
         $this->email = $order['info']['email'];
 
         $order['payment_method'] = $request->all();
-
-        Cache::store('redis')->put($key, $order, Book::TIME_ORDER);
 
         $data = $this->get_homestay();
         $book = [
@@ -65,7 +65,7 @@ class PaymentController extends Controller
             'homestay_id' => $order['homestay_id'],
             'time_del' => time() + 3600*2,
             'code' => $order['code'],
-            'price' => $data['total_money']
+            'price' => $data['total_money']*0.8
         ];
 
         $book_1 = Book::create($book);
@@ -73,10 +73,40 @@ class PaymentController extends Controller
         $job = (new SendMail($order))->delay(Carbon::now()->addMinutes(1));
         $this->dispatch($job);
 
+        Cache::store('redis')->forget($key);
 
-        $data['book'] = $book_1;
+        return redirect()->route('ck_confirm',$book_1->book_id);
+    }
+
+    function ck_confirm($id){
+        $book = DB::table('books')->where('book_id',$id)->first();
+
+        $start = strtotime(str_replace('/','-',$book->book_from)."00:00");
+        $end = strtotime(str_replace('/','-',$book->book_to)."23:59");
+
+        $number_night = intval(($end - $start)/86400);
+
+        $book->book_from = date('d/m/Y',strtotime(str_replace('/','-',$book->book_from)));
+        $book->book_to = date('d/m/Y',strtotime(str_replace('/','-',$book->book_to)));
+
+        $homestay = DB::table('homestay')->where('homestay_id',$book->homestay_id)->first();
+
+        $bedroom = DB::table('bedrooms')->where('bedroom_id',$book->book_bedroom_id)->first();
+
+
+
+        $data = [
+            'book' => $book,
+            'homestay' => $homestay,
+            'bedroom' => $bedroom,
+            'number_night' => $number_night
+        ];
+
+        $data['time_del'] = $this->get_time_h_m_s($book->time_del);
+
         return view('public.payment.ck-confirm',$data);
     }
+
 
     function get_homestay(){
         $user = Auth::user();
@@ -111,7 +141,20 @@ class PaymentController extends Controller
         }
     }
 
-    function complete(){
+    function complete(Request $request){
+        $status = $request->get('status');
+        if($status == 3){
+            return view('public.payment.complete')->with('success','Đơn hàng đã được thanh toán thành công');
+        }else if ($status == 4){
+            return view('public.payment.complete')->with('danger','Đơn hàng đã bị hủy');
+        }
         return view('public.payment.complete');
+    }
+
+    function check_status_book($id){
+        $book = DB::table('books')->where('book_id',$id)->first();
+        return json_encode([
+            'status' => $book->status
+        ]);
     }
 }

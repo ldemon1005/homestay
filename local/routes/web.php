@@ -61,8 +61,10 @@ Route::group(['namespace' => 'Payment','middleware' => 'CheckLoggedOut'],functio
     Route::get('/info_payment','PaymentController@info_payment')->name('info_payment');
     Route::get('/action_info_payment','PaymentController@action_info_payment')->name('action_info_payment');
     Route::get('/payment_method','PaymentController@payment_method')->name('payment_method');
-    Route::get('/action_payment_method','PaymentController@action_payment_method')->name('action_payment_method');
+    Route::post('/action_payment_method','PaymentController@action_payment_method')->name('action_payment_method');
     Route::get('/update_status/{book_id}/{status}','PaymentController@update_status')->name('update_status');
     Route::get('/complete','PaymentController@complete')->name('complete');
+    Route::get('/check_status_book/{id}','PaymentController@check_status_book')->name('check_status_book');
+    Route::get('/ck_confirm/{id}','PaymentController@ck_confirm')->name('ck_confirm');
 
 });
