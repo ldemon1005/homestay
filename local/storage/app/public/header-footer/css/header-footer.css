@@ -46,6 +46,36 @@
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
+.menu-button{
+	position: absolute;
+}
+.menu-button>a{
+	height: 24px;
+	width: 24px;
+	position: relative;
+}
+.menu-button>a>span{
+	position: absolute;
+	background-color: #C2D44E;
+	height: 3px;
+}
+.menu-button>a>span:first-child{
+	top: 0;
+	width: 70%;
+}
+.menu-button>a>span:nth-child(2){
+	top: 7px;
+	width: 90%;
+}
+.menu-button>a>span:nth-child(3) {
+	top: 14px;
+	width: 80%;
+}
+.menu-button>a>span:nth-child(4){
+	 top: 21px;
+	 width: 100%;
+ }
+
 .login-register{
 	font-size: 14px;
 	font-weight: 700;
@@ -292,5 +322,47 @@ a.nav-payment{
 	}
 	#header-bottom, .row.header-bottom{
 		display: none;
+	}
+
+	#footer-bottom{
+		height: 35px;
+		line-height: 35px;
+		font-size: 12px;
+	}
+	.footer-social>li{
+		font-size: 11px;
+		padding-right: 5px;
+	}
+	.footer-h6{
+		font-size: 14px;
+		letter-spacing: unset;
+	}
+	.footer-info>li, .footer-other>li{
+		font-size: 12px;
+		font-weight: 600;
+	}
+	#footer-top{
+		height: auto;
+	}
+	.footer-social,.download{
+		display: inline-block;
+		margin: 0;
+	}
+	.download {
+		float: right;
+	}
+	.download li img{
+		height: 18px;
+	}
+	.to-top{
+		height: 35px;
+		width: 35px;
+	}
+	.to-top:before{
+		height: 8px;
+		width: 8px;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%) rotate(45deg);
 	}
 }

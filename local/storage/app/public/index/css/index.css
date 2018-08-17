@@ -127,9 +127,8 @@
 	font-style: italic;
 }
 .slide-item{
-	width: 370px;
 	margin: auto;
-	padding: 10px 10px 50px 10px;
+	padding: 10px;
 	position: relative;
 	height: 400px;
 }
@@ -141,13 +140,17 @@
 }
 .slide-image{
 	position: relative;
-	height: 200px;
-	width: 350px;
+	width: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100%;
 	transition: 1s;
 	display: block;
+}
+.slide-image:before{
+	display: block;
+	content: "";
+	padding-top: 56.25%;
 }
 .slide-image:after{
 	content: "";
@@ -337,11 +340,41 @@
 	.calendar>input{
 		width: 150px;
 	}
-	.slide-item{
-		width: 310px;
+}
+
+@media (max-width: 767px) {
+	.section-4{
+		height: 280px;
+		padding: 15px;
 	}
-	.slide-image{
-		width: 290px;
-		height: 165px;
+	.container-4{
+		height: 250px;
+		margin:0;
+	}
+	.text-4{
+		width: auto;
+		margin-top: 40px;
+	}
+	.text-4 p{
+		margin:0;
+	}
+	.green-block{
+		height: 30px;
+		line-height: 50px;
+		width: 70px;
+		font-size: 48px;
+	}
+	.section-6{
+		margin: 50px auto;
+	}
+	.partner{
+		height: 60px;
+		line-height: 60px;
+	}
+	.partner-img-container{
+		height: 38px;
+	}
+	.owl-stage-outer{
+		padding: 10px 0;
 	}
 }

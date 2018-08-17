@@ -6,17 +6,48 @@ $(document).ready(function(){
 		margin:10,
 		autoplay:true,
 		autoplayTimeout:2000,
-		autoplayHoverPause:true
+		autoplayHoverPause:true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:false
+            },
+            600:{
+                items:2,
+                nav:false
+            },
+            1000:{
+                items:3,
+                nav:false,
+                loop:false
+            }
+        }
 	});
 
 	var owl = $('.owl-carousel-4');
 	owl.owlCarousel({
-		items:6,
 		loop:true,
 		margin:10,
 		autoplay:true,
 		autoplayTimeout:2000,
-		autoplayHoverPause:true
+		autoplayHoverPause:true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:false
+            },
+            600:{
+                items:4,
+                nav:false
+            },
+            1000:{
+                items:6,
+                nav:false,
+                loop:false
+            }
+        }
 	});
 
 	$('.input-daterange').datepicker({
@@ -26,14 +57,29 @@ $(document).ready(function(){
 
 	var owl_partner = $('.partner-carousel');
 	owl_partner.owlCarousel({
-		items:5,
 		loop:true,
 		margin:100,
 		autoplay:true,
 		autoplayHoverPause:true,
 		slideTransition: 'linear',
 		autoplayTimeout: 5000,
-		autoplaySpeed: 6000
+		autoplaySpeed: 6000,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:3,
+                nav:false
+            },
+            600:{
+                items:4,
+                nav:false
+            },
+            1000:{
+                items:5,
+                nav:false,
+                loop:false
+            }
+        }
 	})
 
 	owl_partner.trigger('play.owl.autoplay');

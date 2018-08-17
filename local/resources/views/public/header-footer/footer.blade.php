@@ -2,7 +2,7 @@
 	<section id="footer-top">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-md-4 col-lg-4">
+				<div class="col-6 col-md-4 col-lg-4">
 				<h6 class="footer-h6">thông tin</h6>
 					<ul class="footer-info">
 						<li>Hotline: 0888.790.111</li>
@@ -11,7 +11,7 @@
 						<li><a href="">Liên hệ với chúng tôi</a></li>
 					</ul>
 				</div>
-				<div class="col-12 col-md-4 col-lg-4">
+				<div class="col-6 col-md-4 col-lg-4">
 					<h6 class="footer-h6">khác</h6>
 					<ul class="footer-other">
 						<li><a href="">Blog</a></li>
