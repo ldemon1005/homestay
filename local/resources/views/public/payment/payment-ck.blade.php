@@ -9,7 +9,7 @@
 	<div class="bank-container">
 		<div class="bank-item">
 			<div class="bank-input">
-				<input value="bidv" type="radio" checked="checked" name="bank">
+				<input value="bidv" type="radio" checked="checked" name="bankcode">
 				<span class="checkmark"></span>
 			</div>
 			<div class="bank-image" style="background-image: url({{ asset('local/storage/app/public/payment/image/BIDV.png') }});"></div>
@@ -17,7 +17,7 @@
 
 		<div class="bank-item">
 			<div class="bank-input">
-				<input value="bidv" type="radio" name="bank">
+				<input value="bidv" type="radio" name="bankcode">
 				<span class="checkmark"></span>
 			</div>
 			<div class="bank-image" style="background-image: url({{ asset('local/storage/app/public/payment/image/BIDV.png') }});"></div>
@@ -25,7 +25,7 @@
 
 		<div class="bank-item">
 			<div class="bank-input">
-				<input value="bidv" type="radio" name="bank">
+				<input value="bidv" type="radio" name="bankcode">
 				<span class="checkmark"></span>
 			</div>
 			<div class="bank-image" style="background-image: url({{ asset('local/storage/app/public/payment/image/BIDV.png') }});"></div>
@@ -33,7 +33,7 @@
 
 		<div class="bank-item">
 			<div class="bank-input">
-				<input value="bidv" type="radio" name="bank">
+				<input value="bidv" type="radio" name="bankcode">
 				<span class="checkmark"></span>
 			</div>
 			<div class="bank-image" style="background-image: url({{ asset('local/storage/app/public/payment/image/BIDV.png') }});"></div>
@@ -41,7 +41,7 @@
 
 		<div class="bank-item">
 			<div class="bank-input">
-				<input value="bidv" type="radio" name="bank">
+				<input value="bidv" type="radio" name="bankcode">
 				<span class="checkmark"></span>
 			</div>
 			<div class="bank-image" style="background-image: url({{ asset('local/storage/app/public/payment/image/BIDV.png') }});"></div>
@@ -49,13 +49,11 @@
 
 		<div class="bank-item">
 			<div class="bank-input">
-				<input value="bidv" type="radio" name="bank">
+				<input value="bidv" type="radio" name="bankcode">
 				<span class="checkmark"></span>
 			</div>
 			<div class="bank-image" style="background-image: url({{ asset('local/storage/app/public/payment/image/BIDV.png') }});"></div>
 		</div>
-
-
 	</div>
 	<input name="method_payment" value="3" class="d-none">
 	<button type="submit" class="hs-btn hs-btn-green hs-btn-lg payment-btn">Thanh toán</button>

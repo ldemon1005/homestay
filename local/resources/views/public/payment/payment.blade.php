@@ -9,6 +9,19 @@
 <script type="text/javascript" src="payment/js/payment.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script language="javascript">
+    $('input[name="option_payment"]').bind('click', function() {
+        $('.list-content li').removeClass('active');
+        $(this).parent().parent('li').addClass('active');
+    });
+
+    $("#ngan_luong").on('click',function () {
+        if($(this).is(':checked')){
+            $("#nlpayment").show();
+        }else $("#nlpayment").hide();
+    });
+</script>
 @stop
 
 @section('main')
@@ -39,7 +52,7 @@
 
 						</div>
 						<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-							
+							@include('public.payment.payment-ol')
 						</div>
 						<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 							@include('public.payment.payment-ck')

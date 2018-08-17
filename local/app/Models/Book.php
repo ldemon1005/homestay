@@ -13,6 +13,10 @@ class Book extends Model
     const STATUS_4 = 4; // hủy
 
 
+    const THE_TIN_DUNG = 1;
+    const TRUC_TUYEN = 2;
+    const CHUYEN_KHOAN = 3;
+
     protected $table = 'books';
     protected $primaryKey = 'book_id';
     protected $guarded = [];
