@@ -17,21 +17,43 @@ class SocialAuthController extends Controller
 
     public function callback($social)
     {
-        $data = Socialite::driver($social)->user()->user;
+        $data = Socialite::driver($social)->user();
 
-        $user = User::firstOrNew(['fb_id' => $data['id']]);
+        if($social == 'facebook'){
+            $data = $data->user;
+            $user = User::where('social_id',$data['id'])->orWhere('email',$data['email'])->first();
 
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->password = bcrypt($data['email']);
-        $user->fb_id = $data['id'];
+            if(!$user){
+                $user = new User();
+            }
+
+            $user->name = $data['name'];
+            $user->email = $data['email'];
+            $user->password = bcrypt($data['email']);
+            $user->social_id = $data['id'];
+            $user->social_type = 1;
+        }else if ($social == 'google'){
+            $email = $data['emails'][0]['value'];
+            $name = $data['displayName'];
+
+            $user = User::where('social_id',$data['id'])->orWhere('email',$email)->first();
+
+            if(!$user){
+                $user = new User();
+            }
+
+            $user->name = $name;
+            $user->email = $email;
+            $user->password = bcrypt($email);
+            $user->social_id = $data['id'];
+            $user->social_type = 2;
+        }else {
+            return redirect()->to('/login');
+        }
 
         $user->save();
 
         auth()->login($user);
-
-//        $user = SocialAccountService::createOrGetUser(Socialite::driver($social)->user(), $social);
-//        auth()->login($user);
 
         return redirect()->to('/home');
     }

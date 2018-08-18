@@ -17,6 +17,7 @@ Route::get('test4',function(){return view('public.payment.payment');});
 
 Route::group(['namespace' => 'Pub'], function() {
 	Route::get('/','HomeController@getIndex');
+	Route::get('home','HomeController@getHome')->name('home');
 	Route::get('ajax-blog','HomeController@getBlogs');
 
 	Route::get('search-result','HomeController@getSearch');
@@ -69,6 +70,6 @@ Route::group(['namespace' => 'Payment','middleware' => 'CheckLoggedOut'],functio
 });
 
 Route::group(['namespace' => 'Auth'],function (){
-    Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('login_facebook');
-    Route::get('/callback/{social}', 'SocialAuthController@callback');
+    Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('soicial');
+    Route::get('/callback/{social}', 'SocialAuthController@callback')->name('soicial_callback');
 });
