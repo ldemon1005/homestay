@@ -53,7 +53,7 @@
 .social-cont{
 	margin-top: 20px;
 }
-.fb-btn, .gg-btn, a.fb-btn, a.gg-btn {
+.fb-btn, .gg-btn, a.fb-btn, a.gg-btn, a.fb-btn:hover, a.gg-btn:hover {
 	height: 40px;
 	line-height: 40px;
 	width: 100%;
