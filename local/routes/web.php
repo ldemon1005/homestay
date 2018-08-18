@@ -70,6 +70,6 @@ Route::group(['namespace' => 'Payment','middleware' => 'CheckLoggedOut'],functio
 });
 
 Route::group(['namespace' => 'Auth'],function (){
-    Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('login_facebook');
-    Route::get('/callback/{social}', 'SocialAuthController@callback');
+    Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('soicial');
+    Route::get('/callback/{social}', 'SocialAuthController@callback')->name('soicial_callback');
 });

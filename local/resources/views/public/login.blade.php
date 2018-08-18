@@ -42,10 +42,10 @@
 
 			{{--<div class="fb-login-button" data-width="320" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>--}}
             <div class="social-cont">
-                <a class="fb-btn" href="{{route('login_facebook','facebook')}}"><i class="fab fa-facebook-f"></i> Đăng nhập với Facebook</a>
+                <a class="fb-btn" href="{{route('soicial','facebook')}}"><i class="fab fa-facebook-f"></i> Đăng nhập với Facebook</a>
             </div>
             <div class="social-cont">
-                <a class="gg-btn" href=""><i class="fab fa-google-plus-g"></i> Đăng nhập với Google</a>
+                <a class="gg-btn" href="{{route('soicial','google')}}"><i class="fab fa-google-plus-g"></i> Đăng nhập với Google</a>
             </div>
             <p class="fs-12 white center mt-3">Bạn chưa có tài khoản? <a class="main-color" href="{{ asset('signup') }}">Đăng ký</a></p>
 		</div>
