@@ -37,7 +37,8 @@ class UserController extends Controller
 
 	//
 	public function getProfile(){
-	    $list_book = DB::table('books')->orderByDesc('book_id')->paginate(15);
+	    $user = \Illuminate\Support\Facades\Auth::user();
+	    $list_book = DB::table('books')->where('book_user_id',$user->id)->orderByDesc('book_id')->paginate(15);
 
 	    foreach ($list_book as $book){
 	        $book->homestay = DB::table('homestay')->where('homestay_id',$book->homestay_id)->first();
