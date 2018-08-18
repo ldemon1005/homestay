@@ -30,7 +30,7 @@ Route::group(['namespace' => 'Pub'], function() {
 	Route::post('search-ajax','SearchController@getAjaxSearch');
 	Route::post('check-ajax','CheckController@getAjaxCheck');
 
-	Route::group(['prefix' => 'signup'], function() {
+	Route::group(['prefix' => 'signup','middleware' => 'CheckLoggedIn'], function() {
 	    Route::get('/','UserController@getSignup');
 	    Route::post('/','UserController@postSignup');
 	});

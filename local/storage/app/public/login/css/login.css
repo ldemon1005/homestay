@@ -62,6 +62,7 @@
 	color: #FFF;
 	text-align:center;
 	position: relative;
+    text-decoration: none;
 }
 .fb-btn {
 	background-color: #4D71CD;
