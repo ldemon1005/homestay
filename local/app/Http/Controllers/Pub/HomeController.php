@@ -16,6 +16,7 @@ class HomeController extends Controller
 {
     public function getIndex()
     {
+        dd("chao em");
         $data['hot_homestay'] = HomeStay::where('homestay_active',1)->orderBy('homestay_id','desc')->take(9)->get();
         $data['blogs'] = DB::table('articel')->orderBy('id','desc')->take(9)->get();
         $data['comments'] = Comment::with('user')->with('homestay')->take(9)->get();

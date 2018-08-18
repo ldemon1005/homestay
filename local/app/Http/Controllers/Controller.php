@@ -11,6 +11,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    function __construct()
+    {
+
+    }
+
     function getUserIpAddr(){
         if(!empty($_SERVER['HTTP_CLIENT_IP'])){
             //ip from share internet
