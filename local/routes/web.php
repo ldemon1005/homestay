@@ -17,6 +17,7 @@ Route::get('test4',function(){return view('public.payment.payment');});
 
 Route::group(['namespace' => 'Pub'], function() {
 	Route::get('/','HomeController@getIndex');
+	Route::get('home','HomeController@getHome')->name('home');
 	Route::get('ajax-blog','HomeController@getBlogs');
 
 	Route::get('search-result','HomeController@getSearch');
