@@ -50,3 +50,40 @@
 #google-login{
 	margin-top: 20px;
 }
+.social-cont{
+	margin-top: 20px;
+}
+.fb-btn, .gg-btn, a.fb-btn, a.gg-btn {
+	height: 40px;
+	line-height: 40px;
+	width: 100%;
+	display: block;
+	font-size: 13px;
+	color: #FFF;
+	text-align:center;
+	position: relative;
+}
+.fb-btn {
+	background-color: #4D71CD;
+}
+.gg-btn {
+	background-color: #D16152;
+}
+.fb-btn i, .gg-btn i {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	transform: translate(-50%,-50%);
+	font-size: 16px;
+}
+@media (max-width: 767px) {
+	.fb-btn {
+		height: 34px;
+		line-height: 34px;
+	}
+
+	.gg-btn {
+		height: 34px;
+		line-height: 34px;
+	}
+}
