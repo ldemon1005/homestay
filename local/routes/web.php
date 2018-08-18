@@ -68,3 +68,8 @@ Route::group(['namespace' => 'Payment','middleware' => 'CheckLoggedOut'],functio
     Route::get('/check_status_book/{id}','PaymentController@check_status_book')->name('check_status_book');
     Route::get('/ck_confirm/{id}','PaymentController@ck_confirm')->name('ck_confirm');
 });
+
+Route::group(['namespace' => 'Auth'],function (){
+    Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('login_facebook');
+    Route::get('/callback/{social}', 'SocialAuthController@callback');
+});

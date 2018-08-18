@@ -1,5 +1,5 @@
 <?php
-namespace App\Librariy;
+namespace App\Library;
 class NL_CheckOutV3
 {
     public $url_api = 'https://sandbox.nganluong.vn:8088/nl30/checkout.api.nganluong.post.php';

@@ -5,7 +5,7 @@
  * Date: 12/27/2017
  * Time: 3:27 PM
  */
-namespace App\Librariy;
+namespace App\Library;
 include_once "NL_Checkoutv3.php";
 
 class NganLuongHelper

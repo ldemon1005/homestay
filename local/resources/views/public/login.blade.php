@@ -40,13 +40,12 @@
 
 			<div class="fs-14 center white mt-4 side-dash-both"><span>Hoặc</span></div>
 
-			<div class="fb-login-button" data-width="320" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
-
+			{{--<div class="fb-login-button" data-width="320" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>--}}
+            <a href="{{route('login_facebook','facebook')}}">FB Login</a>
 			<div id="google-login" class="g-signin2" data-width="320" data-height="40" data-longtitle="true"></div>
 
 			<p class="fs-12 white center mt-3">Bạn chưa có tài khoản? <a class="main-color" href="{{ asset('signup') }}">Đăng ký</a></p>
 		</div>
-
     {{csrf_field()}}
 	</form>
 </section>
