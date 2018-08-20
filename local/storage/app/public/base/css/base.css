@@ -209,6 +209,9 @@ body{
 }
 
 @media (max-width: 767px) {
+	.hs-section{
+		padding: 25px 0;
+	}
 	.hs-heading-1{
 		font-size: 18px;
 		line-height: 24px;

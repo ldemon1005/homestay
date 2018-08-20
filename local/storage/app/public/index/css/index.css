@@ -5,7 +5,9 @@
 	height: 600px;
 	position: relative;
 }
-
+.section-1,.search-form{
+	height: 230px;
+}
 /*SECTION 2*/
 .section-2{
 
@@ -26,6 +28,16 @@
 }
 .my-form{
 	margin:0 20px;
+}
+.my-group{
+	display: flex;
+}
+.my-item{
+	margin-right:10px;
+	flex: 1;
+}
+.my-item:last-child{
+	margin-right:0px;
 }
 .my-form label{
 	width: 100%;
@@ -365,7 +377,7 @@
 		font-size: 48px;
 	}
 	.section-6{
-		margin: 50px auto;
+		margin: 0px auto 50px;
 	}
 	.partner{
 		height: 60px;
@@ -376,5 +388,67 @@
 	}
 	.owl-stage-outer{
 		padding: 10px 0;
+	}
+	.section-1:after{
+		position:absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #00000066;
+	}
+	.section-1, .search-form {
+		height: 230px;
+	}
+	.search-form{
+		transform: none;
+		position: absolute;
+		bottom: 0;
+		background: none;
+		box-shadow: none;
+		padding: 40px;
+	}
+	.section-2{
+		position: relative;
+	}
+	.first-row{
+		display: block;
+	}
+	.my-form{
+		margin:0;
+	}
+	.my-form label{
+		display: none;
+	}
+	.destination>input, .my-form select, .calendar input[type="text"], .my-form button{
+		width: 100%;
+	}
+	.date-input:first-child{
+		margin-right: 10px;
+	}
+	.check-form{
+		margin-left: 0;
+		margin-top: 10px;
+		color: #FFF;
+	}
+	.my-form input, .my-form select,.my-form button{
+		font-size: 14px;
+	}
+
+	.section-3{
+		padding-top: 20px;
+	}
+	.section-3 .owl-dots{
+		display: none;
+	}
+
+	.carousel-4{
+		width: 100%;
+	}
+	.slide-image-4{
+		height: 60px;
+		width: 60px;
+		margin: auto;
 	}
 }

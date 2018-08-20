@@ -100,18 +100,19 @@
 							</div>
 						</div>
 
-						<div class="my-form">
-							<label>Số người</label>
-							<select name="slot">
-								@for($i = 1; $i<=20; $i++)
-								<option value="{{ $i }}">{{ $i }}</option>
-								@endfor
-							</select>
-						</div>
-
-						<div class="my-form">
-							<label class="transparent">Tìm</label>
-							<button type="submit">TÌM</button>
+						<div class="my-form my-group">
+							<div class="my-item">
+								<label>Số người</label>
+								<select name="slot">
+									@for($i = 1; $i<=20; $i++)
+									<option value="{{ $i }}">{{ $i }}</option>
+									@endfor
+								</select>
+							</div>
+							<div class="my-item">
+								<label class="transparent">Tìm</label>
+								<button type="submit">TÌM</button>
+							</div>
 						</div>
 					</div>
 

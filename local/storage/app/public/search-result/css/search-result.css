@@ -218,3 +218,33 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
 	float: right;
 	transform: translateX(15px);
 }
+
+@media (max-width: 767px) {
+	.search-form{
+		background: none;
+		box-shadow: none;
+
+	}
+	.section-1 .my-form label{
+		display: none;
+	}
+	.first-row{
+		display: block;
+	}
+	.calendar input[type="text"],.my-form select,.my-form button{
+		width: 100%;
+	}
+	.date-input:first-child{
+		margin-right: 10px;
+	}
+	.my-group{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.my-item{
+		flex: 1;
+	 }
+	.my-item:first-child{
+		margin-right: 10px;
+	}
+}

@@ -48,31 +48,39 @@
 }
 .menu-button{
 	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
 }
 .menu-button>a{
-	height: 24px;
+	height: 21px;
 	width: 24px;
 	position: relative;
+	display: block;
+	cursor: pointer;
 }
 .menu-button>a>span{
 	position: absolute;
 	background-color: #C2D44E;
 	height: 3px;
+	right: 0;
+	border-radius: 1px;
 }
 .menu-button>a>span:first-child{
 	top: 0;
 	width: 70%;
 }
 .menu-button>a>span:nth-child(2){
-	top: 7px;
+	top: 6px;
 	width: 90%;
 }
 .menu-button>a>span:nth-child(3) {
-	top: 14px;
+	top: 12px;
 	width: 80%;
 }
 .menu-button>a>span:nth-child(4){
-	 top: 21px;
+	 top: 18px;
 	 width: 100%;
  }
 
