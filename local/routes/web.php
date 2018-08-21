@@ -55,6 +55,7 @@ Route::group(['namespace' => 'Pub'], function() {
 		Route::post('updatePassword','UserController@postUpdatePassword');
 
         Route::post('add_order','OrderController@add_order')->name('add_order');
+        Route::get('update_status_book/{id}/{status}',"UserController@update_status_book")->name('update_status_book');
 	});
 });
 

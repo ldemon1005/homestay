@@ -13,6 +13,7 @@ use Auth;
 use File;
 use Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller
 {
@@ -77,6 +78,21 @@ class UserController extends Controller
             'book' => $book
         ];
         return view('public.guest.see-detail-modal',$data);
+    }
+
+
+    function update_status_book($id,$status){
+        $book = DB::table('books')->where('book_id',$id)->update(['book_status'=>$status]);
+
+        if($book && $status == 2){
+            return back()->with('warning','Hết thời gian thanh toán');
+        }
+        if($book && $status == 3){
+            return back()->with('success','Thanh toán thành công');
+        }
+        if($book && $status == 4){
+            return back()->with('danger','Hủy thanh toán thành công');
+        }
     }
 
 	public function getBook(){

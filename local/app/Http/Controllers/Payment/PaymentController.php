@@ -205,6 +205,8 @@ class PaymentController extends Controller
         }
     }
 
+
+
     function complete(Request $request){
         $status = $request->get('status');
         $data['step'] = 3;
