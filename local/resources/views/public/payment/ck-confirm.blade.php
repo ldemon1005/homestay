@@ -6,12 +6,15 @@
 @stop
 
 @section('javascript')
-<script type="text/javascript" src="payment/js/confirm.js"></script>
+<script type="text/javascript" src="{{public_path('js/app.js')}}"></script>
 <script language="javascript">
+    {{--var h = {{$time_del['h']}}; // Giờ--}}
+    {{--var m = {{$time_del['m']}}; // Phút--}}
+	{{--var s = {{$time_del['s']}}; // giây--}}
 
-    var h = {{$time_del['h']}}; // Giờ
-    var m = {{$time_del['m']}}; // Phút
-	var s = {{$time_del['s']}}; // giây
+    var h = 0; // Giờ
+    var m = 0; // Phút
+    var s = 3; // giây
 
     var timeout = null; // Timeout
 
@@ -84,7 +87,6 @@
 							<div class="confirm-box-header">
 								<span class="main-color">01.</span> Bạn vui lòng tiến hành thanh toán trước
 							</div>
-
 							<div class="confirm-box-body">
 								<p class="bold">Hôm nay {{date('d/m/Y H:m',time())}}</p>
 								<p class="fs-14">Thời gian còn lại <span id="h"></span> tiếng &nbsp; <span id="m"></span> phút &nbsp; <span id="s"></span> giây</p>
@@ -104,7 +106,7 @@
 								<hr>
 								<p class="fs-14">Số tài khoản: 12345667</p>
 								<p class="fs-14">Chủ tài khoản: Đoàn Công Chung</p>
-								<p class="fs-14">Nội dung thanh toán: Thanh toán đặt chỗ #111111</p>
+								<p class="fs-14">Nội dung thanh toán: Thanh toán đặt chỗ {{$book->code}}</p>
 								<hr>
 								<p class="fs-14">Số tiền cần thanh toán: <span class="bold">{{number_format($book->price)}}đ</span></p>
 								<p class="italic fs-12"><i class="fas fa-exclamation-circle" style="color: #EFD176;"></i> Lưu ý: Bạn cần thanh toán chính xác số tiền đặt phòng của mình</p>

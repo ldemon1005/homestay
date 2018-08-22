@@ -8,6 +8,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="google-signin-client_id" content="758738020038-ke08tcku4c5rugooldj91ajm5esss6a6.apps.googleusercontent.com">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="base/css/reset.css">
@@ -37,6 +38,7 @@
 		@include('public.header-footer.footer')
 		{{-- END FOOTER --}}
 	</div>
+	<div id="snackbar"></div>
 	<!-- script -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -49,6 +51,19 @@
 	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 
 	<script type="text/javascript" src="header-footer/js/header-footer.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+	<script>
+        //var socket = io('http://localhost:3000');
+        var socket = io('http://192.168.20.101:3000');
+        socket.on("haivl-channel.{{\Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->id : ''}}:App\\Events\\NotiEvent", function(message){
+            $("#snackbar").html(message.data.message);
+            $("#snackbar").addClass('show');
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function () {
+                $("#snackbar").removeClass('show');
+            }, 3000);
+        });
+	</script>
 @yield('javascript')
 <!-- end script -->
 </body>

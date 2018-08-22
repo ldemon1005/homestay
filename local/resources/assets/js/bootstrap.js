@@ -54,3 +54,21 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+
+window.$ = window.jQuery = require('jquery');
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': token.content
+    }
+});
+
+import Echo from 'laravel-echo';
+
+window.io = require('socket.io-client');
+window.Echo = new Echo({
+    namespace: 'App.Events',
+    broadcaster: 'socket.io',
+    host: `${window.location.hostname}:9090`
+});

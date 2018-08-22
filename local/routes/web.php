@@ -55,6 +55,7 @@ Route::group(['namespace' => 'Pub'], function() {
 		Route::post('updatePassword','UserController@postUpdatePassword');
 
         Route::post('add_order','OrderController@add_order')->name('add_order');
+        Route::get('update_status_book/{id}/{status}',"UserController@update_status_book")->name('update_status_book');
 	});
 });
 
@@ -73,3 +74,10 @@ Route::group(['namespace' => 'Auth'],function (){
     Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('soicial');
     Route::get('/callback/{social}', 'SocialAuthController@callback')->name('soicial_callback');
 });
+
+Route::post('/notification', function (Illuminate\Http\Request $request) {
+    event(new App\Events\NotiEvent($request->get('message'),$request->get('book_id')));
+    return [
+        'status' => true,
+    ];
+})->name('notification');

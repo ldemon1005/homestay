@@ -1,5 +1,5 @@
 <?php
-
+use \Illuminate\Support\Facades\Broadcast;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -13,4 +13,8 @@
 
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
+});
+
+Broadcast::channel('haivl-channel.{book_user_id}',function ($user,$book_user_id){
+    return $user->id == $book_user_id;
 });

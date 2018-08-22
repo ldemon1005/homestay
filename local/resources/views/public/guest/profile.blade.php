@@ -1,7 +1,6 @@
 @extends('public.grand-master')
 
 @section('css')
-
 <link rel="stylesheet" type="text/css" href="guest/css/yourhomestay.css">
 <link rel="stylesheet" type="text/css" href="guest/css/profile.css">
 @stop
@@ -175,7 +174,7 @@
 										<td>Chờ thanh toán</td>
 										<td>Chi phí</td>
 										<td>Tình trạng</td>
-										<td>Chi tiết</td>
+										<td>Thao tác</td>
 									</tr>
 								</thead>
 
@@ -198,12 +197,9 @@
 										<td>{{number_format($book->price)}} vnd</td>
 										<td><span class="text-warning">{{getStatusBookStr($book->book_status)}}</span></td>
 										<td>
-											<div>
-												<a onclick="return seeDetailModal({{$book->book_id}});"><i class="fa fa-eye text-primary"></i></a>
-												<span>&nbsp;&nbsp;</span>
-												<a onclick="return seeDetailModal({{$book->book_id}});"><i class="fa fa-trash text-danger"></i></a>
-											</div>
-
+											<a onclick="return seeDetailModal({{$book->book_id}});"><i class="fa fa-eye text-primary"></i></a>
+											<span>&nbsp;&nbsp;</span>
+											<a href="{{route('update_status_book',['id' => $book->book_id,'status' => 4])}}"><i class="fa fa-trash text-danger"></i></a>
 										</td>
 									</tr>
 								@endforeach

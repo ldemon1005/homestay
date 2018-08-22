@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Payment;
 
+use App\Events\NotiEvent;
 use App\Jobs\CancelBook;
 use App\Jobs\SendMail;
 
@@ -193,17 +194,23 @@ class PaymentController extends Controller
 
     function update_status($id,$status){
         $book = DB::table('books')->where('book_id',$id)->update(['book_status'=>$status]);
-
+        $book_data = DB::table('books')->where('book_id',$id)->first();
         if($book && $status == 2){
+            event(new NotiEvent('Hết thời gian thanh toán cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
             return redirect()->route('complete')->with('warning','Hết thời gian thanh toán');
         }
         if($book && $status == 3){
+            event(new NotiEvent('Thanh toán thành công cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
             return redirect()->route('complete')->with('success','Thanh toán thành công');
         }
         if($book && $status == 4){
+            event(new NotiEvent('Hủy thanh toán thành công cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
             return redirect()->route('complete')->with('danger','Hủy thanh toán thành công');
         }
+        return redirect()->route('home');
     }
+
+
 
     function complete(Request $request){
         $status = $request->get('status');
