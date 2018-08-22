@@ -388,3 +388,44 @@ a.see-detail{
 .datepicker table tr td.active.active{
 	background-color: #C2D44E;
 }
+
+@media (max-width: 767px) {
+	.section-1{
+		display: none;
+	}
+	.slide-container{
+		box-shadow: none;
+		transform: none;
+		padding: 0;
+	}
+	.slide-item-1{
+		height: auto;
+		width: auto;
+	}
+	.section-5{
+		padding-bottom: 30px;
+	}
+	.room-item{
+		display: block;
+		width: auto;
+	}
+	.room-image{
+		display: block;
+		width: auto;
+	}
+	.room-detail ul li{
+		flex: 0 0 50%;
+	}
+	.host-info{
+		position: relative!important;
+	}
+	.service li{
+		flex: 0 0 50%;
+	}
+	.homestay_about{
+		font-size: 12px!important;
+	}
+	.available-btn{
+		position: unset;
+	}
+}

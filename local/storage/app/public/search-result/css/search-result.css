@@ -37,13 +37,13 @@
 	font-weight: 700;
 	margin-bottom: 15px;
 }
-.my-form input[type="text"],.my-form select{
+.my-form input[type="text"], .my-form select{
 	width: 100%;
 	height: 38px;
 	border:1px solid #ccc;
 	color: #999;
 	outline: none;
-	padding: 10px;
+	padding: 0 10px;
 	font-size: 14px;
 }
 .destination input[type="text"]{
@@ -218,12 +218,20 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
 	float: right;
 	transform: translateX(15px);
 }
-
+.my-group{
+	display: flex;
+	flex-wrap: wrap;
+}
+.my-item{
+	flex: 1;
+}
 @media (max-width: 767px) {
 	.search-form{
 		background: none;
 		box-shadow: none;
-
+		padding: 15px 40px;
+		position: unset;
+		transform: none;
 	}
 	.section-1 .my-form label{
 		display: none;
@@ -231,20 +239,61 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
 	.first-row{
 		display: block;
 	}
-	.calendar input[type="text"],.my-form select,.my-form button{
+	.calendar input[type="text"],.my-form select,.my-form button,.destination input[type="text"]{
 		width: 100%;
+		height: 34px;
 	}
 	.date-input:first-child{
 		margin-right: 10px;
 	}
-	.my-group{
-		display: flex;
-		flex-wrap: wrap;
+	.my-form{
+		margin: 0;
 	}
-	.my-item{
-		flex: 1;
-	 }
 	.my-item:first-child{
 		margin-right: 10px;
+	}
+	.check-form{
+		margin-left: 0;
+		margin-top: 10px;
+		color: #FFF;
+	}
+	.my-form button{
+		font-size:14px;
+	}
+	.section-1, .form-container{
+		height: 260px;
+	}
+	#facility_form{
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		background: #FFF;
+		z-index: 1;
+		display: none;
+	}
+	#facility_form .my-form div {
+		flex: 0 0 50%;
+	}
+	#facility_form .my-form div#price{
+		flex: 100%;
+	}
+	.homestay-item{
+		height: auto;
+		width: auto;
+		display: block;
+	}
+	.item-image{
+		width: auto;
+	}
+	.item-content{
+		width: auto;
+		margin-left:auto;
+		padding: 15px;
+	}
+	.slide-price, .slide-review{
+		position: unset;
+		margin-top: 5px;
 	}
 }

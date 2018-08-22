@@ -5,9 +5,6 @@
 	height: 600px;
 	position: relative;
 }
-.section-1,.search-form{
-	height: 230px;
-}
 /*SECTION 2*/
 .section-2{
 
@@ -399,7 +396,7 @@
 		background: #00000066;
 	}
 	.section-1, .search-form {
-		height: 230px;
+		height: 260px;
 	}
 	.search-form{
 		transform: none;

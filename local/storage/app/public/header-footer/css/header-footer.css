@@ -283,6 +283,29 @@
 	text-decoration: none;
 }
 
+
+.menu-mobile{
+	position:fixed;
+	z-index: 1;
+	background: #FFF;
+}
+.menu-mobile li{
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 50px;
+	border-bottom: 1px solid #e8e8e8;
+}
+.menu-mobile li a{
+	color: unset;
+	text-decoration: none;
+}
+.dropdown-destination-mobile{
+	display: flex;
+	flex-wrap: wrap;
+}
+.dropdown-destination-mobile a{
+	flex: 0 0 50%;
+}
 @media (max-width: 1068px){
 	.container.header-top{
 		height: 100px;

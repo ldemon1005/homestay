@@ -14,7 +14,7 @@ body{
 #main{
 	width: 100%;
 	margin:auto;
-} 
+}
 .main-color,a.main-color{
 	color: #C2D44E;
 }
@@ -124,7 +124,7 @@ body{
 .hs-heading-1{
 	width: 100%;
 	font-size: 24px;
-	line-height: 30px; 
+	line-height: 30px;
 	font-weight: 600;
 	text-align: center;
 }
@@ -215,5 +215,9 @@ body{
 	.hs-heading-1{
 		font-size: 18px;
 		line-height: 24px;
+	}
+	.col-flex{
+		display: flex;
+		flex-wrap: wrap;
 	}
 }

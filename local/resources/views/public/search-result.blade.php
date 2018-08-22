@@ -111,7 +111,7 @@ async defer></script>
 
 				<hr>
 
-				<div class="my-form">
+				<div class="my-form col-flex">
 					<label>Phân loại</label>
 					<div><input onchange="search()" type="checkbox" name="homestay_type[]" value="1"> Dormitary</div>
 					<div><input onchange="search()" type="checkbox" name="homestay_type[]" value="2"> Homestay</div>
@@ -120,7 +120,7 @@ async defer></script>
 
 				<hr>
 
-				<div class="my-form">
+				<div class="my-form col-flex">
 					<label>Tiện ích giải trí</label>
 					@foreach($facilities as $facility)
 					<div><input onchange="search()" type="checkbox" name="facility[]" value="{{ $facility->facility_id }}"> {{ $facility->facility_name }}</div>
@@ -129,7 +129,7 @@ async defer></script>
 
 				<hr>
 
-				<div class="my-form">
+				<div class="my-form col-flex">
 					<label>Tiện ích phòng</label>
 					@foreach($bedroom_facilities as $bedroom_facility)
 					<div><input onchange="search()" type="checkbox" name="bedroom_facility[]" value=" {{ $bedroom_facility->bedroom_facility_id }} "> {{ $bedroom_facility->bedroom_facility_name }}</div>
