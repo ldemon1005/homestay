@@ -63,6 +63,15 @@
                 $("#snackbar").removeClass('show');
             }, 3000);
         });
+
+        socket.on("haivl-channel.{{\Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->id : ''}}:App\\Events\\UpdateStatus", function(message){
+            $("#snackbar").html(message.data.message);
+            $("#snackbar").addClass('show');
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function () {
+                $("#snackbar").removeClass('show');
+            }, 3000);
+        });
 	</script>
 @yield('javascript')
 <!-- end script -->

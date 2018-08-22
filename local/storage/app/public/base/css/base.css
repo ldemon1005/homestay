@@ -231,7 +231,8 @@ Snackbar
 	z-index: 9999;
 	right: 15px;
 	top: 15px;
-	font-size: 17px; }
+	font-size: 17px;
+}
 
 #snackbar.show {
 	visibility: visible;
