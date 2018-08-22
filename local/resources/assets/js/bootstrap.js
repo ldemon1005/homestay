@@ -56,11 +56,19 @@ if (token) {
 // });
 
 
-import Echo from 'laravel-echo'
+window.$ = window.jQuery = require('jquery');
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': token.content
+    }
+});
+
+import Echo from 'laravel-echo';
 
 window.io = require('socket.io-client');
-
 window.Echo = new Echo({
+    namespace: 'App.Events',
     broadcaster: 'socket.io',
-    host: window.location.hostname + ':6001'
+    host: `${window.location.hostname}:9090`
 });

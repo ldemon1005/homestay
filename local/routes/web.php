@@ -74,3 +74,10 @@ Route::group(['namespace' => 'Auth'],function (){
     Route::get('/redirect/{social}', 'SocialAuthController@redirect')->name('soicial');
     Route::get('/callback/{social}', 'SocialAuthController@callback')->name('soicial_callback');
 });
+
+Route::post('/notification', function (Illuminate\Http\Request $request) {
+    event(new App\Events\NotiEvent($request->get('message'),$request->get('book_id')));
+    return [
+        'status' => true,
+    ];
+})->name('notification');
