@@ -199,3 +199,13 @@ function getStatusBookStr($status){
     }
     return $str;
 }
+
+function get_actor($type){
+    $str = '';
+    switch ($type){
+        case 1 : $str = 'Hệ thống ';break;
+        case 2 : $str = 'Homestay ';break;
+        case 3 : $str = 'Khách hàng ';break;
+    }
+    return $str;
+}
