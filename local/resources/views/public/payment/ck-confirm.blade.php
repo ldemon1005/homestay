@@ -8,13 +8,13 @@
 @section('javascript')
 <script type="text/javascript" src="{{public_path('js/app.js')}}"></script>
 <script language="javascript">
-    {{--var h = {{$time_del['h']}}; // Giờ--}}
-    {{--var m = {{$time_del['m']}}; // Phút--}}
-	{{--var s = {{$time_del['s']}}; // giây--}}
+    var h = {{$time_del['h']}}; // Giờ
+    var m = {{$time_del['m']}}; // Phút
+	var s = {{$time_del['s']}}; // giây
 
-    var h = 0; // Giờ
-    var m = 0; // Phút
-    var s = 3; // giây
+    // var h = 0; // Giờ
+    // var m = 0; // Phút
+    // var s = 3; // giây
 
     var timeout = null; // Timeout
 
