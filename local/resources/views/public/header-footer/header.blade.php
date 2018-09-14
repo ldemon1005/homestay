@@ -18,7 +18,7 @@
 					<div class="avatar" style="background-image: url({{ asset('local/storage/app/image/user-3/'.Auth::user()->avatar) }})">
 						<span class="has-noti">12</span>
 					</div>
-					{{Auth::user()->name}} <i class="fas fa-angle-down"></i></a>
+					{{ Auth::user()->name }} <i class="fas fa-angle-down"></i></a>
 					<ul class="dropdown-user">
 						<li><a data-target="#account" href="{{ asset('user/profile#account') }}">Tài khoản của bạn</a></li>
 						<li><a data-target="#password" href="{{ asset('user/profile#password') }}">Thay đổi mật khẩu</a></li>

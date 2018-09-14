@@ -5,7 +5,7 @@
       <paths name="ctogo">
         <serverdata>
           <mappings>
-            <mapping deploy="/domains/ctogo.vn/public_html" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

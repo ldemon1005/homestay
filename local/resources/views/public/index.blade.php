@@ -109,6 +109,7 @@
 									@endfor
 								</select>
 							</div>
+
 							<div class="my-item">
 								<label class="transparent">Tìm</label>
 								<button type="submit">TÌM</button>
@@ -138,7 +139,7 @@
 			<div class="owl-carousel owl-carousel-1">
 				@foreach($hot_homestay as $homestay)
 				<div class="slide-item">
-					<a href="{{ asset('detail/'.$homestay->homestay_id) }}" class="slide-image" style="display:block; background-image: url(http://localhost/host-homestay/local/storage/app/image/resized-{{$homestay->homestay_image}})">
+					<a href="{{ asset('detail/'.$homestay->homestay_id) }}" class="slide-image" style="display:block; background-image: url({{ env('HOST_URL') }}/local/storage/app/image/resized-{{$homestay->homestay_image}})">
 						<span class="slide-where">{{$homestay->homestay_city}}</span>
 						@if( $homestay->homestay_hot == 1 )
 						<span class="slide-hot">Hot</span>

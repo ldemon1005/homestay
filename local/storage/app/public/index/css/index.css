@@ -299,11 +299,11 @@
 	background-position: center;
 	background-size: cover;
 	cursor: pointer;
+	border: 1px solid #eee;
 }
 .fa-star.checked{
 	color: #FFC960;
 }
-
 .corner-left-bot{
 	position: absolute;
 	left: 10px;

@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="d2b77f2d-584c-413d-924f-fa4525780843" name="ctogo" url="http://112.213.95.162">
-        <fileTransfer host="112.213.95.162" port="21">
+        <fileTransfer host="112.213.95.162" port="21" rootFolder="/domains/ctogo.vn/public_html">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
