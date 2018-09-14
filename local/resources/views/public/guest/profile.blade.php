@@ -216,30 +216,16 @@
 
 						<div id="noti-cont">
 							<div class="noti-list">
-								<a class="unread">
-									<p><b>Trần Hương Giang</b> đã đặt phòng <b>Luxury</b> của bạn</p>
-									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> 1 phút trước</p>
-								</a>
-
-								<a>
-									<p><b>Trần Hương Giang</b> đã đặt phòng <b>Luxury</b> của bạn</p>
-									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> 1 phút trước</p>
-								</a>
-
-								<a>
-									<p><b>Bạn</b> đã đặt phòng <b>Luxury</b> của <b>Garden Homestay</b></p>
-									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> 1 phút trước</p>
-								</a>
-
-								<a>
-									<p><b>Bạn</b> đã đặt phòng <b>Luxury</b> của <b>Garden Homestay</b></p>
-									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> Hôm qua lúc 10:37</p>
-								</a>
-
-								<a>
-									<p><b>Bạn</b> đã đặt phòng <b>Luxury</b> của <b>Garden Homestay</b></p>
-									<p class="fs-12 grey-a"><i class="fas fa-clock"></i> 13 Tháng 8 lúc 10:37</p>
-								</a>
+								@foreach($list_notification as $noti)
+									<a class="unread">
+										<p>
+											<b>{{get_actor($noti->type)}}</b>
+											<span>:</span> {{$noti->message}}
+										</p>
+										<p class="fs-12 grey-a"><i
+													class="fas fa-clock"></i>{{date('d/m/Y H:m',$noti->created_at)}}</p>
+									</a>
+								@endforeach
 							</div>
 						</div>
 					</div>

@@ -14,7 +14,7 @@ body{
 #main{
 	width: 100%;
 	margin:auto;
-}
+} 
 .main-color,a.main-color{
 	color: #C2D44E;
 }
@@ -220,4 +220,29 @@ body{
 		display: flex;
 		flex-wrap: wrap;
 	}
+}
+
+/**
+Snackbar
+**/
+#snackbar {
+	visibility: hidden;
+	min-width: 250px;
+	margin-left: -125px;
+	background-color: #ffc107;
+	color: #fff;
+	text-align: center;
+	border-radius: 2px;
+	padding: 16px;
+	position: fixed;
+	z-index: 9999;
+	right: 15px;
+	top: 15px;
+	font-size: 17px;
+}
+
+#snackbar.show {
+	visibility: visible;
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }

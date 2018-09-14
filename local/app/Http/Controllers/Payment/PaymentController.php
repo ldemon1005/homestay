@@ -10,6 +10,7 @@ use App\Jobs\SendMail;
 use App\Library\NganLuongHelper;
 use App\Models\Book;
 use App\Models\HomeStay;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Carbon;
@@ -194,19 +195,59 @@ class PaymentController extends Controller
 
     function update_status($id,$status){
         $book = DB::table('books')->where('book_id',$id)->update(['book_status'=>$status]);
+
         $book_data = DB::table('books')->where('book_id',$id)->first();
+
+        $homestay = HomeStay::find($book_data->homestay_id);
+
         if($book && $status == 2){
+            $data = [
+                'action' => $status,
+                'type' => 1,
+                'message' => 'Hết thời gian thanh toán cho mã đặt phòng '.$book_data->code,
+                'user_rev' => Auth::user()->id
+            ];
+            $data['created_at'] = time();
+
+            $noti = new Notification();
+            $noti->save($data);
+
             event(new NotiEvent('Hết thời gian thanh toán cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
             return redirect()->route('complete')->with('warning','Hết thời gian thanh toán');
         }
         if($book && $status == 3){
+            $data = [
+                'action' => $status,
+                'type' => 1,
+                'message' => 'Thanh toán thành công cho mã đặt phòng '.$book_data->code,
+                'user_rev' => Auth::user()->id
+            ];
+            $data['created_at'] = time();
+
+            $noti = new Notification();
+            $noti->save($data);
+
             event(new NotiEvent('Thanh toán thành công cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
             return redirect()->route('complete')->with('success','Thanh toán thành công');
         }
         if($book && $status == 4){
+            $data = [
+                'action' => $status,
+                'type' => 3,
+                'message' => 'Hủy thanh toán thành công cho mã đặt phòng '.$book_data->code,
+                'user_rev' => $homestay->homestay_user_id
+            ];
+            $data['created_at'] = time();
+
+            $noti = new Notification();
+            $noti->save($data);
+
             event(new NotiEvent('Hủy thanh toán thành công cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
             return redirect()->route('complete')->with('danger','Hủy thanh toán thành công');
         }
+
+
+
         return redirect()->route('home');
     }
 

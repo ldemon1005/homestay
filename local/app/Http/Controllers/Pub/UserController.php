@@ -46,10 +46,18 @@ class UserController extends Controller
 	        $book->del_time = $this->get_time_h_m_s($book->time_del);
             $book->book_from = date('d/m/Y',strtotime(str_replace('/','-',$book->book_from)));
             $book->book_to = date('d/m/Y',strtotime(str_replace('/','-',$book->book_to)));
-
         }
+
+        $list_notification = DB::table('notification')->where('user_rev',$user->id)->orderByDesc('id')->paginate(15);
+
+//	    foreach ($list_notification as $noti){
+//	        $noti->user_action_data = User::find($noti->user_action);
+//	        $noti->user_rev_data = User::find($noti->user_rev);
+//        }
+
 	    $data = [
-	        'list_book' => $list_book
+	        'list_book' => $list_book,
+            'list_notification' => $list_notification
         ];
 
 		return view('public.guest.profile',$data);
