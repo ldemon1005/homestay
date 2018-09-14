@@ -79,7 +79,7 @@
 							<a class="nav-link" id="manage-tab" data-toggle="tab" href="#manage" role="tab" aria-controls="manage"><i class="fas fa-cog"></i> Quản lý đặt phòng</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="noti-tab" data-toggle="tab" href="#noti" role="tab" aria-controls="noti"><i class="fas fa-bell"></i> Thông báo <span class="has-noti">12</span></a>
+							<a class="nav-link" id="noti-tab" data-toggle="tab" href="#noti" role="tab" aria-controls="noti"><i class="fas fa-bell"></i> Thông báo <span class="has-noti">{{$count_notification}}</span></a>
 						</li>
 					</ul>
 
@@ -112,8 +112,8 @@
 							</div>
 
 							<div class="form-item-2">
-								<label>Mô tả:</label>
-								<textarea name="description" placeholder="Mô tả về bạn">{{Auth::user()->description ?? ''}}</textarea>
+								<label>Giới thiệu:</label>
+								<textarea name="description" placeholder="Giới thiệu về bạn">{{Auth::user()->description ?? ''}}</textarea>
 								<div class="tip-text">Tối đa 100 ký tự</div>
 							</div>
 
@@ -168,13 +168,13 @@
 							<table>
 								<thead>
 									<tr>
-										<td>Mã đặt phòng</td>
+										<td style="width: 110px;">Mã đặt phòng</td>
 										<td>Homestay</td>
 										<td>Thời gian</td>
 										<td>Chờ thanh toán</td>
 										<td>Chi phí</td>
 										<td>Tình trạng</td>
-										<td>Thao tác</td>
+										<td style="width: 100px">Thao tác</td>
 									</tr>
 								</thead>
 
@@ -196,10 +196,12 @@
 
 										<td>{{number_format($book->price)}} vnd</td>
 										<td><span class="text-warning">{{getStatusBookStr($book->book_status)}}</span></td>
-										<td>
-											<a onclick="return seeDetailModal({{$book->book_id}});"><i class="fa fa-eye text-primary"></i></a>
+										<td class="float-right" style="border: 0px;margin-right: 12px">
+											<a class="{{$book->book_status != 1 ? 'd-none' : ''}}" href="{{route('ck_confirm',$book->book_id)}}" title="Thanh toán"><i class="fa fa-shopping-cart text-info"></i></a>
 											<span>&nbsp;&nbsp;</span>
-											<a href="{{route('update_status_book',['id' => $book->book_id,'status' => 4])}}"><i class="fa fa-trash text-danger"></i></a>
+											<a onclick="return seeDetailModal({{$book->book_id}});" title="Chi tiết"><i class="fa fa-eye text-primary"></i></a>
+											<span>&nbsp;&nbsp;</span>
+											<a href="{{route('update_status_book',['id' => $book->book_id,'status' => 4])}}" title="Hủy"><i class="fa fa-trash text-danger"></i></a>
 										</td>
 									</tr>
 								@endforeach

@@ -16,7 +16,7 @@
 				@if( Auth::check() )
 				<li><a class="user-tab">
 					<div class="avatar" style="background-image: url({{ asset('local/storage/app/image/user-3/'.Auth::user()->avatar) }})">
-						<span class="has-noti">12</span>
+						<span class="has-noti">{{$count_notification}}</span>
 					</div>
 					{{ Auth::user()->name }} <i class="fas fa-angle-down"></i></a>
 					<ul class="dropdown-user">

@@ -133,7 +133,7 @@ class PaymentController extends Controller
         $start = strtotime(str_replace('/','-',$book->book_from)."00:00");
         $end = strtotime(str_replace('/','-',$book->book_to)."23:59");
 
-        $number_night = intval(($end - $start)/86400);
+        $number_night = intval(ceil(($end - $start)/86400));
 
         $book->book_from = date('d/m/Y',strtotime(str_replace('/','-',$book->book_from)));
         $book->book_to = date('d/m/Y',strtotime(str_replace('/','-',$book->book_to)));
@@ -177,7 +177,7 @@ class PaymentController extends Controller
         $start = strtotime(str_replace('/','-',$order['start'])."00:00");
         $end = strtotime(str_replace('/','-',$order['end'])."23:59");
 
-        $number_night = intval(($end - $start)/86400);
+        $number_night = intval(ceil(($end - $start)/86400));
 
         $homestay = HomeStay::findOrFail($order['homestay_id']);
 

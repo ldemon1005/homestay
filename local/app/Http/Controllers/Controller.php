@@ -6,6 +6,9 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class Controller extends BaseController
 {
@@ -13,6 +16,17 @@ class Controller extends BaseController
 
     function __construct()
     {
+
+        // Fetch the Site Settings object
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();
+            if($user){
+                $count_notification = DB::table('notification')->where('user_rev',$user->id)->orderByDesc('id')->count();
+                View::share('count_notification', $count_notification);
+            }
+
+            return $next($request);
+        });
 
     }
 
