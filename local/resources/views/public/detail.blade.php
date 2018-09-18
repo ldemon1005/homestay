@@ -270,23 +270,25 @@
         </div>
     </section>
 
-<section class="section-2">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="slide-container">
-					<div class="owl-carousel owl-carousel-1 owl-theme">
-						@php $i =  0; @endphp
-						@foreach($homestay->homestayimage as $homestayimage)
-						<div class="slide-item-1"><img onclick="lightbox({{$i}})" src="{{ is_url_exist(env('HOST_URL').'/local/storage/app/image/resized-'.$homestayimage->homestay_image_img) ? env('HOST_URL').'/local/storage/app/image/resized-'.$homestayimage->homestay_image_img : $homestayimage->homestay_image_img}}"></div>
-						@php $i++; @endphp
-						@endforeach
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+    <section class="section-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="slide-container">
+                        <div class="owl-carousel owl-carousel-1 owl-theme">
+                            @php $i =  0; @endphp
+                            @foreach($homestay->homestayimage as $homestayimage)
+                                <div class="slide-item-1" onclick="lightbox({{$i}})"
+                                     style="background-image: url({{ is_url_exist(env('HOST_URL').'/local/storage/app/image/resized-'.$homestayimage->homestay_image_img) ? env('HOST_URL').'/local/storage/app/image/resized-'.$homestayimage->homestay_image_img : $homestayimage->homestay_image_img}})">
+                                </div>
+                                @php $i++; @endphp
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div style="display:none;">
         <div id="ninja-slider">
@@ -295,7 +297,7 @@
                     @foreach($homestay->homestayimage as $homestayimage)
                         <li>
                             <a class="ns-img"
-                               href="{{env('HOST_URL')}}/local/storage/app/image/{{$homestayimage->homestay_image_img}}"></a>
+                               href="{{ is_url_exist(env('HOST_URL').'/local/storage/app/image/'.$homestayimage->homestay_image_img) ? env('HOST_URL').'/local/storage/app/image/'.$homestayimage->homestay_image_img : $homestayimage->homestay_image_img}}"></a>
                             {{-- <div class="caption">
                                 <h3>Dummy Caption 1</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus accumsan purus.</p>
@@ -486,23 +488,25 @@
                 <h6 class="bold fs-18 mt-4">Các homestay khác</h6>
             </div>
 
-		<div class="row">
-			<div class="owl-carousel owl-carousel-5">
-				@foreach($nearby_homestay as $homestay)
-				<div class="slide-item">
-					<a href="{{ asset('detail/'.$homestay->homestay_id) }}" class="slide-image" style="display:block; background-image: url({{ is_url_exist(env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image) ? env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image : $homestay->homestay_image}})">
-						<span class="slide-where">{{$homestay->homestay_city}}</span>
-						@if( $homestay->homestay_hot == 1 )
-						<span class="slide-hot">Hot</span>
-						@elseif( date_diff($homestay->created_at,new DateTime() )->format('%a') <= 7 )
-						<span class="slide-new">New</span>
-						@endif
-					</a>
-					<a href="{{ asset('detail/'.$homestay->homestay_id) }}" class="slide-name">{{$homestay->homestay_name}}</a>
-					<div class="slide-price">giá từ: {{ getMin($homestay->bedroom,'bedroom_price') }} Đ</div>
-					<div class="slide-review">
-						<span class="slide-score">{{ getAverage($homestay->comment,'comment_rate') }}</span>
-						<a class="slide-grade">
+            <div class="row">
+                <div class="owl-carousel owl-carousel-5">
+                    @foreach($nearby_homestay as $homestay)
+                        <div class="slide-item">
+                            <a href="{{ asset('detail/'.$homestay->homestay_id) }}" class="slide-image"
+                               style="display:block; background-image: url({{ is_url_exist(env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image) ? env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image : $homestay->homestay_image}})">
+                                <span class="slide-where">{{$homestay->homestay_city}}</span>
+                                @if( $homestay->homestay_hot == 1 )
+                                    <span class="slide-hot">Hot</span>
+                                @elseif( date_diff($homestay->created_at,new DateTime() )->format('%a') <= 7 )
+                                    <span class="slide-new">New</span>
+                                @endif
+                            </a>
+                            <a href="{{ asset('detail/'.$homestay->homestay_id) }}"
+                               class="slide-name">{{$homestay->homestay_name}}</a>
+                            <div class="slide-price">giá từ: {{ getMin($homestay->bedroom,'bedroom_price') }} Đ</div>
+                            <div class="slide-review">
+                                <span class="slide-score">{{ getAverage($homestay->comment,'comment_rate') }}</span>
+                                <a class="slide-grade">
 							<span>
 								@if( getAverage($homestay->comment,'comment_rate') == 0 )
                                     Chưa có đánh giá

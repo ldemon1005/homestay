@@ -20,6 +20,9 @@
 	width: 260px;
 	background: #eee;
 	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 .owl-prev,.owl-next{
 	height: 26px;
@@ -401,6 +404,11 @@ a.see-detail{
 	.slide-item-1{
 		height: auto;
 		width: auto;
+	}
+	.slide-item-1:after{
+		display: block;
+		content: "";
+		padding-top: 56.25%;
 	}
 	.section-5{
 		padding-bottom: 30px;
