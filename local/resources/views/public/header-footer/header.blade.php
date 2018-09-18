@@ -10,7 +10,7 @@
 				</ul>
 			</figure>
 
-			<div class="menu-button"><a><span></span><span></span><span></span><span></span></a></div>
+			<div id="menu-button"><a><span></span><span></span><span></span><span></span></a></div>
 
 			<ul class="login-register">
 				@if( Auth::check() )

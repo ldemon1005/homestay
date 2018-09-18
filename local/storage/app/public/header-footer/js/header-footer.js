@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    $('#menu-button').click(function(e){
+        e.preventDefault();
+        $('.menu-mobile').slideToggle();
+    });
+
 	$('.to-top').click(function(){
 		$('html, body').animate({scrollTop: "0px"});
 	});

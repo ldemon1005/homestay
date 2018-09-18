@@ -46,40 +46,41 @@
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
-.menu-button{
+#menu-button{
 	position: absolute;
 	right: 15px;
 	top: 50%;
 	transform: translateY(-50%);
 	cursor: pointer;
+	display: none;
 }
-.menu-button>a{
+#menu-button>a{
 	height: 21px;
 	width: 24px;
 	position: relative;
 	display: block;
 	cursor: pointer;
 }
-.menu-button>a>span{
+#menu-button>a>span{
 	position: absolute;
 	background-color: #C2D44E;
 	height: 3px;
 	right: 0;
 	border-radius: 1px;
 }
-.menu-button>a>span:first-child{
+#menu-button>a>span:first-child{
 	top: 0;
 	width: 70%;
 }
-.menu-button>a>span:nth-child(2){
+#menu-button>a>span:nth-child(2){
 	top: 6px;
 	width: 90%;
 }
-.menu-button>a>span:nth-child(3) {
+#menu-button>a>span:nth-child(3) {
 	top: 12px;
 	width: 80%;
 }
-.menu-button>a>span:nth-child(4){
+#menu-button>a>span:nth-child(4){
 	 top: 18px;
 	 width: 100%;
  }
@@ -285,9 +286,22 @@
 
 
 .menu-mobile{
+	display: none;
 	position:fixed;
-	z-index: 1;
+	z-index: 2;
 	background: #FFF;
+	width:100%;
+	left: 0;
+	padding: 0 15px;
+}
+.menu-mobile:after{
+	display: block;
+	content: "";
+	width: 100%;
+	position: absolute;
+	left: 0;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.30);
 }
 .menu-mobile li{
 	text-transform: uppercase;
@@ -336,6 +350,17 @@ a.nav-payment{
 }
 
 @media (max-width: 767px) {
+	.section-1{
+		margin-top: 65px;
+	}
+
+	#header{
+		background-color: #FFF;
+		position:fixed;
+		top: 0;
+		left: 0;
+		z-index: 2;
+	}
 	.container.header-top{
 		height: 65px;
 	}
@@ -395,5 +420,8 @@ a.nav-payment{
 		top:50%;
 		left:50%;
 		transform: translate(-50%,-50%) rotate(45deg);
+	}
+	#menu-button{
+		display: block;
 	}
 }
