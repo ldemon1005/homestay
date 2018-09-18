@@ -261,14 +261,13 @@
 @stop
 
 @section('main')
-    <section class="section-1"
-             style="background-image: url({{env('HOST_URL')}}/local/storage/app/image/{{$homestay->homestay_image}})">
-        <div class="container">
-            <div class="row">
-                <h1 class="fs-24 bold white center uppercase h1-sec1">{{$homestay->homestay_name}}</h1>
-            </div>
-        </div>
-    </section>
+<section class="section-1" style="background-image: url({{ is_url_exist(env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image) ? env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image : $homestay->homestay_image}})">
+	<div class="container">
+		<div class="row">
+			<h1 class="fs-24 bold white center uppercase h1-sec1">{{$homestay->homestay_name}}</h1>
+		</div>
+	</div>
+</section>
 
     <section class="section-2">
         <div class="container">
