@@ -1,3 +1,5 @@
+<div id="header-subtitute"></div>
+
 <div id="header">
 	<section id="header-top">
 		<div class="container header-top">

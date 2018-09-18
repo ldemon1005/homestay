@@ -350,8 +350,9 @@ a.nav-payment{
 }
 
 @media (max-width: 767px) {
-	.section-1{
-		margin-top: 65px;
+	#header-subtitute{
+		height: 65px;
+		width: 100%;
 	}
 
 	#header{
