@@ -57,7 +57,9 @@
     }
 
     $(document).ready(function(){
-    	$('.comment{{$comments->first()->comment_id}}').show();
+        @if($comments->count() > 0)
+        	$('.comment{{$comments->first()->comment_id}}').show();
+		@endif
     	@foreach($comments as $comment)
     	$('.click-{{$comment->comment_id}}').click(function(){
     		$('.text-4').hide();
@@ -139,7 +141,7 @@
 			<div class="owl-carousel owl-carousel-1">
 				@foreach($hot_homestay as $homestay)
 				<div class="slide-item">
-					<a href="{{ asset('detail/'.$homestay->homestay_id) }}" class="slide-image" style="display:block; background-image: url({{ env('HOST_URL') }}/local/storage/app/image/resized-{{$homestay->homestay_image}})">
+					<a href="{{ asset('detail/'.$homestay->homestay_id) }}" class="slide-image" style="display:block; background-image: url({{ is_url_exist(env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image) ? env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image : $homestay->homestay_image}})">
 						<span class="slide-where">{{$homestay->homestay_city}}</span>
 						@if( $homestay->homestay_hot == 1 )
 						<span class="slide-hot">Hot</span>
@@ -148,7 +150,7 @@
 						@endif
 					</a>
 					<a href="{{ asset('detail/'.$homestay->homestay_id) }}" class="slide-name">{{$homestay->homestay_name}}</a>
-					<div class="slide-price">giá từ: {{ getMin($homestay->bedroom,'bedroom_price') }} Đ</div>
+					<div class="slide-price">giá từ: {{ number_format(getMin($homestay->bedroom,'bedroom_price')) }} Đ</div>
 					<div class="slide-review">
 						<span class="slide-score">{{ getAverage($homestay->comment,'comment_rate') }}</span>
 						<a class="slide-grade">

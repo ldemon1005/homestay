@@ -30,6 +30,16 @@
 .my-form{
 	margin:0 20px;
 }
+.my-group{
+	display: flex;
+}
+.my-item{
+	margin-right:10px;
+	flex: 1;
+}
+.my-item:last-child{
+	margin-right:0px;
+}
 .my-form label{
 	width: 100%;
 	font-size: 16px;

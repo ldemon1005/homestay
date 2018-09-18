@@ -191,13 +191,17 @@ function convertAlias($cs){
 
 function getStatusBookStr($status){
     $str = '';
+    $title = '';
     switch ($status){
-        case 1 : $str = 'Đợi thanh toán';break;
-        case 2 : $str = 'Quá thời gian thanh toán';break;
-        case 3 : $str = 'Hoàn thành';break;
-        case 4 : $str = 'Hủy';break;
+        case 1 : $str = 'Đợi thanh toán';$title = '';break;
+        case 2 : $str = 'Hủy';$title = 'Phòng bị hủy do quá thời hạn thanh toán';break;
+        case 3 : $str = 'Hoàn thành';$title = '';break;
+        case 4 : $str = 'Hủy';$title = 'Do homestay hủy';break;
     }
-    return $str;
+    return [
+        'str' => $str,
+        'title' => $title
+    ];
 }
 
 function get_actor($type){
@@ -208,4 +212,19 @@ function get_actor($type){
         case 3 : $str = 'Khách hàng ';break;
     }
     return $str;
+}
+
+function is_url_exist($url){
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_NOBODY, true);
+    curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    if($code == 200){
+        $status = true;
+    }else{
+        $status = false;
+    }
+    curl_close($ch);
+    return $status;
 }
