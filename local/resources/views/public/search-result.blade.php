@@ -23,7 +23,6 @@ async defer></script>
 			data: form_data,
 			// dataType: "json",
 		}).done( function(result){
-			console.log(result);
 			$('#homestay-list').html(result);
 		});
 	}
