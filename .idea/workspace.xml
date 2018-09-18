@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bd63e6ef-6a78-4e7e-82b1-cf7ebc91df40" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/resources/views/public/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/resources/views/public/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/public/detail/css/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/local/storage/app/public/detail/css/detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local/.env" beforeDir="false" afterPath="$PROJECT_DIR$/local/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local/app/Http/Controllers/Pub/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/app/Http/Controllers/Pub/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local/app/Jobs/CancelBook.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/app/Jobs/CancelBook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local/resources/views/public/guest/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/resources/views/public/guest/profile.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,72 +87,126 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1656288405">
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="env" value="13" />
+          <entry key="php" value="31" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PHP" value="31" />
+          <entry key="PLAIN_TEXT" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="php" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PHP" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/resources/views/public/master.blade.php">
+        <entry file="file://$PROJECT_DIR$/local/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+            <state relative-caret-position="442">
+              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Pub/SearchController.php">
+        <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Payment/PaymentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+            <state relative-caret-position="391">
+              <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/storage/app/public/search-result/css/search-result.css">
+        <entry file="file://$PROJECT_DIR$/local/app/Jobs/CancelBook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/resources/views/public/search-result.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/storage/app/public/header-footer/js/header-footer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="612">
+              <caret line="44" column="80" selection-start-line="44" selection-start-column="80" selection-end-line="44" selection-end-column="80" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Pub/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/resources/views/public/master.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="43" column="82" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/resources/views/public/grand-master.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="553">
+              <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/resources/views/public/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="305" column="31" lean-forward="true" selection-start-line="305" selection-start-column="31" selection-end-line="305" selection-end-column="31" />
+            <state relative-caret-position="540">
+              <caret line="392" column="95" selection-start-line="392" selection-start-column="95" selection-end-line="392" selection-end-column="95" />
               <folding>
-                <element signature="e#10745#10776#0#HTML" expanded="true" />
-                <element signature="e#10970#10991#0#HTML" expanded="true" />
+                <element signature="e#9933#10168#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/storage/app/public/detail/css/detail.css">
+        <entry file="file://$PROJECT_DIR$/local/storage/app/public/base/css/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="402" column="5" lean-forward="true" selection-start-line="402" selection-start-column="5" selection-end-line="402" selection-end-column="5" />
+            <state relative-caret-position="430">
+              <caret line="220" selection-start-line="221" selection-start-column="5" selection-end-line="222" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/resources/views/public/guest/profile.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="204" column="45" selection-start-line="204" selection-start-column="45" selection-end-line="204" selection-end-column="45" />
+              <folding>
+                <element signature="e#6402#6422#0#HTML" expanded="true" />
+                <element signature="e#7241#7279#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/app/helpers.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="197" column="55" selection-start-line="197" selection-start-column="55" selection-end-line="197" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -179,7 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/local/app/Http/Controllers/Pub/HomeController.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/local/resources/views/public/header-footer/footer.blade.php" />
         <option value="$PROJECT_DIR$/local/storage/app/public/index/css/index.css" />
@@ -203,6 +258,10 @@
         <option value="&lt;d2b77f2d-584c-413d-924f-fa4525780843&gt;/local/resources/views/public/search-result.blade.php" />
         <option value="$PROJECT_DIR$/local/storage/app/public/detail/css/detail.css" />
         <option value="$PROJECT_DIR$/local/resources/views/public/detail.blade.php" />
+        <option value="$PROJECT_DIR$/local/.env" />
+        <option value="$PROJECT_DIR$/local/resources/views/public/guest/profile.blade.php" />
+        <option value="$PROJECT_DIR$/local/app/Jobs/CancelBook.php" />
+        <option value="$PROJECT_DIR$/local/app/Http/Controllers/Pub/HomeController.php" />
       </list>
     </option>
   </component>
@@ -311,12 +370,14 @@
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -340,6 +401,13 @@
               <item name="homestay" type="462c0819:PsiDirectoryNode" />
               <item name="local" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Events" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -354,7 +422,28 @@
               <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
               <item name="homestay" type="462c0819:PsiDirectoryNode" />
               <item name="local" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Payment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Pub" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
@@ -376,6 +465,24 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="guest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="payment" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
@@ -383,50 +490,11 @@
               <item name="local" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homestay" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homestay" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homestay" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homestay" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="detail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homestay" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="detail" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -559,13 +627,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33400000" />
+    <option name="totallyTimeSpent" value="37173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21481876" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -626,13 +694,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'tuan_1' of https://github.com/ldemon1005/homestay into son&#10;&#10;# Conflicts:&#10;#&#9;local/.env" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Pub/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/robots.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -673,13 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -733,8 +787,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/local/resources/views/public/payment/ck-confirm.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="95" column="34" selection-start-line="95" selection-start-column="34" selection-end-line="95" selection-end-column="34" />
+        <state relative-caret-position="391">
+          <caret line="107" column="69" selection-start-line="107" selection-start-column="69" selection-end-line="107" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -742,9 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
-          <folding>
-            <element signature="e#44#67#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -757,8 +808,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/local/storage/app/public/base/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        <state relative-caret-position="430">
+          <caret line="220" selection-start-line="221" selection-start-column="5" selection-end-line="222" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -771,18 +822,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/local/app/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding>
-            <element signature="e#7#111#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="299">
+          <caret line="197" column="55" selection-start-line="197" selection-start-column="55" selection-end-line="197" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local/resources/views/public/grand-master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+        <state relative-caret-position="553">
+          <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -858,8 +906,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/local/resources/views/public/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+        <state relative-caret-position="731">
+          <caret line="43" column="82" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
         </state>
       </provider>
     </entry>
@@ -879,12 +927,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/local/resources/views/public/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="305" column="31" lean-forward="true" selection-start-line="305" selection-start-column="31" selection-end-line="305" selection-end-column="31" />
+        <state relative-caret-position="540">
+          <caret line="392" column="95" selection-start-line="392" selection-start-column="95" selection-end-line="392" selection-end-column="95" />
           <folding>
-            <element signature="e#10745#10776#0#HTML" expanded="true" />
-            <element signature="e#10970#10991#0#HTML" expanded="true" />
+            <element signature="e#9933#10168#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/public/guest/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="204" column="45" selection-start-line="204" selection-start-column="45" selection-end-line="204" selection-end-column="45" />
+          <folding>
+            <element signature="e#6402#6422#0#HTML" expanded="true" />
+            <element signature="e#7241#7279#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Payment/PaymentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/app/Events/PrivateMessage.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/app/Jobs/CancelBook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="44" column="80" selection-start-line="44" selection-start-column="80" selection-end-line="44" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Pub/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
         </state>
       </provider>
     </entry>

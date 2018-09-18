@@ -22,6 +22,7 @@ class HomeController extends Controller
 
     public function getHome()
     {
+//        dd(time());
 //        dd(env('BLOG_URL').'/api/blogs');
         $data['hot_homestay'] = HomeStay::where('homestay_active',1)->orderBy('homestay_id','desc')->take(9)->get();
         $data['blogs'] = DB::table('articel')->orderBy('id','desc')->take(9)->get();

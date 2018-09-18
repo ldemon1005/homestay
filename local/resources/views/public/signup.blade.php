@@ -27,24 +27,27 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+
 </script>
 
 
 <section class="section-1">
-	<form class="login-container" method="post" action="{{ asset('signup') }}">
+	<form id="signup" class="login-container" method="post" action="{{ asset('signup') }}">
 		<div class="login-form">
-			<h6 class="fs-18 bold uppercase center white">đăng ký</h6>
+			<h6 class="fs-18 bold uppercase center white">đăng ký(khách hàng)</h6>
 			<input type="text" name="name" placeholder="Họ và tên">
 			<input type="email" name="email" placeholder="Email">
-			<input type="password" name="password" placeholder="Mật khẩu">
+			<input type="password" id="password" name="password" placeholder="Mật khẩu">
 			<input type="password" name="password_confirm" placeholder="Xác nhận mật khẩu">
 			<button class="login-btn" type="submit">Đăng ký</button>
 
 			<div class="fs-14 center white mt-4 side-dash-both"><span>Hoặc</span></div>
 
             <div class="social-cont">
-                <a class="fb-btn" href="{{route('soicial','facebook')}}"><i class="fab fa-facebook-f"></i> Đăng nhập với Facebook</a>
+                <a class="fb-btn" href="{{route('soicial','facebook')}}" style="text-decoration: none"><i class="fab fa-facebook-f"></i> Đăng nhập với Facebook</a>
             </div>
+
             <div class="social-cont">
                 <a class="gg-btn" href="{{route('soicial','google')}}"><i class="fab fa-google-plus-g"></i> Đăng nhập với Google</a>
             </div>

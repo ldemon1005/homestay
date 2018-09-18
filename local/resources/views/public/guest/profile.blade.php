@@ -195,7 +195,7 @@
 										@endif
 
 										<td>{{number_format($book->price)}} vnd</td>
-										<td><span class="text-warning">{{getStatusBookStr($book->book_status)}}</span></td>
+										<td><span class="text-warning" title="{{getStatusBookStr($book->book_status)['title']}}">{{getStatusBookStr($book->book_status)['str']}}</span></td>
 										<td class="float-right" style="border: 0px;margin-right: 12px">
 											<a class="{{$book->book_status != 1 ? 'd-none' : ''}}" href="{{route('ck_confirm',$book->book_id)}}" title="Thanh toán"><i class="fa fa-shopping-cart text-info"></i></a>
 											<span>&nbsp;&nbsp;</span>

@@ -47,8 +47,6 @@ class CancelBook implements ShouldQueue
 
             $noti = new Notification();
             $noti->save($data);
-
-
         }
     }
 }
