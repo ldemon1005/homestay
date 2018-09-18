@@ -261,13 +261,14 @@
 @stop
 
 @section('main')
-<section class="section-1" style="background-image: url({{ is_url_exist(env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image) ? env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image : $homestay->homestay_image}})">
-	<div class="container">
-		<div class="row">
-			<h1 class="fs-24 bold white center uppercase h1-sec1">{{$homestay->homestay_name}}</h1>
-		</div>
-	</div>
-</section>
+    <section class="section-1"
+             style="background-image: url({{ is_url_exist(env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image) ? env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image : $homestay->homestay_image}})">
+        <div class="container">
+            <div class="row">
+                <h1 class="fs-24 bold white center uppercase h1-sec1">{{$homestay->homestay_name}}</h1>
+            </div>
+        </div>
+    </section>
 
     <section class="section-2">
         <div class="container">
@@ -401,14 +402,15 @@
                                     <div class="mb-4">
                                         {!! $bedroom->bedroom_description !!}
                                     </div>
-                                    <ul class="mb-4">
-                                        @foreach(explode(',',$bedroom->bedroom_facility) as $facility)
-                                            <li>
-                                                <i class="fas fa-check main-color"></i> {{$bedroom_facilities->find($facility)->bedroom_facility_name ?? 'Không có tiện ích'}}
-                                            </li>
-                                        @endforeach
-                                    </ul>
-
+                                    @if($bedroom->bedroom_facility)
+                                        <ul class="mb-4">
+                                            @foreach(explode(',',$bedroom->bedroom_facility) as $facility)
+                                                <li>
+                                                    <i class="fas fa-check main-color"></i> {{$bedroom_facilities->find($facility)->bedroom_facility_name}}
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
                                     <div class="room-calendar" id="room-calendar{{$bedroom->bedroom_id}}"></div>
                                 </div>
                             </div>
@@ -502,7 +504,7 @@
                             </a>
                             <a href="{{ asset('detail/'.$homestay->homestay_id) }}"
                                class="slide-name">{{$homestay->homestay_name}}</a>
-                            <div class="slide-price">giá từ: {{ getMin($homestay->bedroom,'bedroom_price') }} Đ</div>
+                            <div class="slide-price">giá từ: {{ number_format( getMin($homestay->bedroom,'bedroom_price') )}} Đ</div>
                             <div class="slide-review">
                                 <span class="slide-score">{{ getAverage($homestay->comment,'comment_rate') }}</span>
                                 <a class="slide-grade">

@@ -83,4 +83,8 @@ $(document).ready(function(){
 	})
 
 	owl_partner.trigger('play.owl.autoplay');
+
+	owl.on('translated.owl.carousel', function(){
+	    $('.owl-carousel-4 .active .slide-image-4').click();
+    });
 });
