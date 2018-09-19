@@ -25,3 +25,39 @@ $("#form-account").validate({
         },
     }
 });
+
+$("#signup").validate({
+    ignore: [],
+    rules: {
+        'name': {
+            required: true,
+        },
+        'email': {
+            required: true,
+            email: true
+        },
+        'password': {
+            required: true
+        },
+        'password_confirm': {
+            required: true,
+            equals: "#password"
+        }
+    },
+    messages: {
+        'name': {
+            required: 'Thiếu họ và tên',
+        },
+        'email': {
+            required: 'Thiếu email',
+            email: 'Email không hợp lệ'
+        },
+        'password': {
+            required: 'Thiếu mật khẩu'
+        },
+        'password_confirm': {
+            required: 'Thiếu xác nhận mật khẩu',
+            equals: "Mật khẩu mới không khớp"
+        }
+    }
+});
