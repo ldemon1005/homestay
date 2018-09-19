@@ -17,6 +17,9 @@ Route::group(['namespace' => 'Pub'], function() {
 	Route::get('home','HomeController@getHome')->name('home');
 	Route::get('ajax-blog','HomeController@getBlogs');
     Route::get('contact-us','HomeController@getContactUs');
+    Route::get('terms-and-conditions','HomeController@getTermsConditions');
+    Route::get('copyright','HomeController@getCopyright');
+    Route::get('support','HomeController@getSupport');
 
 	Route::get('search-result','HomeController@getSearch');
 	Route::get('detail/{id}','HomeController@getDetail')->name('detail_homestay');

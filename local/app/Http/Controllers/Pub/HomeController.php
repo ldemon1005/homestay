@@ -21,8 +21,6 @@ class HomeController extends Controller
 
     public function getHome()
     {
-//        dd(time());
-//        dd(env('BLOG_URL').'/api/blogs');
         $data['hot_homestay'] = HomeStay::where('homestay_active',1)->orderBy('homestay_id','desc')->take(9)->get();
         $data['blogs'] = DB::table('articel')->orderBy('id','desc')->take(9)->get();
         $data['comments'] = Comment::with('user')->with('homestay')->take(9)->get();
@@ -37,8 +35,19 @@ class HomeController extends Controller
 
     public function getContactUs()
     {
-        return view('public.contact_us');
+        return view('public.support.contact_us');
     }
+
+    public function getCopyright()
+    {
+        return view('public.support.copyright');
+    }
+
+    public function getTermsConditions()
+    {
+        return view('public.support.terms_conditions');
+    }
+
     public function getSearch()
     {
     	return view('public.search-result');
