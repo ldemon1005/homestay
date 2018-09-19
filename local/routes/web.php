@@ -10,21 +10,18 @@ use \Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('test1',function(){return view('public.payment.ck-confirm');});
-Route::get('test2',function(){return view('public.payment.complete');});
-Route::get('test3',function(){return view('public.payment.info');});
-Route::get('test4',function(){return view('public.payment.payment');});
+Route::get('test',function(){return view('public.contact_us');});
 
 Route::group(['namespace' => 'Pub'], function() {
 	Route::get('/','HomeController@getIndex');
 	Route::get('home','HomeController@getHome')->name('home');
 	Route::get('ajax-blog','HomeController@getBlogs');
+    Route::get('contact-us','HomeController@getContactUs');
 
 	Route::get('search-result','HomeController@getSearch');
 	Route::get('detail/{id}','HomeController@getDetail')->name('detail_homestay');
 
 	Route::get('register','HomeController@getRegister');
-	Route::get('location-api','HomeController@getLocationApi');
 	Route::get('search','SearchController@getSearch');
 
 	Route::post('search-ajax','SearchController@getAjaxSearch');

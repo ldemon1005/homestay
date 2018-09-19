@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Excel;
 use DB;
-use App\Models\Location;
 use App\Models\HomeStay;
 use App\Models\Comment;
 use App\Models\Blog;
@@ -35,6 +34,10 @@ class HomeController extends Controller
         return view('public.get-blog',compact('blogs'));
     }
 
+    public function getContactUs()
+    {
+        return view('public.contact_us');
+    }
     public function getSearch()
     {
     	return view('public.search-result');
@@ -63,44 +66,38 @@ class HomeController extends Controller
         return view('public.signup');
     }
 
-    public function getUpload()
-    {
-        return view('upload');
-    }
-
-    //đẩy data từ file excel lên database. Xài 1 lần
-    public function postUpload(Request $request)
-    {
-        $path = $request->file('file')->getRealPath();
-        $data = Excel::load($path, function($reader) {
-
-        })->get();
-
-        if(!empty($data) && $data->count()){
-            $code[] = [];
-            foreach ($data as $key => $value) {
-                if( !(in_array( $value->commune_code, $code) ) ){
-                    $id = DB::table('district')->where('district_code',$value->district_code)->first()->district_id;
-                    $code[] = $value->district_code;
-                    $insert[] = [
-                        'ward_name' => $value->commune,
-                        'ward_slug' => str_slug($value->commune),
-                        'ward_code' => $value->commune_code,
-                        'ward_district_id' => $id
-                    ];
-                }
-            }
-            if(!empty($insert)){
-
-                $insertData = DB::table('ward')->insert($insert);
-
-            }
-        }    
-    }
-
-    public function getLocationApi()
-    {
-        $data = Location::orderBy('id','desc')->get();
-        return response()->json($data);
-    }
+//    public function getUpload()
+//    {
+//        return view('upload');
+//    }
+//
+//    //đẩy data từ file excel lên database. Xài 1 lần
+//    public function postUpload(Request $request)
+//    {
+//        $path = $request->file('file')->getRealPath();
+//        $data = Excel::load($path, function($reader) {
+//
+//        })->get();
+//
+//        if(!empty($data) && $data->count()){
+//            $code[] = [];
+//            foreach ($data as $key => $value) {
+//                if( !(in_array( $value->commune_code, $code) ) ){
+//                    $id = DB::table('district')->where('district_code',$value->district_code)->first()->district_id;
+//                    $code[] = $value->district_code;
+//                    $insert[] = [
+//                        'ward_name' => $value->commune,
+//                        'ward_slug' => str_slug($value->commune),
+//                        'ward_code' => $value->commune_code,
+//                        'ward_district_id' => $id
+//                    ];
+//                }
+//            }
+//            if(!empty($insert)){
+//
+//                $insertData = DB::table('ward')->insert($insert);
+//
+//            }
+//        }
+//    }
 }

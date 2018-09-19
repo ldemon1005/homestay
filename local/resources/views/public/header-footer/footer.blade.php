@@ -8,7 +8,7 @@
 						<li>Hotline: 0888.790.111</li>
 						<li><a href="/">Trợ giúp</a></li>
 						<li><a href="/">Tuyển dụng</a></li>
-						<li><a href="/">Liên hệ với chúng tôi</a></li>
+						<li><a href="{{asset('contact-us')}}">Liên hệ với chúng tôi</a></li>
 					</ul>
 				</div>
 				<div class="col-6 col-md-4 col-lg-4">
