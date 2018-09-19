@@ -13,7 +13,7 @@
             <i class="fas fa-user ml-4"></i> {{ getMax($homestay->bedroom, 'bedroom_slot') }}
         </p>
         <p class="fs-12 black">{!! cut_string($homestay->homestay_about, 150) !!}</p>
-        <div class="slide-price">giá từ: {{ getMin($homestay->bedroom,'bedroom_price') }} Đ</div>
+        <div class="slide-price">giá từ: {{ number_format( getMin($homestay->bedroom,'bedroom_price'),0,',','.' ) }} Đ</div>
         <div class="slide-review">
             <span class="slide-score">{{ getAverage($homestay->comment,'comment_rate') }}</span>
             <a class="slide-grade">
