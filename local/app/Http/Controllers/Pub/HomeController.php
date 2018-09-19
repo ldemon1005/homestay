@@ -48,6 +48,11 @@ class HomeController extends Controller
         return view('public.support.terms_conditions');
     }
 
+    public function getSupport()
+    {
+        return view('public.support.support');
+    }
+
     public function getSearch()
     {
     	return view('public.search-result');
