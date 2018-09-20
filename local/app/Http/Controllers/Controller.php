@@ -16,7 +16,6 @@ class Controller extends BaseController
 
     function __construct()
     {
-
         // Fetch the Site Settings object
         $this->middleware(function ($request, $next) {
             $user = Auth::user();

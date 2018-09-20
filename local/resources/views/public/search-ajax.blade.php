@@ -8,7 +8,7 @@
                style="background-image: url( {{ is_url_exist(env('HOST_URL').'/local/storage/app/image/'.$homestay->homestay_image) ? env('HOST_URL').'/local/storage/app/image/'.$homestay->homestay_image : $homestay->homestay_image }} ) ;"></a>
             <div class="item-content">
                 <a href="{{ asset('detail/'.$homestay->homestay_id) }}"
-                   class="italic grey-3 fs-16 mb-1">{{ $homestay->homestay_name }}</a>
+                   class="italic grey-3 fs-16 mb-1">{{strip_tags($homestay->homestay_name)}}</a>
                 <p class="grey-9 fs-10 mb-1">{{$homestay->homestay_location}}</p>
                 <p class="grey-9 fs-10 mb-2">
                     <i class="fas fa-door-open"></i> {{ count($homestay->bedroom) }}
