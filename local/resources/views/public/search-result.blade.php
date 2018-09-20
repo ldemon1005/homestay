@@ -14,9 +14,13 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9yWMAqS_gR49H1kcehbFpYq8V936OnBc&libraries=places&callback=initAutocomplete"
 async defer></script>
-<script>
-	function search(){
-		var form_data = $('#facility_form').serialize() + '&' + $('#main-form').serialize();
+<script >
+	function search(page){
+        $('#homestay-list').addClass('loader');
+
+	    if( page == null ) page = 1;
+
+		var form_data = $('#facility_form').serialize() + '&' + $('#main-form').serialize() + '&page=' + page;
 		$.ajax({
 			type: "POST",
 			url: '{{ asset('search-ajax') }}',
@@ -24,9 +28,16 @@ async defer></script>
 			// dataType: "json",
 		}).done( function(result){
 			$('#homestay-list').html(result);
+            $('#homestay-list').removeClass('loader');
 		});
 	}
-	
+
+	$(document).on('click','a.myPagination:not(.active)',function(){
+	    var page = $(this)[0].getAttribute("data-page");
+		search( page );
+        $("html, body").animate({scrollTop: $('#homestay-list').offset().top}, 500);
+	});
+
 	function initAutocomplete() {
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
@@ -88,7 +99,7 @@ async defer></script>
 	</div>
 </section>
 
-<section class="section-2 hs-section">
+<section class="section-2 hs-section pb-200">
 	<div class="container">
 		<div class="row">
 			<form id="facility_form" class="col-12 col-md-4 col-lg-4" enctype="multipart/form-data">

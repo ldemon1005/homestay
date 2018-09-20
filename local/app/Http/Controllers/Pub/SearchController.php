@@ -97,7 +97,8 @@ class SearchController extends Controller
             $data['homestays'] = $data['homestays']->whereIn('homestay_id',$arr);
         }
 
-        $data['homestays'] = $data['homestays']->paginate(10);
+        $data['homestays'] = $data['homestays']->paginate(6);
+
         return view('public.search-ajax',$data);
     }
 }
