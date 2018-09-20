@@ -228,3 +228,23 @@ function is_url_exist($url){
     curl_close($ch);
     return $status;
 }
+
+function generateCode($model)
+{
+    $unique_code = false;
+
+    while(!$unique_code) {
+        $min = 100000;
+        $max = 999999;
+
+        $new_code = rand($min,$max);
+
+        $model_data = \Illuminate\Support\Facades\DB::table($model)->where('code',$new_code)->first();
+
+        if(!$model_data) {
+            $unique_code = true;
+        }
+    }
+
+    return $new_code;
+}

@@ -39,7 +39,7 @@ class PaymentController extends Controller
             return redirect('user/profile#manage');
         }
 
-        $order['code'] = 'CTOGO-'.$user->id.substr(time(),5,8);
+        $order['code'] = 'CTOGO-'.generateCode(Book::class);
 
         $order['info'] = $request->all();
 
