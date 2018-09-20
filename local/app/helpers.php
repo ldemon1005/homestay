@@ -234,8 +234,8 @@ function generateCode($model)
     $unique_code = false;
 
     while(!$unique_code) {
-        $min = 100000;
-        $max = 999999;
+        $min = 10000000;
+        $max = 99999999;
 
         $new_code = rand($min,$max);
 
