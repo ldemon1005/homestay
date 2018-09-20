@@ -16,7 +16,7 @@ Route::get('test', function () {
     return view('public.contact_us');
 });
 
-Route::group(['namespace' => 'Pub'], function () {
+Route::group(['namespace' => 'Pub'], function() {
     Route::get('/', 'HomeController@getIndex');
     Route::get('home', 'HomeController@getHome')->name('home');
     Route::get('ajax-blog', 'HomeController@getBlogs');

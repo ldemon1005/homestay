@@ -10,6 +10,7 @@
 
 @section('main')
 <div id="fb-root"></div>
+
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -28,7 +29,6 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
 
 <section class="section-1">
 	<form class="login-container" method="post" action="{{ asset('login') }}">
