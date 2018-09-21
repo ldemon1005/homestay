@@ -251,7 +251,7 @@
 .slide-grade>span:last-child{
 	display: block;
 }
-.owl-carousel-1 .owl-stage-outer{
+.owl-carousel-1 .owl-stage-outer, .partner-carousel .owl-stage-outer{
 	padding: 20px 0;
 }
 .owl-carousel-1 .owl-next,.owl-carousel-1 .owl-prev{
