@@ -73,10 +73,10 @@
 @section('main')
 
 <section class="section-1">
-	<div class="container">
-		<div class="row">
-			
-		</div>
+	<div class="owl-carousel owl-banner owl-theme">
+		<div class="item" style="background-image: url('{{asset('local/storage/app/public/index/image/banner.png')}}')"></div>
+		<div class="item" style="background-image: url('{{asset('local/storage/app/public/index/image/banner.png')}}')"></div>
+		<div class="item" style="background-image: url('{{asset('local/storage/app/public/index/image/banner.png')}}')"></div>
 	</div>
 </section>
 

@@ -1,4 +1,12 @@
 $(document).ready(function(){
+    var owl_banner = $('.owl-banner');
+    owl_banner.owlCarousel({
+        items:1,
+        loop:true,
+        autoplay:true,
+        dots: false
+    });
+
 	var owl = $('.owl-carousel-1');
 	owl.owlCarousel({
 		items:3,
@@ -8,19 +16,17 @@ $(document).ready(function(){
 		autoplayTimeout:2000,
 		autoplayHoverPause:true,
         responsiveClass:true,
+        nav: true,
+        dots: false,
         responsive:{
             0:{
                 items:1,
-                nav:false
             },
             600:{
                 items:2,
-                nav:false
             },
             1000:{
                 items:3,
-                nav:false,
-                loop:false
             }
         }
 	});

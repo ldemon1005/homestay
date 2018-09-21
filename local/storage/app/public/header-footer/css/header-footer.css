@@ -293,6 +293,7 @@
 	width:100%;
 	left: 0;
 	padding: 0 15px;
+	font-size: 12px;
 }
 .menu-mobile:after{
 	display: block;
@@ -306,7 +307,7 @@
 .menu-mobile li{
 	text-transform: uppercase;
 	font-weight: bold;
-	line-height: 50px;
+	line-height: 40px;
 	border-bottom: 1px solid #e8e8e8;
 }
 .menu-mobile li a{
