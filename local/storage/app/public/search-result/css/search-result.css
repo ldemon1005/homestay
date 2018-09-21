@@ -314,6 +314,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     content: "";
     height: 100%;
     width: 100%;
+    left: 0;
+    right: 0;
     position: absolute;
     background-color: rgba(108, 134, 113, 0.25);
     z-index: 1;
@@ -335,10 +337,10 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 
 @keyframes spin {
     0% {
-        transform: rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 

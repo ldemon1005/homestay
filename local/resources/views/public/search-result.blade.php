@@ -28,7 +28,7 @@ async defer></script>
 			// dataType: "json",
 		}).done( function(result){
 			$('#homestay-list').html(result);
-            $('#homestay-list').removeClass('loader');
+            // $('#homestay-list').removeClass('loader');
 		});
 	}
 
