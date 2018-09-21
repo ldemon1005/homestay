@@ -91,6 +91,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/',function(){
         return view('admin.index.index');
     });
+    Route::group(['prefix' => 'mod'], function(){
+        Route::get('/', function(){
+            return view('admin.mod.list');
+        });
+    });
+
     Route::get('general',function(){
         return view('admin.index.forms.general');
     });
