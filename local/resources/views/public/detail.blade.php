@@ -485,9 +485,7 @@
 
     <section class="section-5">
         <div class="container">
-            <div class="row">
-                <h6 class="bold fs-18 mt-4">Các homestay khác</h6>
-            </div>
+            <h6 class="bold fs-18 mt-4">Các homestay khác</h6>
 
             <div class="row">
                 <div class="owl-carousel owl-carousel-5">
@@ -504,7 +502,9 @@
                             </a>
                             <a href="{{ asset('detail/'.$homestay->homestay_id) }}"
                                class="slide-name">{{$homestay->homestay_name}}</a>
-                            <div class="slide-price">giá từ: {{ number_format( getMin($homestay->bedroom,'bedroom_price') )}} Đ</div>
+                            <div class="slide-price">giá
+                                từ: {{ number_format( getMin($homestay->bedroom,'bedroom_price') )}} Đ
+                            </div>
                             <div class="slide-review">
                                 <span class="slide-score">{{ getAverage($homestay->comment,'comment_rate') }}</span>
                                 <a class="slide-grade">
