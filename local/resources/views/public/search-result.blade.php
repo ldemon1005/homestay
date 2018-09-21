@@ -32,7 +32,7 @@ async defer></script>
 		});
 	}
 
-	$(document).on('click','a.myPagination:not(.active)',function(){
+	$(document).on('click','a.myPagination:not(.active):not(.disabled)',function(){
 	    var page = $(this)[0].getAttribute("data-page");
 		search( page );
         $("html, body").animate({scrollTop: $('#homestay-list').offset().top}, 500);

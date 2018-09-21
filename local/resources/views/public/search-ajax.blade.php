@@ -37,23 +37,23 @@
             </a>
         @endif
 
-        @if( $homestays->lastPage() < 8 )
+        @if( $homestays->lastPage() < 6 )
             @for ( $i = 1; $i <= $homestays->lastPage(); $i++ )
                 <a class="myPagination @if( $i == $homestays->currentPage() ) active @endif"
                    data-page="{{$i}}">{{ $i }}</a>
             @endfor
         @else
-            @if( $homestays->currentPage() > 4 )
-                <a class="myPagination" data-page="1"> ... </a>
+            @if( $homestays->currentPage() > 3 )
+                <a class="myPagination disabled" data-page="1"> ... </a>
             @endif
 
-            @for ( $i = ($homestays->currentPage() - 3 > 0) ? ($homestays->currentPage() - 3) : 1 ; $i <= ( ( $homestays->currentPage() + 2 < $homestays->lastPage() ) ? ($homestays->currentPage() + 3) : $homestays->lastPage() ); $i++ )
+            @for ( $i = ($homestays->currentPage() - 2 > 0) ? ($homestays->currentPage() - 2) : 1 ; $i <= ( ( $homestays->currentPage() + 2 < $homestays->lastPage() ) ? ($homestays->currentPage() + 2) : $homestays->lastPage() ); $i++ )
                 <a class="myPagination @if( $i == $homestays->currentPage() ) active @endif"
                    data-page="{{$i}}">{{ $i }}</a>
             @endfor
 
-            @if( $homestays->currentPage() < $homestays->lastPage() - 3 )
-                <a class="myPagination" data-page="1"> ... </a>
+            @if( $homestays->currentPage() < $homestays->lastPage() - 2 )
+                <a class="myPagination disabled" data-page="1"> ... </a>
             @endif
         @endif
 
