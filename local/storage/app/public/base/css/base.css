@@ -152,6 +152,10 @@ body{
 .fs-26{font-size: 26px;}
 .fs-28{font-size: 28px;}
 .fs-30{font-size: 30px;}
+
+@media (max-width: 767px){
+	.fs-24{font-size: 14px;}
+}
 /*button*/
 
 .hs-btn, a.hs-btn{
