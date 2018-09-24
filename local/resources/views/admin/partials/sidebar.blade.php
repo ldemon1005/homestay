@@ -43,7 +43,6 @@
                 </a>
                 <ul class="treeview-menu">
                     <li class=""><a href=""><i class="fa fa-circle-o"></i> Danh sách tài khoản khách</a></li>
-                    <li><a href=""><i class="fa fa-circle-o"></i> </a></li>
                 </ul>
             </li>
 
@@ -53,8 +52,7 @@
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="/"><i class="fa fa-circle-o"></i> Danh sách tài khoản chủ nhà</a></li>
-                    <li><a href="/"><i class="fa fa-circle-o"></i> </a></li>
+                    <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách tài khoản chủ nhà</a></li>
                 </ul>
             </li>
 
@@ -64,8 +62,19 @@
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="/"><i class="fa fa-circle-o"></i> Danh sách bình luận</a></li>
+                    <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách bình luận</a></li>
                     <li><a href="/"><i class="fa fa-circle-o"></i> </a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Quản lý homestay</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách homestay</a></li>
+                    <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách homestay chờ duyệt</a></li>
                 </ul>
             </li>
 
@@ -75,7 +84,7 @@
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="/"><i class="fa fa-circle-o"></i> Banner</a></li>
+                    <li><a href="/"><i class="fa fa-circle-o"></i> Banner</a></li>
                     <li><a href="/"><i class="fa fa-circle-o"></i> Thông tin</a></li>
                     <li><a href="/"><i class="fa fa-circle-o"></i> Điều khoản</a></li>
                     <li><a href="/"><i class="fa fa-circle-o"></i> Chính sách</a></li>

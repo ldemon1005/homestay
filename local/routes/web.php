@@ -95,6 +95,29 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/', function(){
             return view('admin.mod.list');
         });
+        Route::get('add',function(){
+            return view('admin.mod.add');
+        });
+    });
+
+    Route::group(['prefix' => 'guest'], function(){
+        Route::get('/', function(){
+            return view('admin.guest.list');
+        });
+    });
+
+    Route::group(['prefix' => 'host'], function(){
+        Route::get('/', function(){
+            return view('admin.host.list');
+        });
+    });
+
+    Route::group(['prefix' => 'config'], function(){
+        Route::get('/', 'ConfigController@index');
+        Route::post('banner','ConfigController@updateBanner');
+        Route::post('info','ConfigController@updateInfo');
+        Route::post('term','ConfigController@updateTerm');
+        Route::post('policy','ConfigController@updatePolicy');
     });
 
     Route::get('general',function(){
