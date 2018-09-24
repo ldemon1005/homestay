@@ -28,8 +28,8 @@ class UploadImage
     public function handleUploadAndResize($max_size)
     {
         $this->max_size = $max_size;
-        $this->handleUpload();
         $this->handleResize();
+        $this->handleUpload();
         return $this->filename;
     }
 

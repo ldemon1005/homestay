@@ -5,7 +5,10 @@
     {{csrf_field()}}
 </form>
 <br>
-
+@foreach( unserialize($banner->value) as $banner)
+    {{$banner}}
+    <br>
+@endforeach
 <form method="post">
     Info:
     <input name="value" value="{{ $info->value }}">

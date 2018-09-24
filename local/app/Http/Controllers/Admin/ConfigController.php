@@ -23,26 +23,26 @@ class ConfigController extends Controller
         $info = $this->config->getInfo();
         $term = $this->config->getTerm();
         $policy = $this->config->getPolicy();
-
-        return view('admin.config.index', compact('banner','info','term','policy') );
+        return view('admin.config.index', compact('banner', 'info', 'term', 'policy'));
     }
 
     public function updateBanner(UploadBannerRequest $rq)
     {
+        $banner = $this->config->getBanner();
+        $arr = unserialize($banner->value);
+
         if ($rq->file('value')->isValid()) {
             $image = new UploadImage($rq->file('value'));
-
-            $image->handleUploadAndResize(200);
+            $arr[] = $image->handleUploadAndResize(200);
+            $banner->value = serialize($arr);
+            $banner->save();
 
             // Thành công, show thành công
             return back()->with('success', 'Upload files thành công!');
-        }
-        else {
+        } else {
             // Lỗi file
             return back()->with('error', 'Upload files thất bại!');
         }
-//        $this->config->getBanner()->update($rq->all());
-//        return back();
     }
 
     public function updateInfo(Request $rq)
