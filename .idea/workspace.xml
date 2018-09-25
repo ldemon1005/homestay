@@ -1,35 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/local/resources/views/admin/partials/sidebar.blade.php" line="86" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="bd63e6ef-6a78-4e7e-82b1-cf7ebc91df40" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local/app/Http/Controllers/Admin/ConfigController.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/app/Http/Controllers/Admin/ConfigController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/app/Models/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/app/Models/Config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/resources/views/admin/config/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/resources/views/admin/config/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537786679_8353185_03c4208c179cb0c5cebf60a11a4fa019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537786711_1833591_89e27fa3b16c233499e249ff0ac7c97c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537786757_7697333_fc2805c3410008d8cad15fe83de52eaa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537786840_4806886_0c97f63f5e9e2875e110093613a05382.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537787084_2730952_747bbf250e1a22ddaf8bb52805b534cb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537787105_1334493_e494795c07e93b76f914780af93a3730.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537787170_1533974_9455ef89a4601b70e46231b334e20f8b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537787179_7480426_18ca12c754852a11ca8ffbbeeee77b76.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537787506_1906389_17f0b7df13ed3f437180da572e49bcc4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/1537787509_2714740_50147e158b49cd79908d8cc543b75e5c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537786679_8353185_03c4208c179cb0c5cebf60a11a4fa019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537786711_1833591_89e27fa3b16c233499e249ff0ac7c97c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537786757_7697333_fc2805c3410008d8cad15fe83de52eaa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537786840_4806886_0c97f63f5e9e2875e110093613a05382.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537787084_2730952_747bbf250e1a22ddaf8bb52805b534cb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537787105_1334493_e494795c07e93b76f914780af93a3730.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537787170_1533974_9455ef89a4601b70e46231b334e20f8b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537787179_7480426_18ca12c754852a11ca8ffbbeeee77b76.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537787506_1906389_17f0b7df13ed3f437180da572e49bcc4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/storage/app/upload/resized-1537787509_2714740_50147e158b49cd79908d8cc543b75e5c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local/resources/views/admin/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/resources/views/admin/partials/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,16 +59,16 @@
           <entry key="gitignore" value="6" />
           <entry key="htaccess" value="22" />
           <entry key="js" value="318" />
-          <entry key="php" value="14056" />
+          <entry key="php" value="14171" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="6362" />
+          <entry key="Blade" value="6406" />
           <entry key="CSS" value="1980" />
           <entry key="JavaScript" value="318" />
-          <entry key="PHP" value="7694" />
+          <entry key="PHP" value="7765" />
           <entry key="PLAIN_TEXT" value="59" />
           <entry key="htaccess" value="22" />
         </counts>
@@ -137,17 +112,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
+            <state relative-caret-position="319">
+              <caret line="120" column="62" lean-forward="true" selection-start-line="120" selection-start-column="62" selection-end-line="120" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/local/resources/views/admin/partials/sidebar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="285">
+              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
             </state>
           </provider>
         </entry>
@@ -157,11 +132,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Admin/ConfigController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="113" column="1" lean-forward="true" selection-start-line="113" selection-start-column="1" selection-end-line="113" selection-end-column="1" />
+            <state relative-caret-position="234">
+              <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
               <folding>
                 <element signature="e#46#74#0#PHP" expanded="true" />
               </folding>
@@ -170,19 +145,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/local/config/filesystems.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/app/Models/Config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+            <state relative-caret-position="204">
+              <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -290,7 +256,6 @@
         <option value="$PROJECT_DIR$/local/resources/views/admin/mod/list.blade.php" />
         <option value="$PROJECT_DIR$/local/resources/views/admin/guest/list.blade.php" />
         <option value="$PROJECT_DIR$/local/resources/views/admin/host/list.blade.php" />
-        <option value="$PROJECT_DIR$/local/resources/views/admin/partials/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/local/app/Http/Requests/UploadBannerRequest.php" />
         <option value="$PROJECT_DIR$/local/app/helpers.php" />
         <option value="$PROJECT_DIR$/local/app/Providers/HelperServiceProvider.php" />
@@ -298,9 +263,10 @@
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/local/app/Helpers/UploadImage.php" />
         <option value="$PROJECT_DIR$/local/routes/web.php" />
-        <option value="$PROJECT_DIR$/local/app/Models/Config.php" />
         <option value="$PROJECT_DIR$/local/resources/views/admin/config/index.blade.php" />
+        <option value="$PROJECT_DIR$/local/app/Models/Config.php" />
         <option value="$PROJECT_DIR$/local/app/Http/Controllers/Admin/ConfigController.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/admin/partials/sidebar.blade.php" />
       </list>
     </option>
   </component>
@@ -480,6 +446,36 @@
               <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
               <item name="homestay" type="462c0819:PsiDirectoryNode" />
               <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -494,6 +490,14 @@
               <item name="local" type="462c0819:PsiDirectoryNode" />
               <item name="storage" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homestay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homestay" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -558,7 +562,7 @@
       <workItem from="1537440094152" duration="332000" />
       <workItem from="1537492779393" duration="16748000" />
       <workItem from="1537751693547" duration="25553000" />
-      <workItem from="1537838151911" duration="8201000" />
+      <workItem from="1537838151911" duration="8942000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <created>1534936155649</created>
@@ -805,11 +809,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537838898198</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Merge branch 'tuan_1' of https://github.com/ldemon1005/homestay into son&#10;&#10;# Conflicts:&#10;#&#9;local/.env">
+      <created>1537846538460</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1537846538460</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118438000" />
+    <option name="totallyTimeSpent" value="119179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1067,13 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/resources/views/admin/partials/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/resources/views/admin/index/forms/general.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
@@ -1081,24 +1085,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/app/Helpers/UploadImage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="852">
           <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local/app/Models/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1120,11 +1110,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Admin/GuestController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/storage/app/upload/1537846185_7891785_cde27d1fae51af760011c9935bea4024.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Admin/GuestController.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/local/config/filesystems.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1133,13 +1123,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/local/app/Models/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/Admin/ConfigController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="113" column="1" lean-forward="true" selection-start-line="113" selection-start-column="1" selection-end-line="113" selection-end-column="1" />
+        <state relative-caret-position="234">
+          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
           <folding>
             <element signature="e#46#74#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="120" column="62" lean-forward="true" selection-start-line="120" selection-start-column="62" selection-end-line="120" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/admin/partials/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
         </state>
       </provider>
     </entry>

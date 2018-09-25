@@ -52,12 +52,11 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Cấu hình website
+                Cài đặt website
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Forms</a></li>
-                <li class="active">Editors</li>
+                <li><a href="{{ asset('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Cài đặt website</li>
             </ol>
         </section>
 

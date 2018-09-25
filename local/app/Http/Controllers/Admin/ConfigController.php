@@ -56,13 +56,9 @@ class ConfigController extends Controller
     {
         $this->banner = $this->config->getBanner();
         $arr = $this->getArrayBanner();
-
         $result = $this->destroyBanner($arr, $key);
-
         $this->saveBanner($result);
-
         $this->deleteFileBanner($arr[$key]);
-
         return back();
     }
 

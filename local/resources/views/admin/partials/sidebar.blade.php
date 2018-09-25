@@ -78,17 +78,11 @@
                 </ul>
             </li>
 
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Cài đặt website</span>
-                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+            <li>
+                <a href="{{ asset('admin/config') }}">
+                    <i class="fa fa-gear"></i> <span>Cài đặt website</span>
+                    <span class="pull-right-container"></span>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="/"><i class="fa fa-circle-o"></i> Banner</a></li>
-                    <li><a href="/"><i class="fa fa-circle-o"></i> Thông tin</a></li>
-                    <li><a href="/"><i class="fa fa-circle-o"></i> Điều khoản</a></li>
-                    <li><a href="/"><i class="fa fa-circle-o"></i> Chính sách</a></li>
-                </ul>
             </li>
 
             <li>
