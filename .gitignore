@@ -18,5 +18,5 @@ Homestead.json
 
 
 /public/web.config
-.idea/
+/.idea
 composer.lock
