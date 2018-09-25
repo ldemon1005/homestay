@@ -136,4 +136,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('data',function(){
         return view('admin.index.tables.data');
     });
+    Route::get('profile',function(){
+        return view('admin.index.profile.profile');
+    });
 });
