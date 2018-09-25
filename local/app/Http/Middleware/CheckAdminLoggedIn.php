@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
-class AdminAuthenticate
+class CheckAdminLoggedIn
 {
     /**
      * Handle an incoming request.
@@ -13,12 +14,11 @@ class AdminAuthenticate
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = 'admin')
+    public function handle($request, Closure $next)
     {
-        if (!Auth::guard($guard)->check()) {
-            return redirect('admin/login');
+        if( Auth::guard('admin')->check() ){
+            return redirect('admin');
         }
-
         return $next($request);
     }
 }

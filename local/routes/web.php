@@ -16,7 +16,7 @@ Route::get('test', function () {
     return view('public.contact_us');
 });
 
-Route::group(['namespace' => 'Pub'], function() {
+Route::group(['namespace' => 'Pub'], function () {
     Route::get('/', 'HomeController@getIndex');
     Route::get('home', 'HomeController@getHome')->name('home');
     Route::get('ajax-blog', 'HomeController@getBlogs');
@@ -88,71 +88,75 @@ Route::post('/notification', function (Illuminate\Http\Request $request) {
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    Route::get('login','AuthController@getLogin');
-    Route::post('login','AuthController@postLogin');
-    Route::get('logout','AdminController@getLogout');
-
-    Route::get('/',function(){
-        return view('admin.index.index');
+    Route::group(['prefix' => 'login', 'middleware' => 'CheckAdminLoggedIn'], function () {
+        Route::get('/', 'AuthController@getLogin');
+        Route::post('/', 'AuthController@postLogin');
     });
-    Route::group(['prefix' => 'mod'], function(){
-        Route::get('/', function(){
-            return view('admin.mod.list');
+    Route::group(['middleware' => 'CheckAdminLoggedOut'], function () {
+        Route::get('logout', 'AdminController@getLogout');
+
+        Route::get('/', function () {
+            return view('admin.index.index');
         });
-        Route::get('add',function(){
-            return view('admin.mod.add');
+        Route::group(['prefix' => 'mod'], function () {
+            Route::get('/', function () {
+                return view('admin.mod.list');
+            });
+            Route::get('add', function () {
+                return view('admin.mod.add');
+            });
         });
-    });
 
-    Route::group(['prefix' => 'guest'], function(){
-        Route::get('/', function(){
-            return view('admin.guest.list');
+        Route::group(['prefix' => 'guest'], function () {
+            Route::get('/', function () {
+                return view('admin.guest.list');
+            });
         });
-    });
 
-    Route::group(['prefix' => 'host'], function(){
-        Route::get('/', function(){
-            return view('admin.host.list');
+        Route::group(['prefix' => 'host'], function () {
+            Route::get('/', function () {
+                return view('admin.host.list');
+            });
         });
-    });
 
-    Route::group(['prefix' => 'guest'],function (){
-        Route::get('','GuestController@index')->name('list_guest');
-        Route::get('/update_status_guest/{id}','GuestController@update_status')->name('update_status_guest');
-        Route::get('/delete_guest/{id}','GuestController@delete_guest')->name('delete_guest');
-    });
+        Route::group(['prefix' => 'guest'], function () {
+            Route::get('', 'GuestController@index')->name('list_guest');
+            Route::get('/update_status_guest/{id}', 'GuestController@update_status')->name('update_status_guest');
+            Route::get('/delete_guest/{id}', 'GuestController@delete_guest')->name('delete_guest');
+        });
 
-    Route::group(['prefix' => 'host'],function (){
-        Route::get('','HostController@index')->name('list_host');
-        Route::get('/update_status_host/{id}','HostController@update_status')->name('update_status_host');
-        Route::get('/delete_host/{id}','HostController@delete_host')->name('delete_host');
-    });
+        Route::group(['prefix' => 'host'], function () {
+            Route::get('', 'HostController@index')->name('list_host');
+            Route::get('/update_status_host/{id}', 'HostController@update_status')->name('update_status_host');
+            Route::get('/delete_host/{id}', 'HostController@delete_host')->name('delete_host');
+        });
 
-    Route::group(['prefix' => 'config'], function(){
-        Route::get('/', 'ConfigController@index');
-        Route::post('banner','ConfigController@updateBanner');
-        Route::get('banner/delete/{key}','ConfigController@deleteBanner');
-        Route::post('info','ConfigController@updateInfo');
-        Route::post('term','ConfigController@updateTerm');
-        Route::post('policy','ConfigController@updatePolicy');
-    });
+        Route::group(['prefix' => 'config'], function () {
+            Route::get('/', 'ConfigController@index');
+            Route::post('banner', 'ConfigController@updateBanner');
+            Route::get('banner/delete/{key}', 'ConfigController@deleteBanner');
+            Route::post('info', 'ConfigController@updateInfo');
+            Route::post('term', 'ConfigController@updateTerm');
+            Route::post('policy', 'ConfigController@updatePolicy');
+        });
 
-    Route::get('general',function(){
-        return view('admin.index.forms.general');
-    });
-    Route::get('advanced',function(){
-        return view('admin.index.forms.advanced');
-    });
-    Route::get('editors',function(){
-        return view('admin.index.forms.editors');
-    });
-    Route::get('simple',function(){
-        return view('admin.index.tables.simple');
-    });
-    Route::get('data',function(){
-        return view('admin.index.tables.data');
-    });
-    Route::get('profile',function(){
-        return view('admin.index.profile.profile');
+        Route::get('general', function () {
+            return view('admin.index.forms.general');
+        });
+        Route::get('advanced', function () {
+            return view('admin.index.forms.advanced');
+        });
+        Route::get('editors', function () {
+            return view('admin.index.forms.editors');
+        });
+        Route::get('simple', function () {
+            return view('admin.index.tables.simple');
+        });
+        Route::get('data', function () {
+            return view('admin.index.tables.data');
+        });
+        Route::get('profile', function () {
+            return view('admin.index.profile.profile');
+        });
     });
 });
