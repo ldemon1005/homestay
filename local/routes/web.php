@@ -124,6 +124,25 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/delete_host/{id}','HostController@delete_host')->name('delete_host');
     });
 
+    Route::group(['prefix' => 'comment'],function (){
+        Route::get('','CommentController@index')->name('list_comment');
+        Route::get('/update_status_comment/{id}','CommentController@update_status')->name('update_status_comment');
+        Route::get('/delete_comment/{id}','CommentController@delete_comment')->name('delete_comment');
+        Route::get('/sort_comment','CommentController@sort_comment')->name('sort_comment');
+        Route::get('/delete_comment_hot/{id}','CommentController@delete_comment_hot')->name('delete_comment_hot');
+        Route::post('/update_sort_comment','CommentController@update_sort_comment')->name('update_sort_comment');
+    });
+
+    Route::group(['prefix' => 'homestay'],function (){
+        Route::get('','HomestayController@index')->name('list_homestay');
+        Route::get('/update_status_homestay/{id}','HomestayController@update_status')->name('update_status_homestay');
+        Route::get('/delete_homestay/{id}','HomestayController@delete_homestay')->name('delete_homestay');
+        Route::get('/sort_homestay','HomestayController@sort_homestay')->name('sort_homestay');
+        Route::get('/delete_homestay_hot/{id}','HomestayController@delete_homestay_hot')->name('delete_homestay_hot');
+        Route::get('/view_detail/{id}','HomestayController@view_detail')->name('view_detail');
+        Route::post('/update_sort_homestay','HomestayController@update_sort_homestay')->name('update_sort_homestay');
+    });
+
     Route::group(['prefix' => 'config'], function(){
         Route::get('/', 'ConfigController@index');
         Route::post('banner','ConfigController@updateBanner');

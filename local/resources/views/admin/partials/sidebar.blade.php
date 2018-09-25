@@ -54,18 +54,18 @@
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách bình luận</a></li>
-                    <li><a href="/"><i class="fa fa-circle-o"></i> Sắp xếp bình luận</a></li>
+                    <li><a href="{{route("list_comment")}}"><i class="fa fa-circle-o"></i> Danh sách bình luận</a></li>
+                    <li><a href="{{route("sort_comment")}}"><i class="fa fa-circle-o"></i> Sắp xếp bình luận</a></li>
                 </ul>
             </li>
 
             <li class="treeview">
-                <a href="#">
+                <a href="#" class="@if (Request::segment(2) == 'homestay') sidebar-active @endif">
                     <i class="fa fa-dashboard"></i> <span>Quản lý homestay</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách homestay</a></li>
+                    <li><a href="{{route('list_homestay')}}"><i class="fa fa-circle-o"></i> Danh sách homestay</a></li>
                     <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách homestay chờ duyệt</a></li>
                 </ul>
             </li>

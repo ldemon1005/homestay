@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     //
+    const ACTIVE = 2;
+    const NON_ACTIVE = 1;
+
     protected $table = 'comments';
     protected $primaryKey = 'comment_id';
     protected $guarded = [];
