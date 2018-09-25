@@ -6,7 +6,9 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
+use \Illuminate\Support\Facades\Auth;
 
 class SocialAuthController extends Controller
 {
@@ -54,6 +56,12 @@ class SocialAuthController extends Controller
         }
 
         $user->save();
+
+        if($user->status == User::NON_ACTIVE){
+            Auth::logout();
+            Session::flush();
+            return redirect()->route('login')->with('error','Tài khoản chưa được kích hoạt, vui lòng liên hệ nhà quản trị');
+        }
 
         auth()->login($user);
 

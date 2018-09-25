@@ -23,6 +23,9 @@
     @include('admin.partials.footer')
 
     @include('admin.partials.sidebar-right')
+    <div class="errorAlert">
+        @include('errors.note')
+    </div>
 </div>
 
 @include('admin.partials.js')
