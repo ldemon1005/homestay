@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class HomeStay extends Model
 {
     //
+    const ACTIVE = 2;
+    const NON_ACTIVE = 1;
+
+
     protected $table = 'homestay';
     protected $primaryKey = 'homestay_id';
     protected $guarded = [];

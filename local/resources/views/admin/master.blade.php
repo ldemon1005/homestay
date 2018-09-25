@@ -29,5 +29,15 @@
 </div>
 
 @include('admin.partials.js')
+
+<script>
+    $('.errorAlert').css('bottom','100px');
+    setTimeout(function(){
+        $('.errorAlert').css('bottom', '-200px');
+    }, 3000);
+    setTimeout(function(){
+        $('.errorAlert').fadeOut();
+    }, 3900);
+</script>
 </body>
 </html>
