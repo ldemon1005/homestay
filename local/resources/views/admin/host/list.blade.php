@@ -5,86 +5,144 @@
     <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 @stop
 
+@section('title', 'Quản trị')
 @section('main')
+
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Quản lý tài khoản chủ nhà
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li>Quản lý tài khoản chủ nhà</li>
-                <li class="active">Danh sách tài khoản chủ nhà</li>
-            </ol>
-        </section>
-
-        <section class="content">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">D/s tài khoản chủ nhà</h3>
-
-                            <div class="box-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control pull-right"
-                                           placeholder="Search">
-
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-body table-responsive no-padding">
-                            <table class="table table-hover">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>User</th>
-                                    <th>Email</th>
-                                    <th>Sex</th>
-                                    <th>Status</th>
-                                    <th>Number of homestays</th>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                            </table>
-                        </div>
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 ">Danh sách tài khoản chủ nhà</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ asset('admin') }}">Trang chủ</a></li>
+                            <li class="breadcrumb-item active">Danh sách tài khoản chủ nhà</li>
+                        </ol>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header" style="padding: 20px">
+                            <div class="row">
+                                <form action="" method="get">
+                                    <div class="col-md-8"></div>
+                                    <div class="col-md-4">
+
+                                        <div class="input-group input-group-sm float-right" style="width: 100%;">
+                                            <input type="text" name="search" class="form-control pull-right"
+                                                   placeholder="Search">
+                                            <div class="input-group-btn">
+                                                <button type="submit" class="btn btn-default"><i
+                                                            class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>#id</th>
+                                    <th>Họ tên</th>
+                                    <th>Email</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Nguồn</th>
+                                    <th class="text-center">Trạng thái</th>
+                                    <th class="text-center">Thao tác</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($list_host as $host)
+                                    <tr>
+                                        <td>{{$host->id}}</td>
+                                        <td style="display: flex">
+                                            <div class="avatar_user"
+                                                 style="background-image: url('{{file_exists(storage_path('app/image/user-3/'.$host->avatar)) ? asset('local/storage/app/image/user-3/'.$host->avatar) : asset('local/storage/app/image/user-3/default.png')}}')">
+                                            </div>
+                                            <div style="display: flex;line-height: 40px">
+                                                {{$host->name}}
+                                            </div>
+                                        </td>
+                                        <td>{{$host->email}}</td>
+                                        <td>{{$host->phone}}</td>
+                                        <td>{{$host->created_at}}</td>
+                                        <td>
+                                            {{getSocial($host->social_type)}}
+                                        </td>
+                                        <td class="text-center">
+                                            <button id="{{$host->id}}" onclick="update_status({{$host->id}})"
+                                                    class="btn btn-block btn-sm {{$host->status == 2 ? 'btn-success': 'btn-danger'}}">{{$host->status == 2 ? 'Hoạt đông': 'Không hoạt đông'}}</button>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="{{route('delete_host',$host->id)}}"
+                                               onclick="return confirm('Bạn chắc chắn muốn xóa')" data-toggle="tooltip"
+                                               title="Xóa" class="text-danger"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="form-group pull-right">
+                                {{$list_host->links()}}
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+
         </section>
+        <!-- /.content -->
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="detail_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+
+    </div>
+@stop
+
+@section('javascript')
+    <script>
+        function update_status(id) {
+            $.ajax({
+                url: '/admin/host/update_status_host/' + id,
+                method: 'get',
+                dataType: 'json',
+            }).fail(function (ui, status) {
+            }).done(function (data, status) {
+                if (data.host) {
+                    data.host = JSON.parse(data.host);
+
+                    var id = '#' + data.host.id;
+
+                    if (data.host.status == 2) {
+                        $(id).removeClass('btn-danger');
+                        $(id).addClass('btn-success');
+                        $(id).html('Hoạt động');
+                    } else {
+                        $(id).removeClass('btn-success');
+                        $(id).addClass('btn-danger');
+                        $(id).html('Không hoạt động');
+                    }
+                }
+            });
+        }
+    </script>
 @stop

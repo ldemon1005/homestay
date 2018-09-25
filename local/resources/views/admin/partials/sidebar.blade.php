@@ -25,45 +25,37 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Quản lý admin</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href=""><i class="fa fa-circle-o"></i> Danh sách admin</a></li>
+                    <li class="@if (Request::segment(2) == 'account') sidebar-active @endif"><a href=""><i class="fa fa-circle-o"></i> Danh sách admin</a></li>
                     <li><a href=""><i class="fa fa-circle-o"></i> Thêm admin</a></li>
                 </ul>
             </li>
 
-            <li class="treeview">
-                <a href="#">
+            <li >
+                <a href="{{route("list_guest")}}" class="@if (Request::segment(2) == 'guest') sidebar-active @endif">
                     <i class="fa fa-dashboard"></i> <span>Quản lý tài khoản khách</span>
-                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
-                <ul class="treeview-menu">
-                    <li class=""><a href=""><i class="fa fa-circle-o"></i> Danh sách tài khoản khách</a></li>
-                </ul>
+            </li>
+
+            <li >
+                <a href="{{route("list_host")}}" class="@if (Request::segment(2) == 'host') sidebar-active @endif">
+                    <i class="fa fa-dashboard"></i> <span>Danh sách tài khoản chủ nhà</span>
+                </a>
             </li>
 
             <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Quản lý tài khoản chủ nhà</span>
-                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách tài khoản chủ nhà</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
+                <a href="#" class="@if (Request::segment(2) == 'comment') sidebar-active @endif">
                     <i class="fa fa-dashboard"></i> <span>Quản lý bình luận</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách bình luận</a></li>
-                    <li><a href="/"><i class="fa fa-circle-o"></i> </a></li>
+                    <li><a href="/"><i class="fa fa-circle-o"></i> Sắp xếp bình luận</a></li>
                 </ul>
             </li>
 

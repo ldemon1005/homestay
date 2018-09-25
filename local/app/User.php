@@ -14,6 +14,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    const ACTIVE = 2;// KÍCH HOẠT
+    const NON_ACTIVE = 1;// KHÔNG KÍCH HOẠT
+
     protected $table = 'guest_users';
 
     /**

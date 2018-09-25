@@ -248,3 +248,13 @@ function generateCode($model)
 
     return $new_code;
 }
+
+function getSocial($type){
+    $str = "Nguồn web";
+    switch ($type){
+        case 1: $str = "Facebook";break;
+        case 2: $str = "Google";break;
+    }
+
+    return $str;
+}

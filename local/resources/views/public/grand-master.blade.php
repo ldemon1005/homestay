@@ -37,6 +37,10 @@
 		{{-- FOOTER --}}
 		@include('public.header-footer.footer')
 		{{-- END FOOTER --}}
+
+		<div class="errorAlert">
+			@include('errors.note')
+		</div>
 	</div>
 	<div id="snackbar"></div>
 	<!-- script -->
@@ -53,6 +57,15 @@
 	<script type="text/javascript" src="header-footer/js/header-footer.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 	<script>
+        $('.errorAlert').css('bottom','100px');
+        setTimeout(function(){
+            $('.errorAlert').css('bottom', '-200px');
+        }, 3000);
+        setTimeout(function(){
+            $('.errorAlert').fadeOut();
+        }, 3900);
+
+
         //var socket = io('http://localhost:3000');
         var socket = io('http://192.168.20.101:3000');
         socket.on("haivl-channel.{{\Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->id : ''}}:App\\Events\\NotiEvent", function(message){
