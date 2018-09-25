@@ -29,7 +29,7 @@
     </style>
 @stop
 
-@section('js')
+@section('javascript')
     <script src="bower_components/ckeditor/ckeditor.js"></script>
     <script>
         $(document).ready(function () {

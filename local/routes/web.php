@@ -88,6 +88,10 @@ Route::post('/notification', function (Illuminate\Http\Request $request) {
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::get('login','AuthController@getLogin');
+    Route::post('login','AuthController@postLogin');
+    Route::get('logout','AdminController@getLogout');
+
     Route::get('/',function(){
         return view('admin.index.index');
     });

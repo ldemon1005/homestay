@@ -50,6 +50,11 @@ return [
             'driver' => 'token',
             'provider' => 'guest_users',
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -79,6 +84,11 @@ return [
             'driver' => 'eloquent',
             'table' => 'guest_users',
         ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
     ],
 
     /*
@@ -105,6 +115,12 @@ return [
         'guest_users' => [
             'provider' => 'guest_users',
             'table' => 'guest_password_resets',
+            'expire' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admins',
+            'email' => 'auth.emails.password',
+            'table' => 'password_resets',
             'expire' => 60,
         ],
     ],
