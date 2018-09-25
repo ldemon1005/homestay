@@ -61,30 +61,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($admins as $admin)
                                 <tr>
-                                    <td>1</td>
-                                    <td>abcdef@gmail.com</td>
-                                    <td>Tên</td>
+                                    <td>{{ $admin->id ?? 'id' }}</td>
+                                    <td>{{ $admin->email ?? 'email' }}</td>
+                                    <td>{{ $admin->name ?? 'tên' }}</td>
                                     <td><button class="btn btn-small bg-purple">Reset</button> == > '123456'</td>
                                     <td><button class="btn btn-block btn-sm btn-success">Hoạt động</button></td>
                                     <td><a href=""><i class="fa fa-trash"></i></a></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>abcdef@gmail.com</td>
-                                    <td>Tên</td>
-                                    <td><button class="btn btn-small bg-purple">Reset</button></td>
-                                    <td><button class="btn btn-block btn-sm btn-danger">Khóa</button></td>
-                                    <td><a href=""><i class="fa fa-trash"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>abcdef@gmail.com</td>
-                                    <td>Tên</td>
-                                    <td><button class="btn btn-small bg-purple">Reset</button></td>
-                                    <td><button class="btn btn-block btn-sm btn-success">Hoạt động</button></td>
-                                    <td><a href=""><i class="fa fa-trash"></i></a></td>
-                                </tr>
+                                @endforeach
                                 </tbody>
                                 {{--<tfoot>--}}
                                 {{--<tr>--}}

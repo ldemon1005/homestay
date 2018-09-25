@@ -98,13 +98,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/', function () {
             return view('admin.index.index');
         });
+
         Route::group(['prefix' => 'mod'], function () {
-            Route::get('/', function () {
-                return view('admin.mod.list');
-            });
-            Route::get('add', function () {
-                return view('admin.mod.add');
-            });
+            Route::get('/', 'ModController@index');
+            Route::get('add', 'ModController@getAdd');
+            Route::post('add', 'ModController@postAdd');
+            Route::get('delete', 'ModController@getDelete');
         });
 
         Route::group(['prefix' => 'guest'], function () {
