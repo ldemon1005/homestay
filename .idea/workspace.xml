@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd63e6ef-6a78-4e7e-82b1-cf7ebc91df40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/local/resources/views/admin/index/profile/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/local/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="bd63e6ef-6a78-4e7e-82b1-cf7ebc91df40" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +105,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
@@ -176,11 +172,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/local/resources/views/admin/index/profile/profile.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+            <state relative-caret-position="442">
+              <caret line="328" column="77" lean-forward="true" selection-start-line="328" selection-start-column="77" selection-end-line="328" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -284,8 +280,8 @@
         <option value="$PROJECT_DIR$/local/app/Http/Controllers/Admin/ConfigController.php" />
         <option value="$PROJECT_DIR$/local/resources/views/admin/partials/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/local/resources/views/admin/config/index.blade.php" />
-        <option value="$PROJECT_DIR$/local/resources/views/admin/index/profile/profile.blade.php" />
         <option value="$PROJECT_DIR$/local/routes/web.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/admin/index/profile/profile.blade.php" />
       </list>
     </option>
   </component>
@@ -610,7 +606,7 @@
       <workItem from="1537440094152" duration="332000" />
       <workItem from="1537492779393" duration="16748000" />
       <workItem from="1537751693547" duration="25553000" />
-      <workItem from="1537838151911" duration="9794000" />
+      <workItem from="1537838151911" duration="10041000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <created>1534936155649</created>
@@ -871,17 +867,23 @@
       <option name="project" value="LOCAL" />
       <updated>1537847323364</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Merge branch 'tuan_1' of https://github.com/ldemon1005/homestay into son&#10;&#10;# Conflicts:&#10;#&#9;local/.env">
+      <created>1537848191641</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1537848191641</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120031000" />
+    <option name="totallyTimeSpent" value="120278000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.14712153" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.14712153" />
       <window_info id="Structure" order="1" sideWeight="0.5007429" side_tool="true" weight="0.16044776" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -894,7 +896,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49946696" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49520257" visible="true" weight="0.27006507" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49520257" visible="true" weight="0.27006507" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50479746" side_tool="true" weight="0.27006507" />
       <window_info anchor="bottom" id="File Transfer" order="12" sideWeight="0.49840087" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1196,17 +1198,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/resources/views/admin/index/profile/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="139" column="48" selection-start-line="139" selection-start-column="48" selection-end-line="139" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/admin/index/profile/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="328" column="77" lean-forward="true" selection-start-line="328" selection-start-column="77" selection-end-line="328" selection-end-column="77" />
         </state>
       </provider>
     </entry>
