@@ -1,16 +1,45 @@
 @extends('admin.master')
 
 @section('css')
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <style>
+        .banner-image {
+            position: relative;
+            height: 200px;
+            width: 355px;
+            max-width: 100%;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .banner-image > a {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        #add-banner {
+            background-image: url('{{ asset('local/storage/app/image/add-image.png') }}');
+            background-size: contain;
+            cursor: pointer;
+        }
+    </style>
 @stop
 
 @section('js')
-    <!-- CK Editor -->
     <script src="bower_components/ckeditor/ckeditor.js"></script>
-    <!-- Bootstrap WYSIHTML5 -->
-    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
     <script>
+        $(document).ready(function () {
+            $('#add-banner').click(function () {
+                $('#input-banner').click();
+            });
+            $('#input-banner').change(function () {
+                $('#form-banner').submit();
+            });
+        });
         $(function () {
             CKEDITOR.replace('editor1');
             CKEDITOR.replace('editor2');
@@ -37,26 +66,54 @@
                 <div class="col-md-12">
                     <div class="box box-info">
                         <div class="box-header">
+                            <h3 class="box-title">Banner</h3>
+                            <div class="pull-right box-tools">
+                                <button type="button" class="btn btn-info btn-sm" data-widget="collapse"
+                                        data-toggle="tooltip"
+                                        title="Collapse">
+                                    <i class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body pad">
+                            <form id="form-banner" method="post" enctype="multipart/form-data"
+                                  action="{{ asset('admin/config/banner') }}" style="display: none;">
+                                <input id="input-banner" type="file" name="value" value="{{ $banner->value }}"
+                                       accept="image/*">
+                                {{csrf_field()}}
+                            </form>
+
+                            <div id="add-banner" class="banner-image"></div>
+
+                            @foreach( unserialize($banner->value) as $key => $banner)
+                                <div class="banner-image"
+                                     style="background-image: url('{{ asset('local/storage/app/upload/'.$banner) }}')">
+                                    <a href="{{ asset('admin/config/banner/delete/'.$key) }}"><i
+                                                class="fa fa-2x fa-trash text-red"></i></a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <form class="box box-warning" method="post" action="{{ asset('admin/config/info') }}">
+                        <div class="box-header">
                             <h3 class="box-title">Info</h3>
                             <div class="pull-right box-tools">
                                 <button type="button" class="btn btn-info btn-sm" data-widget="collapse"
                                         data-toggle="tooltip"
                                         title="Collapse">
                                     <i class="fa fa-minus"></i></button>
-                                <button type="button" class="btn btn-info btn-sm" data-widget="remove"
-                                        data-toggle="tooltip"
-                                        title="Remove">
-                                    <i class="fa fa-times"></i></button>
                             </div>
                         </div>
                         <div class="box-body pad">
-                            <form>
-                                <textarea id="editor1" name="info" rows="10" cols="80">{!! $info->value !!}</textarea>
-                            </form>
+                            <textarea id="editor1" name="info" rows="10" cols="80">{{ $info->value }}</textarea>
                         </div>
-                    </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        {{csrf_field()}}
+                    </form>
 
-                    <div class="box box-info">
+                    <form class="box box-danger" method="post" action="{{ asset('admin/config/term') }}">
                         <div class="box-header">
                             <h3 class="box-title">Điều khoản</h3>
                             <div class="pull-right box-tools">
@@ -64,20 +121,18 @@
                                         data-toggle="tooltip"
                                         title="Collapse">
                                     <i class="fa fa-minus"></i></button>
-                                <button type="button" class="btn btn-info btn-sm" data-widget="remove"
-                                        data-toggle="tooltip"
-                                        title="Remove">
-                                    <i class="fa fa-times"></i></button>
                             </div>
                         </div>
                         <div class="box-body pad">
-                            <form>
-                                <textarea id="editor2" name="term" rows="10"></textarea>
-                            </form>
+                            <textarea id="editor2" name="term" rows="10">{{ $term->value }}</textarea>
                         </div>
-                    </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        {{csrf_field()}}
+                    </form>
 
-                    <div class="box box-info">
+                    <form class="box box-success" method="post" action="{{ asset('admin/config/policy') }}">
                         <div class="box-header">
                             <h3 class="box-title">Chính sách</h3>
                             <div class="pull-right box-tools">
@@ -85,56 +140,18 @@
                                         data-toggle="tooltip"
                                         title="Collapse">
                                     <i class="fa fa-minus"></i></button>
-                                <button type="button" class="btn btn-info btn-sm" data-widget="remove"
-                                        data-toggle="tooltip"
-                                        title="Remove">
-                                    <i class="fa fa-times"></i></button>
                             </div>
                         </div>
                         <div class="box-body pad">
-                            <form>
-                                <textarea id="editor3" name="policy" rows="10"></textarea>
-                            </form>
+                            <textarea id="editor3" name="policy" rows="10">{{ $policy->value }}</textarea>
                         </div>
-                    </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        {{csrf_field()}}
+                    </form>
                 </div>
             </div>
         </section>
     </div>
 @stop
-
-<form method="post" enctype="multipart/form-data" action=" {{ asset('admin/config/banner') }} ">
-    Banner:
-    <input type="file" name="value" value="{{ $banner->value }}" accept="image/*">
-    <button>Send</button>
-    {{csrf_field()}}
-</form>
-<br>
-@foreach( unserialize($banner->value) as $banner)
-    {{$banner}}
-    <br>
-@endforeach
-<form method="post">
-    Info:
-    <input name="value" value="{{ $info->value }}">
-    <button>Send</button>
-    {{csrf_field()}}
-</form>
-
-<br>
-
-<form method="post">
-    Term:
-    <input name="value" value="{{ $term->value }}">
-    <button>Send</button>
-    {{csrf_field()}}
-</form>
-
-<br>
-
-<form method="post">
-    Policy:
-    <input name="value" value="{{ $policy->value }}">
-    <button>Send</button>
-    {{csrf_field()}}
-</form>

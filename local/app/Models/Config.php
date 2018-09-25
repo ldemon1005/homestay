@@ -12,22 +12,22 @@ class Config extends Model
 
     public function getBanner()
     {
-        return $this->where('name','banner')->first();
+        return $this->where('name','banner')->firstOrFail();
     }
 
     public function getInfo()
     {
-        return $this->where('name','info')->first();
+        return $this->where('name','info')->firstOrFail();
     }
 
     public function getTerm()
     {
-        return $this->where('name','term')->first();
+        return $this->where('name','term')->firstOrFail();
     }
 
     public function getPolicy()
     {
-        return $this->where('name','policy')->first();
+        return $this->where('name','policy')->firstOrFail();
     }
 
 }

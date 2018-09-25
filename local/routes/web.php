@@ -115,6 +115,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::group(['prefix' => 'config'], function(){
         Route::get('/', 'ConfigController@index');
         Route::post('banner','ConfigController@updateBanner');
+        Route::get('banner/delete/{key}','ConfigController@deleteBanner');
         Route::post('info','ConfigController@updateInfo');
         Route::post('term','ConfigController@updateTerm');
         Route::post('policy','ConfigController@updatePolicy');
