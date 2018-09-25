@@ -108,12 +108,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         });
 
         Route::group(['prefix' => 'guest'], function () {
-            Route::get('/', function () {
-                return view('admin.guest.list');
-            });
-        });
-
-        Route::group(['prefix' => 'guest'], function () {
             Route::get('', 'GuestController@index')->name('list_guest');
             Route::get('/update_status_guest/{id}', 'GuestController@update_status')->name('update_status_guest');
             Route::get('/delete_guest/{id}', 'GuestController@delete_guest')->name('delete_guest');
