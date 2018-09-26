@@ -25,24 +25,19 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
-                <a href="#">
+            <li>
+                <a href="{{asset('admin/account')}}" class="@if (Request::segment(2) == 'account') sidebar-active @endif">
                     <i class="fa fa-dashboard"></i> <span>Quản lý admin</span>
-                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
-                <ul class="treeview-menu">
-                    <li class="@if (Request::segment(2) == 'account') sidebar-active @endif"><a href=""><i class="fa fa-circle-o"></i> Danh sách admin</a></li>
-                    <li><a href=""><i class="fa fa-circle-o"></i> Thêm admin</a></li>
-                </ul>
             </li>
 
-            <li >
+            <li>
                 <a href="{{route("list_guest")}}" class="@if (Request::segment(2) == 'guest') sidebar-active @endif">
                     <i class="fa fa-dashboard"></i> <span>Quản lý tài khoản khách</span>
                 </a>
             </li>
 
-            <li >
+            <li>
                 <a href="{{route("list_host")}}" class="@if (Request::segment(2) == 'host') sidebar-active @endif">
                     <i class="fa fa-dashboard"></i> <span>Danh sách tài khoản chủ nhà</span>
                 </a>
@@ -71,7 +66,7 @@
             </li>
 
             <li>
-                <a href="{{ asset('admin/config') }}">
+                <a href="{{ asset('admin/config') }}" class="@if (Request::segment(2) == 'config') sidebar-active @endif">
                     <i class="fa fa-gear"></i> <span>Cài đặt website</span>
                     <span class="pull-right-container"></span>
                 </a>

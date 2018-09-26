@@ -99,11 +99,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             return view('admin.index.index');
         });
 
-        Route::group(['prefix' => 'mod'], function () {
-            Route::get('/', 'ModController@index');
-            Route::get('add', 'ModController@getAdd');
-            Route::post('add', 'ModController@postAdd');
-            Route::get('delete', 'ModController@getDelete');
+        Route::group(['prefix' => 'account'], function () {
+            Route::get('/', 'AccountController@index');
+            Route::get('add', 'AccountController@getAdd');
+            Route::post('add', 'AccountController@postAdd');
+            Route::get('delete', 'AccountController@getDelete');
         });
 
         Route::group(['prefix' => 'guest'], function () {

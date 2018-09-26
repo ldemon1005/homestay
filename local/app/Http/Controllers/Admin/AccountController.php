@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 
-class ModController extends Controller
+class AccountController extends Controller
 {
     protected $admin;
 
