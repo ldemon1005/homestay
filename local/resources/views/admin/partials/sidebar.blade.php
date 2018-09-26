@@ -25,12 +25,14 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li>
-                <a href="{{asset('admin/account')}}" class="@if (Request::segment(2) == 'account') sidebar-active @endif">
-                    <i class="fa fa-dashboard"></i> <span>Quản lý admin</span>
-                </a>
-            </li>
-
+            @if( Auth::guard('admin')->user()->permiss == \App\Models\Admin::ADMIN_PERMISSION )
+                <li>
+                    <a href="{{asset('admin/account')}}"
+                       class="@if (Request::segment(2) == 'account') sidebar-active @endif">
+                        <i class="fa fa-dashboard"></i> <span>Quản lý admin</span>
+                    </a>
+                </li>
+            @endif
             <li>
                 <a href="{{route("list_guest")}}" class="@if (Request::segment(2) == 'guest') sidebar-active @endif">
                     <i class="fa fa-dashboard"></i> <span>Quản lý tài khoản khách</span>
@@ -66,7 +68,8 @@
             </li>
 
             <li>
-                <a href="{{ asset('admin/config') }}" class="@if (Request::segment(2) == 'config') sidebar-active @endif">
+                <a href="{{ asset('admin/config') }}"
+                   class="@if (Request::segment(2) == 'config') sidebar-active @endif">
                     <i class="fa fa-gear"></i> <span>Cài đặt website</span>
                     <span class="pull-right-container"></span>
                 </a>

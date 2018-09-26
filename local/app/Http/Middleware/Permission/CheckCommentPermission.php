@@ -11,18 +11,23 @@ class CheckCommentPermission
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
      * @return mixed
      */
+
     public function handle($request, Closure $next)
     {
-        $arr_permiss = @unserialize( Auth::guard('admin')->user()->permiss ) ?? [] ;
-
-        if( in_array( Admin::COMMENT_PERMISSION, $arr_permiss) ) {
+        if ( Admin::ADMIN_PERMISSION === Auth::guard('admin')->user()->permiss ) {
             return $next($request);
-        }else{
-            return redirect('admin')->with('error','Bạn không có quyền truy cập');
         }
+
+        $arr_permiss = @unserialize(Auth::guard('admin')->user()->permiss) ?? [];
+
+        if ( @in_array(Admin::COMMENT_PERMISSION, $arr_permiss) ) {
+            return $next($request);
+        }
+
+        return redirect('admin')->with('error', 'Bạn không có quyền truy cập');
     }
 }

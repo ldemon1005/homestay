@@ -17,6 +17,10 @@ class CheckGuestPermission
      */
     public function handle($request, Closure $next)
     {
+        if ( Admin::ADMIN_PERMISSION === Auth::guard('admin')->user()->permiss ) {
+            return $next($request);
+        }
+
         $arr_permiss = @unserialize( Auth::guard('admin')->user()->permiss ) ?? [] ;
 
         if( in_array( Admin::GUEST_PERMISSION, $arr_permiss) ) {
