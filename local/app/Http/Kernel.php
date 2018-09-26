@@ -51,6 +51,12 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'CheckSuperAccount' => \App\Http\Middleware\Permission\CheckSuperAccount::class,
+        'CheckCommentPermission' => \App\Http\Middleware\Permission\CheckCommentPermission::class,
+        'CheckConfigPermission' => \App\Http\Middleware\Permission\CheckConfigPermission::class,
+        'CheckGuestPermission' => \App\Http\Middleware\Permission\CheckGuestPermission::class,
+        'CheckHomestayPermission' => \App\Http\Middleware\Permission\CheckHomestayPermission::class,
+        'CheckHostPermission' => \App\Http\Middleware\Permission\CheckHostPermission::class,
         'CheckAdminLoggedIn' => \App\Http\Middleware\CheckAdminLoggedIn::class,
         'CheckAdminLoggedOut' => \App\Http\Middleware\CheckAdminLoggedOut::class,
         'CheckLoggedIn' => \App\Http\Middleware\CheckLoggedIn::class,

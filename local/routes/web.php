@@ -99,26 +99,27 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             return view('admin.index.index');
         });
 
-        Route::group(['prefix' => 'account'], function () {
+        Route::group(['prefix' => 'account','middleware' => 'CheckSuperAccount'], function () {
             Route::get('/', 'AccountController@index');
-            Route::get('add', 'AccountController@getAdd');
-            Route::post('add', 'AccountController@postAdd');
-            Route::get('delete', 'AccountController@getDelete');
+            Route::post('add', 'AccountController@store');
+            Route::post('updatePermission/{id}','AccountController@updatePermission');
+            Route::post('resetPassword/{id}','AccountController@resetPassword');
+            Route::get('delete/{id}', 'AccountController@delete');
         });
 
-        Route::group(['prefix' => 'guest'], function () {
+        Route::group(['prefix' => 'guest','middleware' => 'CheckGuestPermission'], function () {
             Route::get('', 'GuestController@index')->name('list_guest');
             Route::get('/update_status_guest/{id}', 'GuestController@update_status')->name('update_status_guest');
             Route::get('/delete_guest/{id}', 'GuestController@delete_guest')->name('delete_guest');
         });
 
-        Route::group(['prefix' => 'host'], function () {
+        Route::group(['prefix' => 'host','middleware' => 'CheckHostPermission'], function () {
             Route::get('', 'HostController@index')->name('list_host');
             Route::get('/update_status_host/{id}', 'HostController@update_status')->name('update_status_host');
             Route::get('/delete_host/{id}', 'HostController@delete_host')->name('delete_host');
         });
 
-        Route::group(['prefix' => 'comment'], function () {
+        Route::group(['prefix' => 'comment','middleware' => 'CheckCommentPermission'], function () {
             Route::get('', 'CommentController@index')->name('list_comment');
             Route::get('/update_status_comment/{id}', 'CommentController@update_status')->name('update_status_comment');
             Route::get('/delete_comment/{id}', 'CommentController@delete_comment')->name('delete_comment');
@@ -127,7 +128,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::post('/update_sort_comment', 'CommentController@update_sort_comment')->name('update_sort_comment');
         });
 
-        Route::group(['prefix' => 'homestay'], function () {
+        Route::group(['prefix' => 'homestay','middleware' => 'CheckHomestayPermission'], function () {
             Route::get('', 'HomestayController@index')->name('list_homestay');
             Route::get('/update_status_homestay/{id}', 'HomestayController@update_status')->name('update_status_homestay');
             Route::get('/delete_homestay/{id}', 'HomestayController@delete_homestay')->name('delete_homestay');
@@ -137,7 +138,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::post('/update_sort_homestay', 'HomestayController@update_sort_homestay')->name('update_sort_homestay');
         });
 
-        Route::group(['prefix' => 'config'], function () {
+        Route::group(['prefix' => 'config','middleware' => 'CheckConfigPermission'], function () {
             Route::get('/', 'ConfigController@index');
             Route::post('banner', 'ConfigController@updateBanner');
             Route::get('banner/delete/{key}', 'ConfigController@deleteBanner');
