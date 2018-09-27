@@ -38,8 +38,9 @@ class PaymentController extends Controller
         if(!$order){
             return redirect('user/profile#manage');
         }
+        $class_book = new Book();
 
-        $order['code'] = 'CTOGO-'.generateCode(Book::class);
+        $order['code'] = 'CTOGO-'.generateCode($class_book->getTable());
 
         $order['info'] = $request->all();
 
@@ -96,6 +97,8 @@ class PaymentController extends Controller
 
         $book_1 = Book::create($book);
 
+
+
         if($order['method_payment']['method_payment'] == Book::TRUC_TUYEN){
             $nl = new NganLuongHelper();
             $data = [
@@ -119,7 +122,7 @@ class PaymentController extends Controller
         $job = (new SendMail($order))->delay(Carbon::now()->addMinutes(1));
         $this->dispatch($job);
 
-        $cancel_book = (new CancelBook($book_1))->delay(Carbon::now()->addMinutes(1));
+        $cancel_book = (new CancelBook($book_1))->delay(Carbon::now()->addMinutes(Book::TIME_ORDER));
         $this->dispatch($cancel_book);
 
         Cache::store('redis')->forget($key);

@@ -67,7 +67,8 @@
 
 
         //var socket = io('http://localhost:3000');
-        var socket = io('http://192.168.20.101:3000');
+        var socket = io('https://172.16.9.239:3000',verify=false);
+        console.log('chào',socket);
         socket.on("haivl-channel.{{\Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->id : ''}}:App\\Events\\NotiEvent", function(message){
             $("#snackbar").html(message.data.message);
             $("#snackbar").addClass('show');

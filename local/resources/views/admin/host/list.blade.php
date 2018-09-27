@@ -73,7 +73,7 @@
                                         <td>{{$host->id}}</td>
                                         <td style="display: flex">
                                             <div class="avatar_user"
-                                                 style="background-image: url('{{file_exists(storage_path('app/image/user-3/'.$host->avatar)) ? asset('local/storage/app/image/user-3/'.$host->avatar) : asset('local/storage/app/image/user-3/default.png')}}')">
+                                                 style="background-image: url('{{ ($host->avatar && file_exists(storage_path('app/image/user-3/'.$host->avatar))) ? asset('local/storage/app/image/user-3/'.$host->avatar) : asset('local/storage/app/image/user-3/default.png')}}')">
                                             </div>
                                             <div style="display: flex;line-height: 40px">
                                                 {{$host->name}}

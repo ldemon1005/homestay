@@ -1,5 +1,12 @@
+var fs = require('fs');
+var options = {
+    key: fs.readFileSync("ctogo.key"),
+    cert: fs.readFileSync("ctogo.crt")
+};
+
 var app   = require('express')();
-var http  = require('http').Server(app);
+var http  = require('https').Server(options,app);
+
 var io    = require('socket.io')(http);
 var Redis = require('ioredis');
 var redis = new Redis();

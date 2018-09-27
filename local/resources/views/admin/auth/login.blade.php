@@ -19,6 +19,16 @@
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
+    <style>
+        .errorAlert{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 9999;
+            transition: 2s;
+        }
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,6 +75,9 @@
             </div>
         </form>
     </div>
+    <div class="errorAlert">
+        @include('errors.note')
+    </div>
     <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
@@ -83,6 +96,15 @@
             increaseArea: '20%' /* optional */
         });
     });
+</script>
+<script>
+    $('.errorAlert').css('bottom','100px');
+    setTimeout(function(){
+        $('.errorAlert').css('bottom', '-200px');
+    }, 3000);
+    setTimeout(function(){
+        $('.errorAlert').fadeOut();
+    }, 3900);
 </script>
 </body>
 </html>

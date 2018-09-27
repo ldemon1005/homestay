@@ -24,8 +24,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="{{env('BLOG_URL')}}">BLOG</a></li>
-                    <li><a href="{{env('HOST_URL')}}">TRỞ THÀNH MỘT HOST</a></li>
+                    <li><a href="{{env('BLOG_URL')}}" target="_blank">BLOG</a></li>
+                    <li><a href="{{env('HOST_URL')}}" target="_blank">TRỞ THÀNH MỘT HOST</a></li>
                 </ul>
             </div>
         </div>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Validator;
-use Auth;
+use \Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -53,7 +53,6 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ];
-
         if ( Auth::guard('admin')->attempt($user) ) {
             return redirect('admin');
         } else {
