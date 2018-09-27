@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\HomeStay;
 use App\Models\Host;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -45,5 +46,18 @@ class HostController extends Controller
         }else {
             return redirect()->route('list_host')->with('error','Xóa không thành công');
         }
+    }
+
+    function detail_host($user_id){
+        $host = DB::table('users')->where('id',$user_id)->first();
+
+        $list_homestay = HomeStay::with("book")->where('homestay_user_id',$user_id)->paginate(10);
+
+        $data = [
+            'host' => $host,
+            'list_homestay' => $list_homestay
+        ];
+
+        return view('admin.host.profile',$data);
     }
 }

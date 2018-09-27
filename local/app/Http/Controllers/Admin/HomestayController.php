@@ -41,9 +41,9 @@ class HomestayController extends Controller
 
     function delete_homestay($id){
         if(Homestay::find($id)->delete()){
-            return redirect()->route('list_homestay')->with('success','Xóa thành công');
+            return back()->with('success','Xóa thành công');
         }else {
-            return redirect()->route('list_homestay')->with('error','Xóa không thành công');
+            return back()->with('error','Xóa không thành công');
         }
     }
 

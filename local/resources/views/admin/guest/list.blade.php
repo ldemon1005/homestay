@@ -71,13 +71,17 @@
                                 @foreach($list_guest as $guest)
                                     <tr>
                                         <td>{{$guest->id}}</td>
-                                        <td style="display: flex">
-                                            <div class="avatar_user"
-                                                 style="background-image: url('{{file_exists(storage_path('app/image/user-3/'.$guest->avatar)) ? asset('local/storage/app/image/user-3/'.$guest->avatar) : asset('local/storage/app/image/user-3/default.png')}}')">
-                                            </div>
-                                            <div style="display: flex;line-height: 40px">
-                                                {{$guest->name}}
-                                            </div>
+                                        <td>
+                                            <a style="color: #0a0a0a" href="">
+                                                <div style="display: flex">
+                                                    <div class="avatar_user"
+                                                         style="background-image: url('{{file_exists(storage_path('app/image/user-3/'.$guest->avatar)) ? asset('local/storage/app/image/user-3/'.$guest->avatar) : asset('local/storage/app/image/user-3/default.png')}}')">
+                                                    </div>
+                                                    <div style="display: flex;line-height: 40px">
+                                                        {{$guest->name}}
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </td>
                                         <td>{{$guest->email}}</td>
                                         <td>{{$guest->phone}}</td>

@@ -46,4 +46,9 @@ class GuestController extends Controller
             return redirect()->route('list_guest')->with('error','Xóa không thành công');
         }
     }
+
+
+    function detail_guest(){
+        return view('admin.guest.profile');
+    }
 }
