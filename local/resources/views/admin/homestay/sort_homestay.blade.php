@@ -42,7 +42,7 @@
 					<div class="card-header">
 						<h3 class="card-title">
 							<i class="ion ion-clipboard mr-1"></i>
-							Bình luận trang chủ
+							Danh sách homestay trang chủ
 						</h3>
 					</div>
 					<!-- /.card-header -->
