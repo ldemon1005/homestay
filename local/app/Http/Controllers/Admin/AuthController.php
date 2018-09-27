@@ -44,6 +44,7 @@ class AuthController extends Controller
 
     public function getLogin()
     {
+//        dd(bcrypt('123456'));
         return view('admin.auth.login');
     }
 
