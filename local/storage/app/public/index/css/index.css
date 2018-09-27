@@ -254,6 +254,14 @@
 .owl-carousel-1 .owl-stage-outer, .partner-carousel .owl-stage-outer{
 	padding: 20px 0;
 }
+@media (min-width: 768px)
+{
+	.owl-carousel-1 .owl-stage-outer{
+		padding: 20px 10px;
+		width: calc(100% + 20px);
+		transform: translateX(-10px);
+	}
+}
 .owl-carousel-1 .owl-next,.owl-carousel-1 .owl-prev{
 	position: absolute;
 	top: 50%;
@@ -304,6 +312,7 @@
 }
 .text-4{
 	width: 850px;
+	max-width: 100%;
 	margin: 80px auto 0;
 	display: none;
 }
@@ -311,8 +320,13 @@
 	display: block;
 }
 .carousel-4{
+	left: 50%;
 	width: 900px;
+	max-width: calc( 100% - 20px );
 	margin: auto;
+	transform: translateX(-50%);
+	position: absolute;
+	bottom: 70px;
 }
 .slide-image-4{
 	height: 120px;
@@ -330,10 +344,21 @@
 	position: absolute;
 	left: 10px;
 	bottom: 10px;
-}	
+}
+.owl-carousel-4 .owl-stage-outer{
+	padding-left: 10px;
+}
 /*SECTION 5*/
 .section-5 .slide-item{
 	height: 360px;
+}
+@media (min-width: 768px)
+{
+	.section-5 .owl-stage-outer{
+		width: calc(100% + 20px);
+		padding: 10px;
+		transform: translateX(-10px);
+	}
 }
 /*SECTION 6*/
 .section-6{
