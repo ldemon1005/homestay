@@ -26,28 +26,28 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             @if( Auth::guard('admin')->user()->permiss == \App\Models\Admin::ADMIN_PERMISSION )
-                <li>
+                <li class="@if (Request::segment(2) == 'account') active @endif">
                     <a href="{{asset('admin/account')}}"
-                       class="@if (Request::segment(2) == 'account') sidebar-active @endif">
-                        <i class="fa fa-dashboard"></i> <span>Quản lý admin</span>
+                       >
+                        <i class="fa fa-users"></i> <span>Quản lý admin</span>
                     </a>
                 </li>
             @endif
-            <li>
-                <a href="{{route("list_guest")}}" class="@if (Request::segment(2) == 'guest') sidebar-active @endif">
-                    <i class="fa fa-dashboard"></i> <span>Quản lý tài khoản khách</span>
+            <li class="@if (Request::segment(2) == 'guest') active @endif">
+                <a href="{{route("list_guest")}}" >
+                    <i class="fa fa-child"></i> <span>Quản lý tài khoản khách</span>
                 </a>
             </li>
 
-            <li>
-                <a href="{{route("list_host")}}" class="@if (Request::segment(2) == 'host') sidebar-active @endif">
-                    <i class="fa fa-dashboard"></i> <span>Danh sách tài khoản chủ nhà</span>
+            <li class="@if (Request::segment(2) == 'host') active @endif">
+                <a href="{{route("list_host")}}">
+                    <i class="fa fa-home"></i> <span>Danh sách tài khoản chủ nhà</span>
                 </a>
             </li>
 
-            <li class="treeview">
-                <a href="#" class="@if (Request::segment(2) == 'comment') sidebar-active @endif">
-                    <i class="fa fa-dashboard"></i> <span>Quản lý bình luận</span>
+            <li class="treeview @if (Request::segment(2) == 'comment') active @endif">
+                <a href="#">
+                    <i class="fa fa-comments-o"></i> <span>Quản lý bình luận</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
@@ -56,9 +56,9 @@
                 </ul>
             </li>
 
-            <li class="treeview">
-                <a href="#" class="@if (Request::segment(2) == 'homestay') sidebar-active @endif">
-                    <i class="fa fa-dashboard"></i> <span>Quản lý homestay</span>
+            <li class="treeview @if (Request::segment(2) == 'homestay') active @endif">
+                <a href="#">
+                    <i class="fa fa-hotel"></i> <span>Quản lý homestay</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
@@ -67,9 +67,8 @@
                 </ul>
             </li>
 
-            <li>
-                <a href="{{ asset('admin/config') }}"
-                   class="@if (Request::segment(2) == 'config') sidebar-active @endif">
+            <li class="@if (Request::segment(2) == 'config') active @endif">
+                <a href="{{ asset('admin/config') }}">
                     <i class="fa fa-gear"></i> <span>Cài đặt website</span>
                     <span class="pull-right-container"></span>
                 </a>

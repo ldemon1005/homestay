@@ -131,7 +131,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="footer"><a href="#">View all</a></li>
+                        {{--<li class="footer"><a href="#">View all</a></li>--}}
                     </ul>
                 </li>
                 <!-- Tasks: style can be found in dropdown.less -->

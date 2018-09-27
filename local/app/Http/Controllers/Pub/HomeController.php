@@ -5,12 +5,10 @@ namespace App\Http\Controllers\Pub;
 use App\Events\NotiEvent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Excel;
 use DB;
 use App\Models\HomeStay;
 use App\Models\Comment;
-use App\Models\Blog;
+use App\Models\Config;
 
 class HomeController extends Controller
 {
@@ -19,11 +17,11 @@ class HomeController extends Controller
         return view('public.maintain');
     }
 
-    public function getHome()
+    public function getHome(Config $config, HomeStay $homestay, Comment $comment)
     {
-        $data['hot_homestay'] = HomeStay::where('homestay_active',2)->orderBy('homestay_id','desc')->take(9)->get();
-        $data['blogs'] = DB::table('articel')->orderBy('id','desc')->take(9)->get();
-        $data['comments'] = Comment::with('user')->with('homestay')->take(9)->get();
+        $data['hot_homestay'] = $homestay->where('homestay_active',2)->orderBy('homestay_id','desc')->take(9)->get();
+        $data['comments'] = $comment->with('user')->with('homestay')->take(9)->get();
+        $data['banners'] = $config->getBanner()->value;
         return view('public.index',$data);
     }
 
@@ -80,39 +78,4 @@ class HomeController extends Controller
     {
         return view('public.signup');
     }
-
-//    public function getUpload()
-//    {
-//        return view('upload');
-//    }
-//
-//    //đẩy data từ file excel lên database. Xài 1 lần
-//    public function postUpload(Request $request)
-//    {
-//        $path = $request->file('file')->getRealPath();
-//        $data = Excel::load($path, function($reader) {
-//
-//        })->get();
-//
-//        if(!empty($data) && $data->count()){
-//            $code[] = [];
-//            foreach ($data as $key => $value) {
-//                if( !(in_array( $value->commune_code, $code) ) ){
-//                    $id = DB::table('district')->where('district_code',$value->district_code)->first()->district_id;
-//                    $code[] = $value->district_code;
-//                    $insert[] = [
-//                        'ward_name' => $value->commune,
-//                        'ward_slug' => str_slug($value->commune),
-//                        'ward_code' => $value->commune_code,
-//                        'ward_district_id' => $id
-//                    ];
-//                }
-//            }
-//            if(!empty($insert)){
-//
-//                $insertData = DB::table('ward')->insert($insert);
-//
-//            }
-//        }
-//    }
 }
