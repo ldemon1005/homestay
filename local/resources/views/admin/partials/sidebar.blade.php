@@ -29,25 +29,25 @@
                 <li class="@if (Request::segment(2) == 'account') active @endif">
                     <a href="{{asset('admin/account')}}"
                        >
-                        <i class="fa fa-dashboard"></i> <span>Quản lý admin</span>
+                        <i class="fa fa-users"></i> <span>Quản lý admin</span>
                     </a>
                 </li>
             @endif
             <li class="@if (Request::segment(2) == 'guest') active @endif">
                 <a href="{{route("list_guest")}}" >
-                    <i class="fa fa-dashboard"></i> <span>Quản lý tài khoản khách</span>
+                    <i class="fa fa-child"></i> <span>Quản lý tài khoản khách</span>
                 </a>
             </li>
 
             <li class="@if (Request::segment(2) == 'host') active @endif">
                 <a href="{{route("list_host")}}">
-                    <i class="fa fa-dashboard"></i> <span>Danh sách tài khoản chủ nhà</span>
+                    <i class="fa fa-home"></i> <span>Danh sách tài khoản chủ nhà</span>
                 </a>
             </li>
 
             <li class="treeview @if (Request::segment(2) == 'comment') active @endif">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Quản lý bình luận</span>
+                    <i class="fa fa-comments-o"></i> <span>Quản lý bình luận</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
@@ -58,7 +58,7 @@
 
             <li class="treeview @if (Request::segment(2) == 'homestay') active @endif">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Quản lý homestay</span>
+                    <i class="fa fa-hotel"></i> <span>Quản lý homestay</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">

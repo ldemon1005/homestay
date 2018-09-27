@@ -13,7 +13,6 @@
             <div class="support-content">
                 <h1>ĐIỀU KHOẢN HOẠT ĐỘNG</h1>
 
-                <!-- content here -->
 
             </div>
         </div>
