@@ -16,12 +16,12 @@
             <h2 class="bold">Phan’s House - Old Quarter</h2>
             <hr>
             <div class="row">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mb-25">
                     <div class="review-image"
                          style="background-image: url('https://cdn.luxstay.com/rooms/15425/thumbnail/1538016022_46494611.jpg?w=250&fit=crop&v=147661' )"></div>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mb-25">
                     <div id="review-form" class="pb-50">
                         <form>
                             <h4 class="fs-24 bold black">Vui lòng giúp chúng tôi đánh giá homestay này</h4>
