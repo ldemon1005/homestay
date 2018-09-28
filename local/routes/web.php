@@ -13,7 +13,7 @@ use \Illuminate\Support\Facades\Route;
 |
 */
 Route::get('test', function () {
-    return view('public.contact_us');
+    return view('public.support.review');
 });
 
 Route::group(['namespace' => 'Pub'], function () {
@@ -42,12 +42,10 @@ Route::group(['namespace' => 'Pub'], function () {
     Route::group(['prefix' => 'login', 'middleware' => 'CheckLoggedIn'], function () {
         Route::get('/', 'LoginController@getLogin');
         Route::post('/', 'LoginController@postLogin');
-
     });
 
     Route::group(['prefix' => 'user', 'middleware' => 'CheckLoggedOut'], function () {
         Route::get('logout', 'LoginController@getLogout');
-
         Route::get('/', 'UserController@getBlank');
         Route::get('profile', 'UserController@getProfile')->name('getProfile');
         Route::get('seeDetailModal', 'UserController@seeDetailModal');

@@ -190,11 +190,11 @@
 					<h6 class="hs-heading-1">{{$comment->homestay->homestay_name}}</h6>
 					<p>
 
+						<span class="fa fa-star @if($comment->comment_rate >= 1) checked @endif"></span>
 						<span class="fa fa-star @if($comment->comment_rate >= 2) checked @endif"></span>
+						<span class="fa fa-star @if($comment->comment_rate >= 3) checked @endif"></span>
 						<span class="fa fa-star @if($comment->comment_rate >= 4) checked @endif"></span>
-						<span class="fa fa-star @if($comment->comment_rate >= 6) checked @endif"></span>
-						<span class="fa fa-star @if($comment->comment_rate >= 8) checked @endif"></span>
-						<span class="fa fa-star @if($comment->comment_rate == 10) checked @endif"></span>
+						<span class="fa fa-star @if($comment->comment_rate >= 5) checked @endif"></span>
 					</p>
 					<p>{{$comment->comment_content}}</p>
 					<p class="bold uppercase">{{$comment->user->name}}</p>
