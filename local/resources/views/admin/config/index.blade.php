@@ -29,25 +29,6 @@
     </style>
 @stop
 
-@section('javascript')
-    <script src="bower_components/ckeditor/ckeditor.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#add-banner').click(function () {
-                $('#input-banner').click();
-            });
-            $('#input-banner').change(function () {
-                $('#form-banner').submit();
-            });
-        });
-        $(function () {
-            CKEDITOR.replace('editor1');
-            CKEDITOR.replace('editor2');
-            CKEDITOR.replace('editor3');
-        })
-    </script>
-@stop
-
 @section('main')
     <div class="content-wrapper">
         <section class="content-header">
@@ -153,4 +134,23 @@
             </div>
         </section>
     </div>
+@stop
+
+@section('javascript')
+    <script src="bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#add-banner').click(function () {
+                $('#input-banner').click();
+            });
+            $('#input-banner').change(function () {
+                $('#form-banner').submit();
+            });
+        });
+        $(function () {
+            CKEDITOR.replace('editor1');
+            CKEDITOR.replace('editor2');
+            CKEDITOR.replace('editor3');
+        })
+    </script>
 @stop

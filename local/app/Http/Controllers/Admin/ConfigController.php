@@ -72,15 +72,16 @@ class ConfigController extends Controller
 
     public function updateTerm(Request $rq)
     {
-        DB::table('configs')->where('name','term')->update(['value' => $rq->term]);
-        return back();
+        $this->term->value = $rq->term;
+        $this->term->save();
+        return back()->with("success","Cập nhật điều khoản thành công");
     }
 
     public function updatePolicy(Request $rq)
     {
         $this->policy->value = $rq->policy;
         $this->policy->save();
-        return back();
+        return back()->with("success","Cập nhật chính sách thành công");
     }
 
     protected function getArrayBanner()
