@@ -13,7 +13,7 @@
             <div class="support-content">
                 <h1>ĐIỀU KHOẢN HOẠT ĐỘNG</h1>
 
-
+                {!! $term !!}
             </div>
         </div>
     </section>

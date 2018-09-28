@@ -13,7 +13,7 @@
             <div class="support-content">
                 <h1>CHÍNH SÁCH BẢN QUYỀN</h1>
 
-                <!-- content here -->
+                {!! $policy !!}
 
             </div>
         </div>

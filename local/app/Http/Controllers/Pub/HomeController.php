@@ -36,14 +36,16 @@ class HomeController extends Controller
         return view('public.support.contact_us');
     }
 
-    public function getCopyright()
+    public function getCopyright(Config $config)
     {
-        return view('public.support.copyright');
+        $policy = $config->getPolicy()->value;
+        return view('public.support.copyright', compact('policy'));
     }
 
-    public function getTermsConditions()
+    public function getTermsConditions(Config $config)
     {
-        return view('public.support.terms_conditions');
+        $term = $config->getTerm()->value;
+        return view('public.support.terms_conditions', compact('term'));
     }
 
     public function getSupport()
