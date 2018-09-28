@@ -73,14 +73,14 @@ class ConfigController extends Controller
     {
         $this->term->value = $rq->term;
         $this->term->save();
-        return back();
+        return back()->with("success","Cập nhật điều khoản thành công");
     }
 
     public function updatePolicy(Request $rq)
     {
         $this->policy->value = $rq->policy;
         $this->policy->save();
-        return back();
+        return back()->with("success","Cập nhật chính sách thành công");
     }
 
     protected function getArrayBanner()
