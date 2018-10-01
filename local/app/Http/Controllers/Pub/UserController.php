@@ -146,6 +146,25 @@ class UserController extends Controller
         return $user;
     }
 
+    public function upload_image_payment(Request $request)
+    {
+        $image = $request->file('image_payment');
+        if ($request->hasFile('image_payment')) {
+            $image_path = saveSingleImage($image, 200, 'image/image-payment');
+        }
+
+        if($image_path){
+            DB::table('books')->where('book_id',$request->book_id)->update(['image_payment' => $image_path]);
+            return json_encode([
+                'status' => 1
+            ]);
+        }else {
+            return json_encode([
+                'status' => 0
+            ]);
+        }
+    }
+
     public function postUpdatePassword(CreateUserRequest $request)
     {
         $user = Auth::user();

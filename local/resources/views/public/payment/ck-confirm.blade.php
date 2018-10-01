@@ -109,7 +109,8 @@
 								<p class="fs-14">Nội dung thanh toán: Thanh toán đặt chỗ {{$book->code}}</p>
 								<hr>
 								<p class="fs-14">Số tiền cần thanh toán: <span class="bold">{{number_format($book->price)}}đ</span></p>
-								<p class="italic fs-12"><i class="fas fa-exclamation-circle" style="color: #EFD176;"></i> Lưu ý: Bạn cần thanh toán chính xác số tiền đặt phòng của mình</p>
+								<p class="italic fs-12"><i class="fas fa-exclamation-circle" style="color: #EFD176;"></i> Lưu ý: -Bạn cần thanh toán chính xác số tiền đặt phòng của mình</p>
+								<p class="italic fs-12"><i class="fas fa-exclamation-circle" style="color: #EFD176;"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nếu thanh toán qua chuyển khoản bạn cần chụp lại ảnh gửi cho chúng tôi</p>
 							</div>
 						</div>
 

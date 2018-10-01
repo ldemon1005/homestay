@@ -33,6 +33,65 @@
 				});
 	        });
 
+
+            $('.image_payment').click(function(){
+                $('#file_image_payment').attr('book_id',$(this).attr('book_id'));
+                $('#file_image_payment').click();
+            });
+
+            $('#file_image_payment').change(function(e){
+                e.preventDefault();
+                var file_data = $('#file_image_payment').prop('files')[0];
+                var book_id = $('#file_image_payment').attr('book_id');
+                var type = file_data.type;
+                var match= ["image/gif","image/png","image/jpg","image/jpeg"];
+                if(type == match[0] || type == match[1] || type == match[2] || type == match[3])
+                {
+                    var form_data = new FormData();
+                    form_data.append('image_payment', file_data);
+                    form_data.append('book_id', book_id);
+                    $.ajax({
+                        url: '{{route('upload_image_payment')}}',
+                        dataType: 'text',
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: form_data,
+                        type: 'post',
+                        success:function (result) {
+                            var data = JSON.parse(result);
+                            if(data.status == 1){
+                                $("#snackbar").html("Upload thành công");
+                                $("#snackbar").addClass('success_mes');
+                                $("#snackbar").addClass('show');
+                                // After 3 seconds, remove the show class from DIV
+                                setTimeout(function () {
+                                    $("#snackbar").removeClass('show');
+                                }, 3000);
+                            }else {
+                                $("#snackbar").html("Upload không thành công");
+                                $("#snackbar").addClass('error_mes');
+                                $("#snackbar").addClass('show');
+                                // After 3 seconds, remove the show class from DIV
+                                setTimeout(function () {
+                                    $("#snackbar").removeClass('show');
+                                }, 3000);
+							}
+                        }
+                    });
+                } else{
+                    $("#snackbar").html("File không đúng định dạng");
+                    $("#snackbar").addClass('error_mes');
+                    $("#snackbar").addClass('show');
+                    // After 3 seconds, remove the show class from DIV
+                    setTimeout(function () {
+                        $("#snackbar").removeClass('show');
+                    }, 3000);
+                }
+                return false;
+            });
+
+
 		// keep tab on reload
 		$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
 			localStorage.setItem('activeTab', $(e.target).attr('href'));
@@ -174,7 +233,7 @@
 										<td>Chờ thanh toán</td>
 										<td>Chi phí</td>
 										<td>Tình trạng</td>
-										<td style="width: 100px">Thao tác</td>
+										<td style="min-width: 120px">Thao tác</td>
 									</tr>
 								</thead>
 
@@ -196,15 +255,15 @@
 
 										<td>{{number_format($book->price)}} vnd</td>
 										<td><span class="text-warning" title="{{getStatusBookStr($book->book_status)['title']}}">{{getStatusBookStr($book->book_status)['str']}}</span></td>
-										<td class="float-right" style="border: 0px;margin-right: 12px">
+										<td class="float-right action-order" style="border: 0px;margin-right: 12px">
+											<a book_id="{{$book->book_id}}" class="image_payment" style="cursor: pointer" title="{{(file_exists(storage_path('app/image/image-payment/'.$book->image_payment)) && $book->image_payment != null) ? "Đã upload ảnh ủy nhiệm chi" : "Upload ảnh ủy nhiệm chi"}}"><i class="fa fa-image text-danger"></i></a>
 											<a class="{{$book->book_status != 1 ? 'd-none' : ''}}" href="{{route('ck_confirm',$book->book_id)}}" title="Thanh toán"><i class="fa fa-shopping-cart text-info"></i></a>
-											<span>&nbsp;&nbsp;</span>
 											<a onclick="return seeDetailModal({{$book->book_id}});" title="Chi tiết"><i class="fa fa-eye text-primary"></i></a>
-											<span>&nbsp;&nbsp;</span>
 											<a href="{{route('update_status_book',['id' => $book->book_id,'status' => 4])}}" title="Hủy"><i class="fa fa-trash text-danger"></i></a>
 										</td>
 									</tr>
 								@endforeach
+								<input type="file" class="d-none" id="file_image_payment" name="image_payment">
 								</tbody>
 							</table>
 							<div class="float-right" style="margin:20px 0">

@@ -97,8 +97,6 @@ class PaymentController extends Controller
 
         $book_1 = Book::create($book);
 
-
-
         if($order['method_payment']['method_payment'] == Book::TRUC_TUYEN){
             $nl = new NganLuongHelper();
             $data = [
@@ -106,23 +104,26 @@ class PaymentController extends Controller
                 'book_code' => $book_1->code,
                 'option_payment' => $order['method_payment']['option_payment'],
                 'bankcode' => $order['method_payment']['bankcode'],
-                'price' => $book_1->price,
+                'price' => $book_1->price >= '2000' ? $book_1->price : 2000,
                 'cus_name' => $order['info']['fullname'],
                 'cus_email' => $order['info']['email'],
                 'cus_phone' => $order['info']['phone'],
                 'cus_address' => $order['info']['country'] ? $order['info']['country'] : ''
             ];
+
             $url = $nl->createPaymentNganLuong($data);
+
             if(!isset($url['status'])){
                 $book_1->info_payment_ol = json_encode($url);
                 $book_1->save();
             }
         }
+        $book_1->cus_info = $order['info'];
 
-        $job = (new SendMail($order))->delay(Carbon::now()->addMinutes(1));
+        $job = (new SendMail($book_1))->delay(Carbon::now()->addMinutes(1));
         $this->dispatch($job);
 
-        $cancel_book = (new CancelBook($book_1))->delay(Carbon::now()->addMinutes(Book::TIME_ORDER));
+        $cancel_book = (new CancelBook($book_1))->delay(Carbon::now()->addMinutes(1));
         $this->dispatch($cancel_book);
 
         Cache::store('redis')->forget($key);
@@ -216,7 +217,7 @@ class PaymentController extends Controller
             $noti->save($data);
 
             event(new NotiEvent('Hết thời gian thanh toán cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
-            return redirect()->route('complete')->with('warning','Hết thời gian thanh toán');
+            return redirect()->route('complete')->with('warning','Bạn đã hết thời gian thanh toán.');
         }
         if($book && $status == 3){
             $data = [

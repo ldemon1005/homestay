@@ -233,8 +233,6 @@ Snackbar
 	visibility: hidden;
 	min-width: 250px;
 	margin-left: -125px;
-	background-color: #ffc107;
-	color: #fff;
 	text-align: center;
 	border-radius: 2px;
 	padding: 16px;
@@ -243,6 +241,16 @@ Snackbar
 	right: 15px;
 	top: 15px;
 	font-size: 17px;
+}
+
+.success_mes{
+	background-color: #66FF00;
+	color: #fff;
+}
+
+.error_mes{
+	background-color: #ffc107;
+	color: #fff;
 }
 
 #snackbar.show {

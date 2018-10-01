@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Config;
 use App\Http\Requests\UploadBannerRequest;
 use App\Helpers\UploadImage;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ConfigController extends Controller
