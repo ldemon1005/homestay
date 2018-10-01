@@ -8,11 +8,12 @@ use App\Models\Admin;
 
 class AccountController extends Controller
 {
+
     protected $admin;
 
-    public function __construct()
+    public function __construct(Admin $admin)
     {
-        $this->admin = new Admin;
+        $this->admin = $admin;
     }
 
     public function index()
@@ -62,6 +63,4 @@ class AccountController extends Controller
             return back()->with('error','Tài khoản này không được reset mật khẩu !');
         }
     }
-
-
 }
