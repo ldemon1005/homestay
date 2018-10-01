@@ -121,6 +121,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::get('/detail_host/{host_id}', 'HostController@detail_host')->name('detail_host');
         });
 
+        Route::group(['prefix' => 'books','middleware' => 'CheckHostPermission'], function () {
+            Route::get('', 'BooksController@index')->name('list_book');
+        });
+
         Route::group(['prefix' => 'comment','middleware' => 'CheckCommentPermission'], function () {
             Route::get('', 'CommentController@index')->name('list_comment');
             Route::get('/update_status_comment/{id}', 'CommentController@update_status')->name('update_status_comment');
@@ -147,6 +151,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::post('info', 'ConfigController@updateInfo');
             Route::post('term', 'ConfigController@updateTerm');
             Route::post('policy', 'ConfigController@updatePolicy');
+        });
+
+        Route::group(['prefix' => 'website-info','middleware' => 'CheckConfigPermission'], function () {
+            Route::get('/', 'InfoWebsiteController@index')->name('website_info');
+            Route::post('update_info', 'InfoWebsiteController@update_info')->name('update_info');
         });
 
         Route::get('general', function () {

@@ -67,9 +67,26 @@
                 </ul>
             </li>
 
+            <li class="treeview @if (Request::segment(2) == 'books') active @endif">
+                <a href="#">
+                    <i class="fa fa-cart"></i> <span>Quản lý đơn</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route("list_book")}}"><i class="fa fa-circle-o"></i> Danh sách đơn</a></li>
+                </ul>
+            </li>
+
             <li class="@if (Request::segment(2) == 'config') active @endif">
                 <a href="{{ asset('admin/config') }}">
                     <i class="fa fa-gear"></i> <span>Cài đặt website</span>
+                    <span class="pull-right-container"></span>
+                </a>
+            </li>
+
+            <li class="@if (Request::segment(2) == 'website_info') active @endif">
+                <a href="{{ route('website_info') }}">
+                    <i class="fa fa-info"></i> <span>Cài đặt thông tin website</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>

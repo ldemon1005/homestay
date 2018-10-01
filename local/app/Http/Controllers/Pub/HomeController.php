@@ -9,6 +9,7 @@ use DB;
 use App\Models\HomeStay;
 use App\Models\Comment;
 use App\Models\Config;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -60,6 +61,8 @@ class HomeController extends Controller
 
     public function getDetail($id)
     {
+        $data['data_search'] = Session::get('search_data');
+
         $data['homestay'] = HomeStay::findOrFail($id);
         $data['nearby_homestay'] = HomeStay::where('homestay_active',1)->orderBy('homestay_id','desc')->take(9)->get();
         $data['comments'] = $data['homestay']->comment();

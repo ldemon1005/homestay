@@ -6,19 +6,29 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\HomeStay;
 use DB;
+use Illuminate\Support\Facades\Session;
 
 class SearchController extends Controller
 {
     public function getSearch(Request $request){
+        $search_data = [
+            'start' => $request->start,
+            'end' => $request->end,
+            'slot' => $request->slot,
+        ];
+
+        Session::put('search_data',$search_data);
+
     	$string = '%'.implode( '%',explode( ',',str_replace(' ','%', $request->location ) ) ).'%';
     	$data['homestays'] = HomeStay::with(['bedroom','homestayimage'])
-                                    ->where('homestay_active',1)
+                                    ->where('homestay_active',HomeStay::ACTIVE)
     								->where('homestay_location','like',$string)
     								->whereHas('bedroom',function($query) use ($request){
                                         if($request->slot){
                                             $query->where('bedroom_slot','>=',$request->slot);
                                         }
     								});
+
         if( $request->homestay_type ){
             $data['homestays'] = $data['homestays']->whereIn('homestay_type',$request->homestay_type);
         }                                
@@ -30,15 +40,16 @@ class SearchController extends Controller
                                         $query->where('book_to','>=',implode('/',array_reverse(explode('/',$request->start))));
                                     });
         }
-    								
+
     	$data['homestays'] = $data['homestays']->paginate(10);
+
     	return view('public.search-result',$data);
     }
 
     public function getAjaxSearch(Request $request){
         $string = '%'.implode( '%',explode( ',',str_replace(' ','%', $request->location ) ) ).'%';
         $data['homestays'] = HomeStay::with(['bedroom','homestayimage'])
-                                    ->where('homestay_active',1)
+                                    ->where('homestay_active',HomeStay::ACTIVE)
                                     ->where('homestay_location','like',$string)
                                     ->whereHas('bedroom',function($query) use ($request){
                                         if($request->slot){

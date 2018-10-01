@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Homestay;
+use App\Models\HomeStay;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+
 
 class HomestayController extends Controller
 {
     function index(Request $request){
         $req = $request->all();
 
-        $query = Homestay::with('user');
+        $query = HomeStay::with('user');
 
         if(isset($req['search'])){
             $query = $query->where('homestay_name','like',"%".$req['search'].'%')
