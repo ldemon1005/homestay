@@ -14,7 +14,7 @@ class HomeController extends Controller
 {
     public function getIndex()
     {
-        return view('public.maintain');
+        return redirect('home');
     }
 
     public function getHome(Config $config, HomeStay $homestay, Comment $comment)

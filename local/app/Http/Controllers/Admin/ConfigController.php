@@ -17,9 +17,9 @@ class ConfigController extends Controller
     protected $term;
     protected $policy;
 
-    public function __construct()
+    public function __construct(Config $config)
     {
-        $this->config = new Config;
+        $this->config = $config;
         $this->banner = $this->config->getBanner();
         $this->info = $this->config->getInfo();
         $this->term = $this->config->getTerm();

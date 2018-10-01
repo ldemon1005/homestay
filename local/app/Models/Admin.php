@@ -12,7 +12,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $table = "admins";
-    const PASSWORD = "123456";
+    const DEFAULT_PASSWORD = "123456";
     const ADMIN_PERMISSION = 'Admin';
     const GUEST_PERMISSION = 1;
     const HOST_PERMISSION = 2;
@@ -36,7 +36,7 @@ class Admin extends Authenticatable
     public function handleStore($rq)
     {
         $this->name = $rq->name ?? $this->name;
-        $this->password = $this->password ?? bcrypt(self::PASSWORD);
+        $this->password = $this->password ?? bcrypt(self::DEFAULT_PASSWORD);
         $this->email = $rq->email ?? $this->email;
         $this->permiss = serialize($rq->permiss) ?? $this->permiss;
         return $this->save();
