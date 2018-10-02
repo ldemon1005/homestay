@@ -45,9 +45,8 @@ class BooksController extends Controller
             $book->book_to = date('d/m/Y H:m', strtotime(str_replace('/', '-', $book->book_to)));
             $homestay = DB::table('homestay')->where('homestay_id', $book->homestay_id)->first();
 
-            if ($homestay) {
-                $homestay->user = DB::table('guest_users')->where('id', $homestay->homestay_user_id)->first();
-            }
+            $book->user = DB::table('guest_users')->where('id', $book->book_user_id)->first();
+
             $bedroom = DB::table('bedrooms')->where('bedroom_id', $book->book_bedroom_id)->first();
         }
 

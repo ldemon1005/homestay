@@ -100,7 +100,7 @@
                                     <td>Chờ thanh toán</td>
                                     <td>Chi phí</td>
                                     <td>Tình trạng</td>
-                                    <td style="min-width: 120px">Thao tác</td>
+                                    <td style="min-width: 120px" class="pull-right">Thao tác</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -121,8 +121,21 @@
                                         @endif
 
                                         <td>{{number_format($book->price)}} vnd</td>
-                                        <td><span class="text-warning" title="{{getStatusBookStr($book->book_status)['title']}}">{{getStatusBookStr($book->book_status)['str']}}</span></td>
-                                        <td class="float-right action-order" style="border: 0px;margin-right: 12px">
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Action
+                                                </button>
+                                                <div class="dropdown-menu animated lightSpeedIn">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Separated link</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="pull-right action-order" style="border: 0px;margin-right: 12px">
                                             @if(file_exists(storage_path('app/image/image-payment/'.$book->image_payment)) && $book->image_payment != null)
                                                 <a book_id="{{$book->book_id}}" class="image_payment" style="cursor: pointer" title="Ảnh phiếu ủy nhiệm chi"><i class="fa fa-image text-danger"></i></a>
                                             @endif

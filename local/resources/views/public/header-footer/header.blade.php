@@ -17,8 +17,9 @@
 			<ul class="login-register">
 				@if( Auth::check() )
 				<li><a class="user-tab">
-					<div class="avatar" style="background-image: url({{ asset('local/storage/app/image/user-3/'.Auth::user()->avatar) }})">
-						<span class="has-noti">{{$count_notification}}</span>
+					<div class="avatar"
+						 style="background-image: url({{ (file_exists(storage_path('app/image/user-3/'.Auth::user()->avatar)) && Auth::user()->avatar != '') ? asset('local/storage/app/image/user-3/'.Auth::user()->avatar) : Auth::user()->avatar }} )">
+						<span class="has-noti {{$count_notification <= 0 ? 'd-none' : ''}}">{{$count_notification}}</span>
 					</div>
 					{{ Auth::user()->name }} <i class="fas fa-angle-down"></i></a>
 					<ul class="dropdown-user">
