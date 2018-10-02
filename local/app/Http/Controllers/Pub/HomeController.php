@@ -21,17 +21,17 @@ class HomeController extends Controller
 
     public function getHome(Config $config, HomeStay $homestay, Comment $comment)
     {
-        $data['hot_homestay'] = $homestay->where('homestay_active',2)->orderBy('homestay_id','desc')->take(9)->get();
+        $data['hot_homestay'] = $homestay->where('homestay_active', 2)->orderBy('homestay_id', 'desc')->take(9)->get();
         $data['comments'] = $comment->with('user')->with('homestay')->take(9)->get();
         $data['banners'] = $config->getBanner()->value;
-        return view('public.index',$data);
+        return view('public.index', $data);
     }
 
     public function getBlogs(Client $guzzle)
     {
-        $res = $guzzle->get(env('BLOG_URL').'/api/blogs');
-        $blogs = json_decode( $res->getBody(), true );
-        return view('public.get-blog',compact('blogs'));
+        $res = $guzzle->get(env('BLOG_URL') . '/api/blogs',['verify' => false]);
+        $blogs = json_decode($res->getBody(), true);
+        return view('public.get-blog', compact('blogs'));
     }
 
     public function getContactUs()
@@ -58,7 +58,7 @@ class HomeController extends Controller
 
     public function getSearch()
     {
-    	return view('public.search-result');
+        return view('public.search-result');
     }
 
     public function getDetail($id)
@@ -66,9 +66,9 @@ class HomeController extends Controller
         $data['data_search'] = Session::get('search_data');
 
         $data['homestay'] = HomeStay::findOrFail($id);
-        $data['nearby_homestay'] = HomeStay::where('homestay_active',1)->orderBy('homestay_id','desc')->take(9)->get();
+        $data['nearby_homestay'] = HomeStay::where('homestay_active', 1)->orderBy('homestay_id', 'desc')->take(9)->get();
         $data['comments'] = $data['homestay']->comment();
-        return view('public.detail',$data);
+        return view('public.detail', $data);
     }
 
     public function getRegister()

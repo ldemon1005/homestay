@@ -32,7 +32,6 @@ class Controller extends BaseController
 
             return $next($request);
         });
-
     }
 
     function getUserIpAddr(){
