@@ -5,7 +5,9 @@
                 <img src="https://ctogo.vn/logo.png" style="max-width: 200px">
             </a>
         </div>
+
         <hr>
+
         <div style="padding: 20px;">
             <h3>Chào Tuấn,</h3>
 
