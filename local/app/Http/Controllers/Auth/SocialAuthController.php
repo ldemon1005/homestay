@@ -66,6 +66,8 @@ class SocialAuthController extends Controller
 
         auth()->login($user);
 
-        return redirect()->to('/home');
+        $url = Session::get('url');
+
+        return redirect()->to($url);
     }
 }

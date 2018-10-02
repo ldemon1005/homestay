@@ -192,15 +192,17 @@ function convertAlias($cs){
 function getStatusBookStr($status){
     $str = '';
     $title = '';
+    $class = '';
     switch ($status){
-        case 1 : $str = 'Đợi thanh toán';$title = '';break;
-        case 2 : $str = 'Hủy';$title = 'Phòng bị hủy do quá thời hạn thanh toán';break;
-        case 3 : $str = 'Hoàn thành';$title = '';break;
-        case 4 : $str = 'Hủy';$title = 'Do homestay hủy';break;
+        case 1 : $str = 'Đợi thanh toán';$title = '';$class = 'btn-warning';break;
+        case 2 : $str = 'Hủy';$title = 'Phòng bị hủy do quá thời hạn thanh toán';$class = 'btn-danger';break;
+        case 3 : $str = 'Hoàn thành';$title = '';$class = 'btn-success';break;
+        case 4 : $str = 'Hủy';$title = 'Do homestay hủy';$class = 'btn-danger';break;
     }
     return [
         'str' => $str,
-        'title' => $title
+        'title' => $title,
+        'class' => $class
     ];
 }
 
