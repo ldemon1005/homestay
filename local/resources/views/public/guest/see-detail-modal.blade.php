@@ -1,6 +1,6 @@
 <div>
     <h3>Chi tiết đặt phòng</h3>
-    <p>Mã đặt phòng: <span class="bold">{{$book->code}}</span> <br>Tình trạng đặt phòng: <span class="bold">{{getStatusBookStr($book->book_status)}}</span> </p>
+    <p>Mã đặt phòng: <span class="bold">{{$book->code}}</span> <br>Tình trạng đặt phòng: <span class="bold">{{getStatusBookStr($book->book_status)['str']}}</span> </p>
 
     <table>
         <thead>
@@ -61,6 +61,22 @@
             <td>TỔNG</td>
             <td>{{number_format($book->price)}}đ <span class="grey-6 line-through fs-12">{{number_format($book->price /0.8)}}đ</span> <span class="fs-10 italic red">Giảm 20%</span></td>
         </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+        <tr>
+            <td colspan="2">Ảnh ủy nhiệm chi</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        @if(file_exists(storage_path('app/image/image-payment/'.$book->image_payment)))
+            <tr>
+                <td width="100%"><img src="{{asset('local/storage/app/image/image-payment/'.$book->image_payment)}}"></td>
+            </tr>
+        @endif
         </tbody>
     </table>
 </div>

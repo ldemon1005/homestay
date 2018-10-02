@@ -14,12 +14,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 ">Danh sách d</h1>
+                        <h1 class="m-0 ">Danh sách đơn</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ asset('admin') }}">Trang chủ</a></li>
-                            <li class="breadcrumb-item active">Danh sách bình luận</li>
+                            <li class="breadcrumb-item active">Danh sách đơn</li>
                         </ol>
                     </div>
                 </div>
@@ -57,51 +57,48 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>#STT</th>
-                                    <th>Đánh giá(thang 10)</th>
-                                    <th>Homestay</th>
-                                    <th>Người tạo</th>
-                                    <th>Ngày tạo</th>
-                                    <th class="text-center">Trạng thái</th>
-                                    <th class="text-center">Thao tác</th>
+                                    <td>#STT</td>
+                                    <td>Mã đặt phòng</td>
+                                    <td>Homestay</td>
+                                    <td>Thời gian</td>
+                                    <td>Chờ thanh toán</td>
+                                    <td>Chi phí</td>
+                                    <td>Tình trạng</td>
+                                    <td style="min-width: 120px">Thao tác</td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($list_comment as $comment)
+                                @foreach($list_book as $book)
                                     <tr>
                                         <td>{{$loop->index + 1}}</td>
-                                        <td>{{$comment->comment_rate}}</td>
-                                        <td>{!! isset($comment->homestay) ? $comment->homestay->homestay_name : '' !!}</td>
-                                        <td style="display: flex">
-                                            @if(isset($comment->user))
-                                                <div class="avatar_user"
-                                                     style="background-image: url('{{file_exists(storage_path('app/image/user-3/'.$comment->user->avatar)) ? asset('local/storage/app/image/user-3/'.$comment->user->avatar) : asset('local/storage/app/image/user-3/default.png')}}')">
-                                                </div>
-                                                <div style="display: flex;line-height: 40px">
-                                                    {{$comment->user->name}}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td>{{$comment->created_at}}</td>
-                                        <td class="text-center">
-                                            <button id="{{$comment->comment_id}}" onclick="update_status({{$comment->comment_id}})"
-                                                    class="btn btn-block btn-sm {{$comment->status == 2 ? 'btn-success': 'btn-danger'}}">{{$comment->status == 2 ? 'Hoạt đông': 'Không hoạt đông'}}</button>
-                                        </td>
-                                        <td class="text-center">
-                                            <a style="cursor: pointer"
-                                               onclick="view_detail('{{$comment->comment_content}}')" data-toggle="tooltip"
-                                               title="Xem comment" class="text-success"><i class="fa fa-eye"></i></a>
+                                        <td>{{$book->code}}</td>
+                                        @if($book->homestay)
+                                            <td>{{ $book->homestay->homestay_name }}</td>
+                                        @else
+                                            <td>Homestay đã dừng hoạt động</td>
+                                        @endif
+                                        <td>{{$book->book_from}} -- {{$book->book_to}}</td>
+                                        @if($book->book_status != 3)
+                                            <td>{{$book->del_time['h']}}:{{$book->del_time['m']}}:{{$book->del_time['s']}}</td>
+                                        @else
+                                            <td>0</td>
+                                        @endif
 
-                                            <a href="{{route('delete_comment',$comment->comment_id)}}"
-                                               onclick="return confirm('Bạn chắc chắn muốn xóa')" data-toggle="tooltip"
-                                               title="Xóa" class="text-danger"><i class="fa fa-trash"></i></a>
+                                        <td>{{number_format($book->price)}} vnd</td>
+                                        <td><span class="text-warning" title="{{getStatusBookStr($book->book_status)['title']}}">{{getStatusBookStr($book->book_status)['str']}}</span></td>
+                                        <td class="float-right action-order" style="border: 0px;margin-right: 12px">
+                                            @if(file_exists(storage_path('app/image/image-payment/'.$book->image_payment)) && $book->image_payment != null)
+                                                <a book_id="{{$book->book_id}}" class="image_payment" style="cursor: pointer" title="Ảnh phiếu ủy nhiệm chi"><i class="fa fa-image text-danger"></i></a>
+                                            @endif
+                                            <a onclick="return seeDetailModal({{$book->book_id}});" title="Chi tiết"><i class="fa fa-eye text-primary"></i></a>
+                                            <a href="{{route('update_status_book',['id' => $book->book_id,'status' => 4])}}" title="Hủy"><i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                             <div class="form-group pull-right">
-                                {{$list_comment->links()}}
+                                {{$list_book->links()}}
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -114,23 +111,13 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Chi tiết bình luận</h4>
-                </div>
                 <div class="modal-body">
-                    <p id="comment"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                    {{--ajax see detail modal here--}}
                 </div>
             </div>
-
         </div>
     </div>
 @stop

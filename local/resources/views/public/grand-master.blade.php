@@ -56,6 +56,15 @@
 
 	<script type="text/javascript" src="header-footer/js/header-footer.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+
+	<script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+	</script>
+
 	<script>
         $('.errorAlert').css('bottom','100px');
         setTimeout(function(){
@@ -66,26 +75,26 @@
         }, 3900);
 
 
-        //var socket = io('http://localhost:3000');
-        var socket = io('https://172.16.9.239:3000',verify=false);
-        console.log('chào',socket);
-        socket.on("haivl-channel.{{\Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->id : ''}}:App\\Events\\NotiEvent", function(message){
-            $("#snackbar").html(message.data.message);
-            $("#snackbar").addClass('show');
-            // After 3 seconds, remove the show class from DIV
-            setTimeout(function () {
-                $("#snackbar").removeClass('show');
-            }, 3000);
-        });
+        {{--//var socket = io('http://localhost:3000');--}}
+        {{--var socket = io('https://172.16.9.239:3000',verify=false);--}}
+        {{--console.log('chào',socket);--}}
+        {{--socket.on("haivl-channel.{{\Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->id : ''}}:App\\Events\\NotiEvent", function(message){--}}
+            {{--$("#snackbar").html(message.data.message);--}}
+            {{--$("#snackbar").addClass('show');--}}
+            {{--// After 3 seconds, remove the show class from DIV--}}
+            {{--setTimeout(function () {--}}
+                {{--$("#snackbar").removeClass('show');--}}
+            {{--}, 3000);--}}
+        {{--});--}}
 
-        socket.on("haivl-channel.{{\Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->id : ''}}:App\\Events\\UpdateStatus", function(message){
-            $("#snackbar").html(message.data.message);
-            $("#snackbar").addClass('show');
-            // After 3 seconds, remove the show class from DIV
-            setTimeout(function () {
-                $("#snackbar").removeClass('show');
-            }, 3000);
-        });
+        {{--socket.on("haivl-channel.{{\Illuminate\Support\Facades\Auth::user() ? \Illuminate\Support\Facades\Auth::user()->id : ''}}:App\\Events\\UpdateStatus", function(message){--}}
+            {{--$("#snackbar").html(message.data.message);--}}
+            {{--$("#snackbar").addClass('show');--}}
+            {{--// After 3 seconds, remove the show class from DIV--}}
+            {{--setTimeout(function () {--}}
+                {{--$("#snackbar").removeClass('show');--}}
+            {{--}, 3000);--}}
+        {{--});--}}
 	</script>
 @yield('javascript')
 <!-- end script -->

@@ -24,6 +24,12 @@ class Controller extends BaseController
                 View::share('count_notification', $count_notification);
             }
 
+            $website_info = DB::table('configs')->where('name','website-info')->first();
+
+            $website_info = json_decode($website_info->value);
+
+            View::share('website_info',$website_info);
+
             return $next($request);
         });
 

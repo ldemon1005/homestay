@@ -333,7 +333,7 @@
                             </ul>
                         </div>
                     </div>
-
+                    {{dd($data_search)}}
                     <h6 class="fs-18 bold">Phòng còn trống</h6>
                     <form class="row" id="bedroom-check" method="post" action="{{route('add_order')}}">
                         {{csrf_field()}}
@@ -341,7 +341,7 @@
                         <div class="col-12 col-md-6 col-lg-5">
                             <div class="my-form">
                                 <label class="fs-14 bold">Ngày nhận phòng</label>
-                                <div class="calendar"><input autocomplete="off" onchange="check()"
+                                <div class="calendar"><input value="{{isset($data_search['start']) ? $data_search['start'] : ''}}" autocomplete="off" onchange="check()"
                                                              data-provide="datepicker" type="text" name="start"
                                                              placeholder="Ngày đến"></div>
                             </div>
@@ -351,7 +351,7 @@
                             <div class="my-form">
                                 <label class="fs-14 bold">Ngày trả phòng</label>
                                 <div class="calendar">
-                                    <input autocomplete="off" onchange="check()" data-provide="datepicker" type="text"
+                                    <input value="{{isset($data_search['end']) ? $data_search['end'] : ''}}" autocomplete="off" onchange="check()" data-provide="datepicker" type="text"
                                            name="end" placeholder="Ngày đi">
                                 </div>
                             </div>
@@ -359,10 +359,10 @@
 
                         <div class="col-12 col-md-6 col-lg-2">
                             <div class="my-form">
-                                <label class="fs-14 bold">Chọn số người</label>
+                                <label class="fs-14 bold">Số người</label>
                                 <select class="select-box" name="slot" onchange="check()">
                                     @for($i=1;$i<=20;$i++)
-                                        <option value="{{$i}}">{{$i}}</option>
+                                        <option {{(isset($data_search['slot']) && $data_search['slot'] == $i) ? 'selected' : ''}}  value="{{$i}}">{{$i}}</option>
                                     @endfor
                                 </select>
                             </div>

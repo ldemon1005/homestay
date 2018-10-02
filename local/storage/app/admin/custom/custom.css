@@ -18,3 +18,7 @@
     z-index: 9999;
     transition: 2s;
 }
+
+.action-order a{
+    margin-left: 8px;
+}

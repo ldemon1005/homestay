@@ -107,4 +107,5 @@ class ConfigController extends Controller
     {
         Storage::delete(['upload/' . $banner, 'upload/resized-' . $banner]);
     }
+
 }
