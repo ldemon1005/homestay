@@ -9,6 +9,7 @@ use DB;
 use App\Models\HomeStay;
 use App\Models\Comment;
 use App\Models\Config;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -26,9 +27,10 @@ class HomeController extends Controller
         return view('public.index',$data);
     }
 
-    public function getBlogs()
+    public function getBlogs(Client $guzzle)
     {
-        $blogs = json_decode(file_get_contents(env('BLOG_URL').'/api/blogs'), true);
+        $res = $guzzle->get(env('BLOG_URL').'/api/blogs');
+        $blogs = json_decode( $res->getBody(), true );
         return view('public.get-blog',compact('blogs'));
     }
 
