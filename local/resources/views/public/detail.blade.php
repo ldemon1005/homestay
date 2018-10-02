@@ -333,7 +333,7 @@
                             </ul>
                         </div>
                     </div>
-                    {{dd($data_search)}}
+
                     <h6 class="fs-18 bold">Phòng còn trống</h6>
                     <form class="row" id="bedroom-check" method="post" action="{{route('add_order')}}">
                         {{csrf_field()}}
@@ -341,9 +341,11 @@
                         <div class="col-12 col-md-6 col-lg-5">
                             <div class="my-form">
                                 <label class="fs-14 bold">Ngày nhận phòng</label>
-                                <div class="calendar"><input value="{{isset($data_search['start']) ? $data_search['start'] : ''}}" autocomplete="off" onchange="check()"
-                                                             data-provide="datepicker" type="text" name="start"
-                                                             placeholder="Ngày đến"></div>
+                                <div class="calendar"><input
+                                            value="{{isset($data_search['start']) ? $data_search['start'] : ''}}"
+                                            autocomplete="off" onchange="check()"
+                                            data-provide="datepicker" type="text" name="start"
+                                            placeholder="Ngày đến"></div>
                             </div>
                         </div>
 
@@ -351,7 +353,8 @@
                             <div class="my-form">
                                 <label class="fs-14 bold">Ngày trả phòng</label>
                                 <div class="calendar">
-                                    <input value="{{isset($data_search['end']) ? $data_search['end'] : ''}}" autocomplete="off" onchange="check()" data-provide="datepicker" type="text"
+                                    <input value="{{isset($data_search['end']) ? $data_search['end'] : ''}}"
+                                           autocomplete="off" onchange="check()" data-provide="datepicker" type="text"
                                            name="end" placeholder="Ngày đi">
                                 </div>
                             </div>
@@ -411,7 +414,15 @@
                                             @endforeach
                                         </ul>
                                     @endif
-                                    <div class="room-calendar" id="room-calendar{{$bedroom->bedroom_id}}"></div>
+
+                                    <p class="fs-14 bold">Ngày còn phòng:</p>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="room-calendar" id="room-calendar{{$bedroom->bedroom_id}}"></div>
+                                        <div>
+                                            <div class="block-avail"><span class="fs-12 bold">Còn phòng</span></div>
+                                            <div class="block-disable"><span class="fs-12 bold">Hết phòng</span></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

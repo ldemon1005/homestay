@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function getBlogs(Client $guzzle)
     {
-        $res = $guzzle->get(env('BLOG_URL') . '/api/blogs');
+        $res = $guzzle->get(env('BLOG_URL') . '/api/blogs',['verify' => false]);
         $blogs = json_decode($res->getBody(), true);
         return view('public.get-blog', compact('blogs'));
     }
