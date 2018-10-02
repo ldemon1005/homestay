@@ -121,17 +121,17 @@
                                         @endif
 
                                         <td>{{number_format($book->price)}} vnd</td>
+                                        <td><span class="text-warning" title="{{getStatusBookStr($book->book_status)['title']}}">{{getStatusBookStr($book->book_status)['str']}}</span></td>
                                         <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Action
+                                                <button type="button" class="btn {{getStatusBookStr($book->book_status)['class']}} dropdown-toggle form-control" data-toggle="dropdown" title="{{getStatusBookStr($book->book_status)['title']}}" aria-haspopup="true" aria-expanded="false">
+                                                    {{getStatusBookStr($book->book_status)['str']}}
                                                 </button>
                                                 <div class="dropdown-menu animated lightSpeedIn">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#">Separated link</a>
+                                                    <a title="{{getStatusBookStr(1)['title']}}" class="dropdown-item" href="#">Trong thời gian đợi</a>
+                                                    <a title="{{getStatusBookStr(2)['title']}}" class="dropdown-item" href="#">Hết thời gian thanh toán</a>
+                                                    <a title="{{getStatusBookStr(3)['title']}}" class="dropdown-item" href="#">Hoàn thành</a>
+                                                    <a title="{{getStatusBookStr(4)['title']}}" class="dropdown-item" href="#">Hủy</a>
                                                 </div>
                                             </div>
                                         </td>

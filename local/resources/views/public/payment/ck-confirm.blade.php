@@ -88,7 +88,7 @@
 								<span class="main-color">01.</span> Bạn vui lòng tiến hành thanh toán trước
 							</div>
 							<div class="confirm-box-body">
-								<p class="bold">Hôm nay {{date('d/m/Y H:m',time())}}</p>
+								<p class="bold">Hôm nay {{time()}}</p>
 								<p class="fs-14">Thời gian còn lại <span id="h"></span> tiếng &nbsp; <span id="m"></span> phút &nbsp; <span id="s"></span> giây</p>
 								@if($url_payment != '')
 									<p><span>Link thanh toán: </span><a target="_blank" href="{{$url_payment}}">Link thanh toán</a></p>
