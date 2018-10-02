@@ -112,7 +112,6 @@ class PaymentController extends Controller
             ];
 
             $url = $nl->createPaymentNganLuong($data);
-
             if(!isset($url['status'])){
                 $book_1->info_payment_ol = json_encode($url);
                 $book_1->save();
