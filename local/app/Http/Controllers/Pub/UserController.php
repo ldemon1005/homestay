@@ -30,10 +30,16 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         if ($user->save()) {
-            return redirect()->route('getProfile');
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                return redirect()->route('getProfile');
+            } else {
+                return back()->with('error', 'Không thể đăng nhập');
+            }
         } else {
             return back();
         }
+
+
     }
 
     //
@@ -92,7 +98,7 @@ class UserController extends Controller
 
     function update_status_book($id, $status)
     {
-        $book = DB::table('books')->where('book_id', $id)->update(['book_status' => $status,'time_del' => time()]);
+        $book = DB::table('books')->where('book_id', $id)->update(['book_status' => $status, 'time_del' => time()]);
 
         if ($book) {
             switch ($status) {
@@ -153,12 +159,12 @@ class UserController extends Controller
             $image_path = saveSingleImage($image, 200, 'image/image-payment');
         }
 
-        if($image_path){
-            DB::table('books')->where('book_id',$request->book_id)->update(['image_payment' => $image_path]);
+        if ($image_path) {
+            DB::table('books')->where('book_id', $request->book_id)->update(['image_payment' => $image_path]);
             return json_encode([
                 'status' => 1
             ]);
-        }else {
+        } else {
             return json_encode([
                 'status' => 0
             ]);

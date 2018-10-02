@@ -113,7 +113,7 @@
 		<div class="row">
 			<div class="col-12 col-md-4 col-lg-4">
 				<div id="sidebar">
-					<div class="ava" style="background-image: url({{ (file_exists(storage_path('app/image/user-3/'.Auth::user()->avatar)) && Auth::user()->avatar != '') ? asset('local/storage/app/image/user-3/'.Auth::user()->avatar) : Auth::user()->avatar }});">
+					<div class="ava" style="background-image: url({{ (file_exists( storage_path('app/image/user-3/'.Auth::user()->avatar) ) && Auth::user()->avatar != '') ? asset('local/storage/app/image/user-3/'.Auth::user()->avatar) : ( Auth::user()->avatar ? Auth::user()->avatar : Avatar::create(Auth::user()->name)->toBase64() ) }});">
 						<img src="{{ asset('local/storage/app/image/ava-subtitute.png') }}">
 					</div>
 
