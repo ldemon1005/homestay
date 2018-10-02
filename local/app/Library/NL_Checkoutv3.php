@@ -548,6 +548,7 @@ class NL_CheckOutV3
         $result = curl_exec($ch);
         $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $error = curl_error($ch);
+
         if ($result != '' && $status == 200) {
             $xml_result = str_replace('&', '&amp;', (string)$result);
 

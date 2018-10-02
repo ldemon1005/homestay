@@ -1,9 +1,45 @@
 @extends('admin.master')
 
-@section('js')
-    <!-- Slimscroll -->
-    <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+@section('javascript')
+    <script>
+        function update_status(id) {
+            $.ajax({
+                url: '/admin/comment/update_status_comment/' + id,
+                method: 'get',
+                dataType: 'json',
+            }).fail(function (ui, status) {
+            }).done(function (data, status) {
+                if (data.comment) {
+                    data.comment = JSON.parse(data.comment);
+
+                    var id = '#' + data.comment.comment_id;
+
+                    if (data.comment.status == 2) {
+                        $(id).removeClass('btn-danger');
+                        $(id).addClass('btn-success');
+                        $(id).html('Hoạt động');
+                    } else {
+                        $(id).removeClass('btn-success');
+                        $(id).addClass('btn-danger');
+                        $(id).html('Không hoạt động');
+                    }
+                }
+            });
+        }
+        function seeDetailModal(id)
+        {
+            $.ajax({
+                url : "/admin/books/seeDetailModal?id="+id,
+                type : "get",
+                success : function (result){
+                    $('#detailModal .modal-body').html(result);
+                    $('#detailModal').modal('show');
+                }
+            });
+        }
+    </script>
 @stop
+
 
 @section('title', 'Quản trị')
 @section('main')
@@ -90,7 +126,7 @@
                                             @if(file_exists(storage_path('app/image/image-payment/'.$book->image_payment)) && $book->image_payment != null)
                                                 <a book_id="{{$book->book_id}}" class="image_payment" style="cursor: pointer" title="Ảnh phiếu ủy nhiệm chi"><i class="fa fa-image text-danger"></i></a>
                                             @endif
-                                            <a onclick="return seeDetailModal({{$book->book_id}});" title="Chi tiết"><i class="fa fa-eye text-primary"></i></a>
+                                            <a onclick="seeDetailModal('{{$book->book_id}}')" title="Chi tiết"><i class="fa fa-eye text-primary"></i></a>
                                             <a href="{{route('update_status_book',['id' => $book->book_id,'status' => 4])}}" title="Hủy"><i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
@@ -122,36 +158,3 @@
     </div>
 @stop
 
-@section('javascript')
-    <script>
-        function update_status(id) {
-            $.ajax({
-                url: '/admin/comment/update_status_comment/' + id,
-                method: 'get',
-                dataType: 'json',
-            }).fail(function (ui, status) {
-            }).done(function (data, status) {
-                if (data.comment) {
-                    data.comment = JSON.parse(data.comment);
-
-                    var id = '#' + data.comment.comment_id;
-
-                    if (data.comment.status == 2) {
-                        $(id).removeClass('btn-danger');
-                        $(id).addClass('btn-success');
-                        $(id).html('Hoạt động');
-                    } else {
-                        $(id).removeClass('btn-success');
-                        $(id).addClass('btn-danger');
-                        $(id).html('Không hoạt động');
-                    }
-                }
-            });
-        }
-
-        function view_detail(comment) {
-            $("#comment").html(comment);
-            $("#myModal").modal("show");
-        }
-    </script>
-@stop

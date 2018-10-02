@@ -21,7 +21,7 @@ class HomestayController extends Controller
                             ->orWhere('homestay_about','like',"%".$req['search'].'%');
         }
 
-        $list_homestay = $query->orderByDesc('homestay_id')->paginate(10);
+        $list_homestay = $query->orderByDesc('homestay_id')->paginate(15);
 
         $data = [
             'list_homestay' => $list_homestay

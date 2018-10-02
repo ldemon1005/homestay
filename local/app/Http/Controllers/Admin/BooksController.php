@@ -33,4 +33,29 @@ class BooksController extends Controller
 
         return view('admin.books.list',$data);
     }
+
+    public function seeDetailModal(Request $request)
+    {
+        $id = $request->get('id');
+
+        $book = DB::table('books')->where('book_id', $id)->first();
+
+        if ($book) {
+            $book->book_from = date('d/m/Y H:m', strtotime(str_replace('/', '-', $book->book_from)));
+            $book->book_to = date('d/m/Y H:m', strtotime(str_replace('/', '-', $book->book_to)));
+            $homestay = DB::table('homestay')->where('homestay_id', $book->homestay_id)->first();
+
+            if ($homestay) {
+                $homestay->user = DB::table('guest_users')->where('id', $homestay->homestay_user_id)->first();
+            }
+            $bedroom = DB::table('bedrooms')->where('bedroom_id', $book->book_bedroom_id)->first();
+        }
+
+        $data = [
+            'homestay' => $homestay,
+            'bedroom' => $bedroom,
+            'book' => $book
+        ];
+        return view('admin.books.see-detail-modal', $data);
+    }
 }

@@ -123,6 +123,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         Route::group(['prefix' => 'books','middleware' => 'CheckHostPermission'], function () {
             Route::get('', 'BooksController@index')->name('list_book');
+            Route::get('seeDetailModal', 'BooksController@seeDetailModal')->name('seeDetailModal');
         });
 
         Route::group(['prefix' => 'comment','middleware' => 'CheckCommentPermission'], function () {

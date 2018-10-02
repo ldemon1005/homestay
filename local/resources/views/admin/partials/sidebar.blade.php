@@ -69,7 +69,7 @@
 
             <li class="treeview @if (Request::segment(2) == 'books') active @endif">
                 <a href="#">
-                    <i class="fa fa-cart"></i> <span>Quản lý đơn</span>
+                    <i class="fa fa-cart-arrow-down"></i><span>Quản lý đơn</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">

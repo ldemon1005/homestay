@@ -19,9 +19,9 @@ class SocialAuthController extends Controller
 
     public function callback($social)
     {
-        $data = Socialite::driver($social)->user();
+        $data = Socialite::driver($social)->stateless()->user();
         if($social == 'facebook'){
-            $avatar = $data->avatar;
+            $avatar = isset($data->avatar) ? $data->avatar : '';
             $data = $data->user;
             $user = User::where('social_id',$data['id'])->orWhere('email',$data['email'])->first();
 
@@ -43,7 +43,7 @@ class SocialAuthController extends Controller
 
             if(!$user){
                 $user = new User();
-                $user->avatar = $data['avatar'];
+                $user->avatar = isset($data['avatar']) ? $data['avatar'] : '';
             }
 
             $user->name = $name;
