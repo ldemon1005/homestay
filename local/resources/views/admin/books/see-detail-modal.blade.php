@@ -12,15 +12,15 @@
         <tbody>
         <tr>
             <td width="40%">Tên người đặt phòng</td>
-            <td width="60%">{{$homestay->user->name}}</td>
+            <td width="60%">{{isset($book->user) ? $book->user->name : ''}}</td>
         </tr>
         <tr>
             <td>Điện thoại</td>
-            <td>{{$homestay->user->phone}}</td>
+            <td>{{isset($book->user) ? $book->user->phone : ''}}</td>
         </tr>
         <tr>
             <td>Email</td>
-            <td>{{$homestay->user->email}}</td>
+            <td>{{isset($book->user) ? $book->user->email : ''}}</td>
         </tr>
         </tbody>
     </table>
@@ -72,7 +72,7 @@
         </thead>
 
         <tbody>
-        @if(file_exists(storage_path('app/image/image-payment/'.$book->image_payment)))
+        @if(file_exists(storage_path('app/image/image-payment/'.$book->image_payment)) && $book->image_payment != null)
             <tr>
                 <td width="100%"><img src="{{asset('local/storage/app/image/image-payment/'.$book->image_payment)}}"></td>
             </tr>

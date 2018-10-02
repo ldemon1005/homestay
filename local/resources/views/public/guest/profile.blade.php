@@ -113,7 +113,7 @@
 		<div class="row">
 			<div class="col-12 col-md-4 col-lg-4">
 				<div id="sidebar">
-					<div class="ava" style="background-image: url({{ asset('local/storage/app/image/user-3/'.Auth::user()->avatar) }});">
+					<div class="ava" style="background-image: url({{ (file_exists(storage_path('app/image/user-3/'.Auth::user()->avatar)) && Auth::user()->avatar != '') ? asset('local/storage/app/image/user-3/'.Auth::user()->avatar) : Auth::user()->avatar }});">
 						<img src="{{ asset('local/storage/app/image/ava-subtitute.png') }}">
 					</div>
 
@@ -256,7 +256,9 @@
 										<td>{{number_format($book->price)}} vnd</td>
 										<td><span class="text-warning" title="{{getStatusBookStr($book->book_status)['title']}}">{{getStatusBookStr($book->book_status)['str']}}</span></td>
 										<td class="float-right action-order" style="border: 0px;margin-right: 12px">
-											<a book_id="{{$book->book_id}}" class="image_payment" style="cursor: pointer" title="{{(file_exists(storage_path('app/image/image-payment/'.$book->image_payment)) && $book->image_payment != null) ? "Đã upload ảnh ủy nhiệm chi" : "Upload ảnh ủy nhiệm chi"}}"><i class="fa fa-image text-danger"></i></a>
+											@if($book->time_del >= time())
+												<a book_id="{{$book->book_id}}" class="image_payment" style="cursor: pointer" title="{{(file_exists(storage_path('app/image/image-payment/'.$book->image_payment)) && $book->image_payment != null) ? "Đã upload ảnh ủy nhiệm chi" : "Upload ảnh ủy nhiệm chi"}}"><i class="fa fa-image text-danger"></i></a>
+											@endif
 											<a class="{{$book->book_status != 1 ? 'd-none' : ''}}" href="{{route('ck_confirm',$book->book_id)}}" title="Thanh toán"><i class="fa fa-shopping-cart text-info"></i></a>
 											<a onclick="return seeDetailModal({{$book->book_id}});" title="Chi tiết"><i class="fa fa-eye text-primary"></i></a>
 											<a href="{{route('update_status_book',['id' => $book->book_id,'status' => 4])}}" title="Hủy"><i class="fa fa-trash text-danger"></i></a>

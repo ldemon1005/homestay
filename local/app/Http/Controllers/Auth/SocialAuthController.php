@@ -27,14 +27,15 @@ class SocialAuthController extends Controller
 
             if(!$user){
                 $user = new User();
-                $user->avatar = $avatar;
-            }
+                $user->password = bcrypt($data['email']);
+                $user->social_id = $data['id'];
+                $user->social_type = 1;
 
+            }
+            $user->avatar = $avatar;
             $user->name = $data['name'];
             $user->email = $data['email'];
-            $user->password = bcrypt($data['email']);
-            $user->social_id = $data['id'];
-            $user->social_type = 1;
+
         }else if ($social == 'google'){
             $email = $data['emails'][0]['value'];
             $name = $data['displayName'];
@@ -43,14 +44,14 @@ class SocialAuthController extends Controller
 
             if(!$user){
                 $user = new User();
-                $user->avatar = isset($data['avatar']) ? $data['avatar'] : '';
-            }
+                $user->password = bcrypt($email);
+                $user->social_id = $data['id'];
+                $user->social_type = 2;
 
+            }
+            $user->avatar = isset($data->avatar) ? $data->avatar : '';
             $user->name = $name;
             $user->email = $email;
-            $user->password = bcrypt($email);
-            $user->social_id = $data['id'];
-            $user->social_type = 2;
         }else {
             return redirect()->to('/login');
         }

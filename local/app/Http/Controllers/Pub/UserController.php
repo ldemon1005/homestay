@@ -92,7 +92,7 @@ class UserController extends Controller
 
     function update_status_book($id, $status)
     {
-        $book = DB::table('books')->where('book_id', $id)->update(['book_status' => $status]);
+        $book = DB::table('books')->where('book_id', $id)->update(['book_status' => $status,'time_del' => time()]);
 
         if ($book) {
             switch ($status) {
@@ -103,7 +103,7 @@ class UserController extends Controller
                     return back()->with('success', 'Thanh toán thành công');
                     break;
                 case 4:
-                    return back()->with('danger', 'Hủy thanh toán thành công');
+                    return back()->with('success', 'Hủy thanh toán thành công');
                     break;
             }
         }
