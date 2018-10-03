@@ -27,14 +27,13 @@ class SocialAuthController extends Controller
 
             if(!$user){
                 $user = new User();
-                $user->password = bcrypt($data['email']);
+                $user->password = isset($data['email']) ? bcrypt($data['email']) : bcrypt($data['id'].'@social.com');
                 $user->social_id = $data['id'];
                 $user->social_type = 1;
-
             }
             $user->avatar = $avatar;
             $user->name = $data['name'];
-            $user->email = $data['email'];
+            $user->email = isset($data['email']) ? $data['email'] : $data['id'].'@social.com';
 
         }else if ($social == 'google'){
             $email = $data['emails'][0]['value'];

@@ -63,7 +63,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('list_homestay')}}"><i class="fa fa-circle-o"></i> Danh sách homestay</a></li>
-                    <li><a href="/"><i class="fa fa-circle-o"></i> Danh sách homestay chờ duyệt</a></li>
+                    <li><a href="{{route('list_non_active')}}"><i class="fa fa-circle-o"></i> Danh sách homestay chờ duyệt</a></li>
                 </ul>
             </li>
 
@@ -87,6 +87,13 @@
             <li class="@if (Request::segment(2) == 'website_info') active @endif">
                 <a href="{{ route('website_info') }}">
                     <i class="fa fa-info"></i> <span>Cài đặt thông tin website</span>
+                    <span class="pull-right-container"></span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="{{ route('website_info') }}">
+                    <i class="fa fa-info"></i> <span>Đăng xuất</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>

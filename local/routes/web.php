@@ -40,7 +40,7 @@ Route::group(['namespace' => 'Pub'], function () {
     });
 
     Route::group(['prefix' => 'login', 'middleware' => 'CheckLoggedIn'], function () {
-        Route::get('/', 'LoginController@getLogin');
+        Route::get('/', 'LoginController@getLogin')->name('login');
         Route::post('/', 'LoginController@postLogin');
     });
 
@@ -69,6 +69,7 @@ Route::group(['namespace' => 'Payment', 'middleware' => 'CheckLoggedOut'], funct
     Route::get('/payment_method', 'PaymentController@payment_method')->name('payment_method');
     Route::post('/action_payment_method', 'PaymentController@action_payment_method')->name('action_payment_method');
     Route::get('/update_status/{book_id}/{status}', 'PaymentController@update_status')->name('update_status');
+    Route::get('/update_status_nl/{book_id}/{status}', 'PaymentController@update_status_nl')->name('update_status_nl');
     Route::get('/complete', 'PaymentController@complete')->name('complete');
     Route::get('/check_status_book/{id}', 'PaymentController@check_status_book')->name('check_status_book');
     Route::get('/ck_confirm/{id}', 'PaymentController@ck_confirm')->name('ck_confirm');
@@ -124,11 +125,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::group(['prefix' => 'books','middleware' => 'CheckHostPermission'], function () {
             Route::get('', 'BooksController@index')->name('list_book');
             Route::get('seeDetailModal', 'BooksController@seeDetailModal')->name('seeDetailModal');
+            Route::get('update_status/{book_id}/{status}', 'BooksController@update_status')->name('update_book_status');
         });
 
         Route::group(['prefix' => 'comment','middleware' => 'CheckCommentPermission'], function () {
             Route::get('', 'CommentController@index')->name('list_comment');
             Route::get('/update_status_comment/{id}', 'CommentController@update_status')->name('update_status_comment');
+            Route::get('/update_home_comment/{id}', 'CommentController@update_home')->name('update_home_comment');
             Route::get('/delete_comment/{id}', 'CommentController@delete_comment')->name('delete_comment');
             Route::get('/sort_comment', 'CommentController@sort_comment')->name('sort_comment');
             Route::get('/delete_comment_hot/{id}', 'CommentController@delete_comment_hot')->name('delete_comment_hot');
@@ -137,6 +140,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
         Route::group(['prefix' => 'homestay','middleware' => 'CheckHomestayPermission'], function () {
             Route::get('', 'HomestayController@index')->name('list_homestay');
+            Route::get('list_non_active', 'HomestayController@list_non_active')->name('list_non_active');
             Route::get('/update_status_homestay/{id}', 'HomestayController@update_status')->name('update_status_homestay');
             Route::get('/delete_homestay/{id}', 'HomestayController@delete_homestay')->name('delete_homestay');
             Route::get('/sort_homestay', 'HomestayController@sort_homestay')->name('sort_homestay');

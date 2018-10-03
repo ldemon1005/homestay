@@ -30,6 +30,26 @@ class HomestayController extends Controller
         return view('admin.homestay.list',$data);
     }
 
+    function list_non_active(Request $request){
+        $req = $request->all();
+
+        $query = HomeStay::with('user');
+
+        if(isset($req['search'])){
+            $query = $query->where('homestay_name','like',"%".$req['search'].'%')
+                ->orWhere('homestay_about','like',"%".$req['search'].'%');
+        }
+
+        $list_homestay = $query->where('homestay_active',HomeStay::NON_ACTIVE)->orderByDesc('homestay_id')->paginate(15);
+
+        $data = [
+            'list_homestay' => $list_homestay
+        ];
+
+        return view('admin.homestay.list_non_active',$data);
+    }
+
+
     function update_status($id){
         $homestay = Homestay::find($id);
         $homestay->homestay_active == 2 ? $homestay->homestay_active = 1 : $homestay->homestay_active = 2;

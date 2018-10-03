@@ -37,6 +37,16 @@ class CommentController extends Controller
         ]);
     }
 
+    function update_home($id){
+        $comment = Comment::find($id);
+        $comment->home == 2 ? $comment->home = 1 : $comment->home = 2;
+        $comment->save();
+
+        return json_encode([
+            'comment' => $comment->toJson()
+        ]);
+    }
+
     function delete_comment($id){
         if(Comment::find($id)->delete()){
             return redirect()->route('list_comment')->with('success','Xóa thành công');

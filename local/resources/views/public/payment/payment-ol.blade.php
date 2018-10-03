@@ -1,4 +1,4 @@
-<form action="{{route('action_payment_method')}}" method="post">
+<form id="payment-ol" action="{{route('action_payment_method')}}" method="post">
 	{{ csrf_field() }}
 	<div class="list-payment">
 		<div>
@@ -475,7 +475,6 @@
 					<label><input type="radio" value="CREDIT_CARD_PREPAID" name="option_payment"
 								  selected="true">Thanh toán bằng thẻ Visa hoặc MasterCard trả
 						trước</label>
-
 				</li>
 			</ul>
 		</div>

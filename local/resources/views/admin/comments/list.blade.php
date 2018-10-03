@@ -14,7 +14,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 ">Danh sách d</h1>
+                        <h1 class="m-0 ">Danh sách bình luận</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -62,6 +62,7 @@
                                     <th>Homestay</th>
                                     <th>Người tạo</th>
                                     <th>Ngày tạo</th>
+                                    <th>Trang chủ</th>
                                     <th class="text-center">Trạng thái</th>
                                     <th class="text-center">Thao tác</th>
                                 </tr>
@@ -83,6 +84,10 @@
                                             @endif
                                         </td>
                                         <td>{{$comment->created_at}}</td>
+                                        <td class="text-center">
+                                            <button id="comment-{{$comment->comment_id}}" onclick="update_home({{$comment->comment_id}})"
+                                                    class="btn btn-block btn-sm {{$comment->home == 2 ? 'btn-success': 'btn-primary'}}">{{$comment->home == 2 ? 'Trang chủ': 'Không'}}</button>
+                                        </td>
                                         <td class="text-center">
                                             <button id="{{$comment->comment_id}}" onclick="update_status({{$comment->comment_id}})"
                                                     class="btn btn-block btn-sm {{$comment->status == 2 ? 'btn-success': 'btn-danger'}}">{{$comment->status == 2 ? 'Hoạt đông': 'Không hoạt đông'}}</button>
@@ -157,6 +162,31 @@
                         $(id).removeClass('btn-success');
                         $(id).addClass('btn-danger');
                         $(id).html('Không hoạt động');
+                    }
+                }
+            });
+        }
+
+        function update_home(id) {
+            $.ajax({
+                url: '/admin/comment/update_home_comment/' + id,
+                method: 'get',
+                dataType: 'json',
+            }).fail(function (ui, status) {
+            }).done(function (data, status) {
+                if (data.comment) {
+                    data.comment = JSON.parse(data.comment);
+
+                    var id = '#comment-' + data.comment.comment_id;
+
+                    if (data.comment.home == 2) {
+                        $(id).removeClass('btn-primary');
+                        $(id).addClass('btn-success');
+                        $(id).html('Trang chủ');
+                    } else {
+                        $(id).removeClass('btn-success');
+                        $(id).addClass('btn-primary');
+                        $(id).html('Không');
                     }
                 }
             });

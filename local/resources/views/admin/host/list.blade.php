@@ -74,9 +74,19 @@
                                         <td>
                                             <a style="color: #0a0a0a" href="{{route("detail_host",$host->id)}}">
                                                 <div style="display: flex">
-                                                    <div class="avatar_user"
-                                                         style="background-image: url('{{ ($host->avatar && file_exists(storage_path('app/image/user-3/'.$host->avatar))) ? asset('local/storage/app/image/user-3/'.$host->avatar) : asset('local/storage/app/image/user-3/default.png')}}')">
-                                                    </div>
+                                                    @if(file_exists(storage_path('app/image/user-3/'.$host->avatar)) && $host->avatar != '')
+                                                        <div class="avatar_user"
+                                                             style="background-image: url('{{asset('local/storage/app/image/user-3/'.$host->avatar)}}')">
+                                                        </div>
+                                                    @elseif(is_url_exist($host->avatar))
+                                                        <div class="avatar_user"
+                                                             style="background-image: url('{{$host->avatar}}')">
+                                                        </div>
+                                                    @else
+                                                        <div class="avatar_user"
+                                                             style="background-image: url('{{asset('local/storage/app/image/user-3/default.png')}}')">
+                                                        </div>
+                                                    @endif
                                                     <div style="display: flex;line-height: 40px">
                                                         {{$host->name}}
                                                     </div>

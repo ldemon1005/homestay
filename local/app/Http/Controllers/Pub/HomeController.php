@@ -22,7 +22,7 @@ class HomeController extends Controller
     public function getHome(Config $config, HomeStay $homestay, Comment $comment)
     {
         $data['hot_homestay'] = $homestay->where('homestay_active', 2)->orderBy('homestay_id', 'desc')->take(9)->get();
-        $data['comments'] = $comment->with('user')->with('homestay')->take(9)->get();
+        $data['comments'] = $comment->where('home',Comment::ACTIVE)->with('user')->with('homestay')->take(9)->get();
         $data['banners'] = $config->getBanner()->value;
         return view('public.index', $data);
     }

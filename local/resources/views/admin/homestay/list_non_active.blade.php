@@ -14,12 +14,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 ">Danh sách tài khoản khách hàng</h1>
+                        <h1 class="m-0 ">Danh sách homestay chờ duyệt</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ asset('admin') }}">Trang chủ</a></li>
-                            <li class="breadcrumb-item active">Danh sách tài khoản khách hàng</li>
+                            <li class="breadcrumb-item active">Danh sách homestay chờ duyêt</li>
                         </ol>
                     </div>
                 </div>
@@ -35,7 +35,12 @@
                         <div class="card-header" style="padding: 20px">
                             <div class="row">
                                 <form action="" method="get">
-                                    <div class="col-md-8"></div>
+                                    <div class="col-md-4">
+                                        <a class="btn btn-primary" href="{{route('sort_homestay')}}">Sắp xếp homestay</a>
+                                    </div>
+                                    <div class="col-md-4">
+
+                                    </div>
                                     <div class="col-md-4">
 
                                         <div class="input-group input-group-sm float-right" style="width: 100%;">
@@ -57,55 +62,38 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>#id</th>
-                                    <th>Họ tên</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Ngày tạo</th>
-                                    <th>Nguồn</th>
+                                    <th>#STT</th>
+                                    <th>Tên homestay</th>
+                                    <th>Avatar</th>
+                                    <th>Người tạo/Ngày tạo</th>
                                     <th class="text-center">Trạng thái</th>
                                     <th class="text-center">Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($list_guest as $guest)
+                                @foreach($list_homestay as $homestay)
                                     <tr>
-                                        <td>{{$guest->id}}</td>
+                                        <td>{{(10*($list_homestay->currentPage() -1) ) + $loop->index + 1}}</td>
+                                        <td>{!! $homestay->homestay_name !!}</td>
                                         <td>
-                                            <a style="color: #0a0a0a">
-                                                <div style="display: flex">
-                                                    @if(file_exists(storage_path('app/image/user-3/'.$guest->avatar)) && $guest->avatar != '')
-                                                        <div class="avatar_user"
-                                                             style="background-image: url('{{asset('local/storage/app/image/user-3/'.$guest->avatar)}}')">
-                                                        </div>
-                                                    @elseif(is_url_exist($guest->avatar))
-                                                        <div class="avatar_user"
-                                                             style="background-image: url('{{$guest->avatar}}')">
-                                                        </div>
-                                                    @else
-                                                        <div class="avatar_user"
-                                                             style="background-image: url('{{asset('local/storage/app/image/user-3/default.png')}}')">
-                                                        </div>
-                                                    @endif
+                                            <div class="avatar_user"
+                                                 style="background-image: url('{{ is_url_exist(env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image) ? env('HOST_URL').'/local/storage/app/image/resized-'.$homestay->homestay_image : $homestay->homestay_image}}')">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span><b>Người tạo:</b></span> {!! isset($homestay->user) ? $homestay->user->email : '' !!} <br>
+                                            <span><b>Ngày tạo: </b></span> {{$homestay->created_at}}
+                                        </td>
+                                        <td class="text-center">
+                                            <button id="{{$homestay->homestay_id}}" onclick="update_status({{$homestay->homestay_id}})"
+                                                    class="btn btn-block btn-sm {{$homestay->homestay_active == 2 ? 'btn-success': 'btn-danger'}}">{{$homestay->homestay_active == 2 ? 'Hoạt đông': 'Không hoạt đông'}}</button>
+                                        </td>
+                                        <td class="text-center">
+                                            <a style="cursor: pointer"
+                                               onclick="view_detail('{{$homestay->homestay_id}}')" data-toggle="tooltip"
+                                               title="Xem homestay" class="text-success"><i class="fa fa-eye"></i></a>
 
-                                                    <div style="display: flex;line-height: 40px">
-                                                        {{$guest->name}}
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </td>
-                                        <td>{{$guest->email}}</td>
-                                        <td>{{$guest->phone}}</td>
-                                        <td>{{$guest->created_at}}</td>
-                                        <td>
-                                            {{getSocial($guest->social_type)}}
-                                        </td>
-                                        <td class="text-center">
-                                            <button id="{{$guest->id}}" onclick="update_status({{$guest->id}})"
-                                                    class="btn btn-block btn-sm {{$guest->status == 2 ? 'btn-success': 'btn-danger'}}">{{$guest->status == 2 ? 'Hoạt đông': 'Không hoạt đông'}}</button>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="{{route('delete_guest',$guest->id)}}"
+                                            <a href="{{route('delete_homestay',$homestay->homestay_id)}}"
                                                onclick="return confirm('Bạn chắc chắn muốn xóa')" data-toggle="tooltip"
                                                title="Xóa" class="text-danger"><i class="fa fa-trash"></i></a>
                                         </td>
@@ -114,7 +102,7 @@
                                 </tbody>
                             </table>
                             <div class="form-group pull-right">
-                                {{$list_guest->links()}}
+                                {{$list_homestay->links()}}
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -127,9 +115,24 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="detail_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Chi tiết homestay</h4>
+                </div>
+                <div class="modal-body" style="padding: 0 20px">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 @stop
 
@@ -137,17 +140,17 @@
     <script>
         function update_status(id) {
             $.ajax({
-                url: '/admin/guest/update_status_guest/' + id,
+                url: '/admin/homestay/update_status_homestay/' + id,
                 method: 'get',
                 dataType: 'json',
             }).fail(function (ui, status) {
             }).done(function (data, status) {
-                if (data.guest) {
-                    data.guest = JSON.parse(data.guest);
+                if (data.homestay) {
+                    data.homestay = JSON.parse(data.homestay);
 
-                    var id = '#' + data.guest.id;
+                    var id = '#' + data.homestay.homestay_id;
 
-                    if (data.guest.status == 2) {
+                    if (data.homestay.homestay_active == 2) {
                         $(id).removeClass('btn-danger');
                         $(id).addClass('btn-success');
                         $(id).html('Hoạt động');
@@ -156,6 +159,20 @@
                         $(id).addClass('btn-danger');
                         $(id).html('Không hoạt động');
                     }
+                }
+            });
+        }
+
+        function view_detail(id) {
+            $.ajax({
+                url: '/admin/homestay/view_detail/' + id,
+                method: 'get',
+                dataType: 'json',
+            }).fail(function (ui, status) {
+            }).done(function (data, status) {
+                if (data.view) {
+                    $(".modal-body").html(data.view);
+                    $("#myModal").modal("show");
                 }
             });
         }

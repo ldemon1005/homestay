@@ -128,10 +128,12 @@
                                                     {{getStatusBookStr($book->book_status)['str']}}
                                                 </button>
                                                 <div class="dropdown-menu animated lightSpeedIn">
-                                                    <a title="{{getStatusBookStr(1)['title']}}" class="dropdown-item" href="#">Trong thời gian đợi</a>
-                                                    <a title="{{getStatusBookStr(2)['title']}}" class="dropdown-item" href="#">Hết thời gian thanh toán</a>
-                                                    <a title="{{getStatusBookStr(3)['title']}}" class="dropdown-item" href="#">Hoàn thành</a>
-                                                    <a title="{{getStatusBookStr(4)['title']}}" class="dropdown-item" href="#">Hủy</a>
+                                                    <div>
+                                                        <a title="{{getStatusBookStr(3)['title']}}" class="dropdown-item" href="{{route('update_book_status',['book_id' => $book->book_id,'status' => 3])}}">Hoàn thành</a>
+                                                    </div>
+                                                    <div>
+                                                        <a title="{{getStatusBookStr(4)['title']}}" class="dropdown-item" href="{{route('update_book_status',['book_id' => $book->book_id,'status' => 4])}}">Hủy</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </td>

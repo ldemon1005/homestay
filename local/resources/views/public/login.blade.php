@@ -31,7 +31,7 @@
 </script>
 
 <section class="section-1">
-	<form class="login-container" method="post" action="{{ asset('login') }}">
+	<form id="form-login" class="login-container" method="post" action="{{ asset('login') }}">
 		<div class="login-form">
 			<h6 class="fs-18 bold uppercase center white">đăng nhập</h6>
 			<input type="email" name="email" placeholder="Email">

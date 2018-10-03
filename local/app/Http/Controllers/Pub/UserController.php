@@ -25,6 +25,12 @@ class UserController extends Controller
 
     public function postSignup(CreateUserRequest $request)
     {
+        $user = DB::table('guest_users')->where($request->email)->first();
+
+        if($user){
+            back()->with('error','Email đã tồn tại trên hệ thống');
+        }
+
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
@@ -92,6 +98,9 @@ class UserController extends Controller
 
     function update_status_book($id, $status)
     {
+        if($status == 3){
+            return back()->with('error', 'Bạn không có quyền thực hiện chức năng này');
+        }
         $book = DB::table('books')->where('book_id', $id)->update(['book_status' => $status,'time_del' => time()]);
 
         if ($book) {
@@ -99,9 +108,9 @@ class UserController extends Controller
                 case 2:
                     return back()->with('warning', 'Hết thời gian thanh toán');
                     break;
-                case 3:
-                    return back()->with('success', 'Thanh toán thành công');
-                    break;
+//                case 3:
+//                    return back()->with('success', 'Thanh toán thành công');
+//                    break;
                 case 4:
                     return back()->with('success', 'Hủy thanh toán thành công');
                     break;

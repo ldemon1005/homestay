@@ -204,7 +204,7 @@
 
 							<div class="form-item-2">
 								<label>Mật khẩu mới:</label>
-								<input type="password" name="new_password" placeholder="Mật khẩu mới" value="">
+								<input type="password" id="password" name="new_password" placeholder="Mật khẩu mới" value="">
 							</div>
 
 							<div class="form-item-2">

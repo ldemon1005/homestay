@@ -90,14 +90,22 @@ class PaymentController extends Controller
             'time_del' => time() + 3600*2,
             'code' => $order['code'],
             'price' => $data['total_money']*0.8,
-            'payment_method' => $order['method_payment']['method_payment'],
-            'bank_code' => $order['method_payment']['bankcode'],
+            'payment_method' => isset($order['method_payment']['method_payment']) ? $order['method_payment']['method_payment'] : '',
+            'bank_code' => isset($order['method_payment']['bankcode']) ? $order['method_payment']['bankcode'] : '',
             'info_payment_ol' => ''
         ];
+
+        DB::beginTransaction();
 
         $book_1 = Book::create($book);
 
         if($order['method_payment']['method_payment'] == Book::TRUC_TUYEN){
+            if(!isset($order['method_payment']['option_payment'])){
+                return back()->with('error',"Thiếu thông tin thanh toán");
+            }
+            if(($order['method_payment']['option_payment'] != 'NL' || $order['method_payment']['option_payment'] != 'CREDIT_CARD_PREPAID') && !isset($order['method_payment']['bankcode'])){
+                return back()->with('error',"Thiếu thông tin thanh toán");
+            }
             $nl = new NganLuongHelper();
             $data = [
                 'id' => $book_1->book_id,
@@ -126,6 +134,8 @@ class PaymentController extends Controller
         $this->dispatch($cancel_book);
 
         Cache::store('redis')->forget($key);
+
+        DB::commit();
 
         return redirect()->route('ck_confirm',$book_1->book_id);
     }
@@ -197,6 +207,10 @@ class PaymentController extends Controller
     }
 
     function update_status($id,$status){
+        if($status == 3){
+            return back()->with('error', 'Bạn không có quyền thực hiện chức năng này');
+        }
+
         $book = DB::table('books')->where('book_id',$id)->update(['book_status'=>$status]);
 
         $book_data = DB::table('books')->where('book_id',$id)->first();
@@ -249,11 +263,64 @@ class PaymentController extends Controller
             return redirect()->route('complete')->with('danger','Hủy thanh toán thành công');
         }
 
-
-
         return redirect()->route('home');
     }
 
+    function update_status_nl($id,$status){
+        $book = DB::table('books')->where('book_id',$id)->update(['book_status'=>$status]);
+
+        $book_data = DB::table('books')->where('book_id',$id)->first();
+
+        $homestay = HomeStay::find($book_data->homestay_id);
+
+        if($book && $status == 2){
+            $data = [
+                'action' => $status,
+                'type' => 1,
+                'message' => 'Hết thời gian thanh toán cho mã đặt phòng '.$book_data->code,
+                'user_rev' => Auth::user()->id
+            ];
+            $data['created_at'] = time();
+
+            $noti = new Notification();
+            $noti->save($data);
+
+            event(new NotiEvent('Hết thời gian thanh toán cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
+            return redirect()->route('complete')->with('warning','Bạn đã hết thời gian thanh toán.');
+        }
+        if($book && $status == 3){
+            $data = [
+                'action' => $status,
+                'type' => 1,
+                'message' => 'Thanh toán thành công cho mã đặt phòng '.$book_data->code,
+                'user_rev' => Auth::user()->id
+            ];
+            $data['created_at'] = time();
+
+            $noti = new Notification();
+            $noti->save($data);
+
+            event(new NotiEvent('Thanh toán thành công cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
+            return redirect()->route('complete')->with('success','Thanh toán thành công');
+        }
+        if($book && $status == 4){
+            $data = [
+                'action' => $status,
+                'type' => 3,
+                'message' => 'Hủy thanh toán thành công cho mã đặt phòng '.$book_data->code,
+                'user_rev' => $homestay->homestay_user_id
+            ];
+            $data['created_at'] = time();
+
+            $noti = new Notification();
+            $noti->save($data);
+
+            event(new NotiEvent('Hủy thanh toán thành công cho mã đặt phòng '.$book_data->code,$book_data->book_user_id));
+            return redirect()->route('complete')->with('danger','Hủy thanh toán thành công');
+        }
+
+        return redirect()->route('home');
+    }
 
 
     function complete(Request $request){

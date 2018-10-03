@@ -57,4 +57,12 @@ class BooksController extends Controller
         ];
         return view('admin.books.see-detail-modal', $data);
     }
+
+    function update_status($book_id,$status){
+        if(DB::table('books')->where('book_id',$book_id)->update(['book_status' => $status,'time_del' => time()])){
+            return back()->with('success','Cập nhật thành công');
+        }else{
+            return back()->with('error',"Cập nhật không thành công");
+        }
+    }
 }

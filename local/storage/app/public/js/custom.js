@@ -61,3 +61,54 @@ $("#signup").validate({
         }
     }
 });
+
+$("#form-login").validate({
+    ignore: [],
+    rules: {
+        'email': {
+            required: true,
+            email: true
+        },
+        'password': {
+            required: true
+        }
+    },
+    messages: {
+        'email': {
+            required: 'Thiếu email',
+            email: 'Email không hợp lệ'
+        },
+        'password': {
+            required: 'Thiếu mật khẩu'
+        }
+    }
+});
+
+$("#form-changepassword").validate({
+    ignore: [],
+    rules: {
+        'old_password': {
+            required: true,
+        },
+        'new_password': {
+            required: true,
+            equals: "#password"
+        },
+        'password_confirm': {
+            required: true,
+            equals: "#password"
+        }
+    },
+    messages: {
+        'old_password': {
+            required: 'Thiếu mật khẩu cũ'
+        },
+        'new_password': {
+            required: 'Thiếu mật khẩu mới'
+        },
+        'password_confirm': {
+            required: 'Thiếu xác nhận mật khẩu',
+            equals: "Mật khẩu mới không khớp"
+        }
+    }
+});
