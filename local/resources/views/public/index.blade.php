@@ -116,11 +116,11 @@
 						</div>
 					</div>
 
-					<div class="second-row">
-						<div class="check-form">
-							<input class="checkbox" type="checkbox" name=""> Tôi đi công tác
-						</div>
-					</div>
+					{{--<div class="second-row">--}}
+						{{--<div class="check-form">--}}
+							{{--<input class="checkbox" type="checkbox" name=""> Tôi đi công tác--}}
+						{{--</div>--}}
+					{{--</div>--}}
 				</form>
 			</div>
 		</div>

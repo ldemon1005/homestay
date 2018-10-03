@@ -68,6 +68,7 @@ class HomeController extends Controller
         $data['homestay'] = HomeStay::findOrFail($id);
         $data['nearby_homestay'] = HomeStay::where('homestay_active', 1)->orderBy('homestay_id', 'desc')->take(9)->get();
         $data['comments'] = $data['homestay']->comment();
+
         return view('public.detail', $data);
     }
 
