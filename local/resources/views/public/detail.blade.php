@@ -327,7 +327,7 @@
                             <ul class="service">
                                 @foreach( explode(',',$homestay->homestay_facility) as $facility)
                                     <li>
-                                        <i class="fas fa-check main-color"></i> {{ $facilities->find($facility)->facility_name ?? "Null"}}
+                                        <i class="fas fa-check main-color"></i> {{ $facilities->find($facility)->facility_name ?? "Dịch vụ chưa được thống kê"}}
                                     </li>
                                 @endforeach
                             </ul>
@@ -375,7 +375,7 @@
                     @foreach($homestay->bedroom as $bedroom)
                         <div class="room-item room_{{$bedroom->bedroom_id}}">
                             <a class="room-image" onclick="lightbox2()"
-                               style="background-image: url({{env('HOST_URL')}}/local/storage/app/image/{{$bedroom->bedroomimage->first()->bedroom_image_img ?? ''}});"></a>
+                               style="background-image: url( {{ file_exists( env('HOST_URL').'/local/storage/app/image/'.$bedroom->bedroomimage->first()->bedroom_image_img ) ? env('HOST_URL').'/local/storage/app/image/'.$bedroom->bedroomimage->first()->bedroom_image_img : $bedroom->bedroomimage->first()->bedroom_image_img }} );"></a>
                             <div class="room-content">
                                 <h5>{{$bedroom->bedroom_name}}</h5>
                                 <ul class="room-service">
@@ -433,7 +433,7 @@
                         <h4 class="fs-16 uppercase center bold mt-2">thông tin của host</h4>
                         <hr>
                         <img class="host-avatar"
-                             src="{{env('HOST_URL')}}/local/storage/app/image/user/{{$homestay->user->avatar}}">
+                             src="{{ $homestay->user->avatar ? env('HOST_URL').'/local/storage/app/image/user/'.$homestay->user->avatar : Avatar::create($homestay->user->name)->toBase64()}}">
                         <p class="fs-16 bold">{{$homestay->user->name}}</p>
                         <div class="host-description">
                             <p>“ {{$homestay->user->description}} ” </p>
@@ -457,7 +457,9 @@
 
             <div class="row">
                 <div class="col-12">
+                    @if( $comments->first() )
                     <h6 class="fs-18 bold mt-4 mb-4">Đánh giá</h6>
+                    @endif
                     @foreach($comments as $comment)
                         <div class="review-item">
                             <div class="review-user">
