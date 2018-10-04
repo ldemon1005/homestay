@@ -287,7 +287,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>X
     </section>
 
     <div style="display:none;">
@@ -374,8 +374,14 @@
 
                     @foreach($homestay->bedroom as $bedroom)
                         <div class="room-item room_{{$bedroom->bedroom_id}}">
-                            <a class="room-image" onclick="lightbox2()"
-                               style="background-image: url( {{ file_exists( env('HOST_URL').'/local/storage/app/image/'.$bedroom->bedroomimage->first()->bedroom_image_img ) ? env('HOST_URL').'/local/storage/app/image/'.$bedroom->bedroomimage->first()->bedroom_image_img : $bedroom->bedroomimage->first()->bedroom_image_img }} );"></a>
+                            @if($bedroom->bedroomimage->first())
+                                <a class="room-image" onclick="lightbox2()"
+                                   style="background-image: url( {{ file_exists( env('HOST_URL').'/local/storage/app/image/'.$bedroom->bedroomimage->first()->bedroom_image_img ) ? env('HOST_URL').'/local/storage/app/image/'.$bedroom->bedroomimage->first()->bedroom_image_img : $bedroom->bedroomimage->first()->bedroom_image_img }} );"></a>
+                            @else
+                                <a class="room-image" onclick="lightbox2()"
+                                   style="background-image: url('{{asset('local/storage/app/image/user-3/default.png')}}')"></a>
+                            @endif
+
                             <div class="room-content">
                                 <h5>{{$bedroom->bedroom_name}}</h5>
                                 <ul class="room-service">

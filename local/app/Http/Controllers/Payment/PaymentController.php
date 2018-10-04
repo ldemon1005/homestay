@@ -130,7 +130,7 @@ class PaymentController extends Controller
         $job = (new SendMail($book_1))->delay(Carbon::now()->addMinutes(1));
         $this->dispatch($job);
 
-        $cancel_book = (new CancelBook($book_1))->delay(Carbon::now()->addMinutes(1));
+        $cancel_book = (new CancelBook($book_1))->delay(Carbon::now()->addMinutes(120));
         $this->dispatch($cancel_book);
 
         Cache::store('redis')->forget($key);
