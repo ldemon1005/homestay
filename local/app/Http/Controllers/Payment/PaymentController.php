@@ -126,8 +126,7 @@ class PaymentController extends Controller
             }
         }
         $book_1->cus_info = $order['info'];
-
-        $job = (new SendMail($book_1))->delay(Carbon::now()->addMinutes(1));
+        $job = (new SendMail($book_1))->delay(Carbon::now()->addMinutes(5));
         $this->dispatch($job);
 
         $cancel_book = (new CancelBook($book_1))->delay(Carbon::now()->addMinutes(120));

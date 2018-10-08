@@ -33,20 +33,19 @@ class CancelBook implements ShouldQueue
      */
     public function handle()
     {
-        if($this->book->status == 1){
+        if($this->book->book_status == 1){
             DB::table('books')->where('book_id',$this->book->book_id)->update(['book_status' => 2]);
 
-            $book = DB::table('books')->where('book_id'.$this->book->book_id)->first();
-
             $data = [
-                'user_id_action' => 1,
-                'user_id_rev' => $book->book_user_id,
+                'user_rev' => $this->book->book_user_id,
                 'action' => 2,
-                'message' => 'bạn đẫ hết thời gian thanh toán cho phiên đặt chỗ'
+                'message' => 'bạn đẫ hết thời gian thanh toán cho phiên đặt chỗ',
+                'created_at' => time(),
+                'type' => 1
             ];
 
-            $noti = new Notification();
-            $noti->save($data);
+//            $noti = new Notification();
+            Notification::create($data);
         }
     }
 }

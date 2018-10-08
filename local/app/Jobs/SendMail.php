@@ -14,6 +14,7 @@ class SendMail implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     protected $order;
     protected $email;
+    protected $cus_info;
     /**
      * Create a new job instance.
      *
@@ -22,6 +23,7 @@ class SendMail implements ShouldQueue
     public function __construct($order)
     {
         $this->order = $order;
+        $this->cus_info = $order->cus_info;
     }
 
     /**
@@ -31,9 +33,17 @@ class SendMail implements ShouldQueue
      */
     public function handle()
     {
-        $data = $this->order;
+        $info_payment_ol = json_decode($this->order->info_payment_ol,true);
+
+        $this->order->price = number_format(intval((float)$this->order->price));
+        $data = [
+            'order' => $this->order,
+            'info_payment_ol' => $info_payment_ol != null && count($info_payment_ol) ? $info_payment_ol : [],
+            'cus_info' => $this->cus_info
+        ];
+
         Mail::send('mail_book',$data, function($message){
-            $message->to($this->order['info']['email'], 'Ctogo chào bạn')->subject('Ctogo chào bạn');
+            $message->to($this->cus_info['email'], '[CTOGO] HƯỚNG DẪN THANH TOÁN')->subject('[CTOGO] HƯỚNG DẪN THANH TOÁN');
         });
     }
 }
